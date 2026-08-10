@@ -75,3 +75,19 @@ controls are excluded from form data, so the browser submits nothing and the add
 
 This lives in the exported bundle, so it needs fixing at the design-tool source or it will survive
 the next export.
+
+## ⚠️ Changing repo visibility breaks the Netlify deploy
+
+Flipping this repo private (or public) can sever Netlify's access to it. The failure is silent and
+nasty: **pushes keep succeeding and the site keeps serving the last good build**, so everything looks
+fine — but nothing new deploys. It cost a day on 2026-08-09/10, when the privacy policy sat 404 in
+production while the repo showed the file merged on `main`.
+
+The tell is a merge commit with **zero deploy statuses** on GitHub. A healthy push gets a
+`netlify/…` status; a severed one gets nothing at all.
+
+**If it happens:** re-check Netlify → Site configuration → Build & deploy → Continuous deployment,
+reconnect if needed, and push an empty commit (`git commit --allow-empty`) to trigger a rebuild.
+
+**Prefer leaving this repo public.** It holds no secrets (the site is a static marketing page and the
+privacy policy is a public document), and public avoids this failure mode entirely.
