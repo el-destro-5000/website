@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chonk Crunch — El Destro 5000</title>
+<meta name="description" content="Chonk Crunch is a cozy cat merge puzzle from El Destro 5000. Drop cats, merge cats, build a cat café. No timer, no ads, nothing to buy.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0a0712">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chonk Crunch — El Destro 5000">
+<meta property="og:description" content="A cozy cat merge puzzle. Drop. Merge. Chonk.">
+<meta property="og:url" content="https://eldestro5000.com/chonk-crunch/">
+<meta property="og:image" content="https://eldestro5000.com/chonk-crunch-icon.webp">
+<link rel="icon" href="../chonk-crunch-icon.webp" type="image/webp">
+<style>
+  /* Chonk Crunch game page — hand-written static HTML, same family as the homepage
+     (files/studio/website/design-to-static-workflow.md). It deliberately reuses the HOMEPAGE's
+     tokens and font files rather than defining a new palette: this is a page of the studio site,
+     not a separate microsite. Fonts are served from ../fonts/ — the same four files the homepage
+     already ships, so this page costs no extra font bytes and makes ZERO third-party requests.
+     Licenses live in ../fonts/ as OFL 1.1 requires.
+
+     Kept intentionally minimal. There are no screenshots, review quotes, ratings or store badges
+     here because none exist yet — the game is not live on either store, and a "Download on the
+     App Store" button that goes nowhere is the same dead-link mistake as an href="#" social chip.
+     Add them when the listings are real. */
+
+  @font-face {
+    font-family: 'Anton';
+    font-style: normal; font-weight: 400; font-display: swap;
+    src: url('../fonts/anton-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url('../fonts/archivo-var-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Mono';
+    font-style: normal; font-weight: 400; font-display: swap;
+    src: url('../fonts/space-mono-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Mono';
+    font-style: normal; font-weight: 700; font-display: swap;
+    src: url('../fonts/space-mono-700-latin.woff2') format('woff2');
+  }
+
+  :root {
+    --bg: #0a0712;
+    --line: #281c44;
+    --text: #f6eeff;
+    --text-muted: #ab9ec6;
+    --text-dim: #8d80ab;
+    --teal: #3fe0d8;
+    --rose: #ff4d6d;
+    --mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
+    --hot: linear-gradient(#ffffff 0%, #ffd86a 45%, #ff7a2f 70%, #ff2d8e 100%);
+  }
+
+  * { box-sizing: border-box; }
+  p { margin: 0; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Archivo, system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration: none; transition: color 120ms ease; }
+  a:hover { color: #ff2d8e; }
+  a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+
+  .gradient-text {
+    background-image: var(--hot);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+  }
+
+  /* ── CRT overlays (identical to the homepage) ───────────────────────── */
+  .crt, .vignette { position: fixed; inset: 0; pointer-events: none; }
+  .crt {
+    z-index: 120; mix-blend-mode: multiply;
+    background: repeating-linear-gradient(rgba(0,0,0,0) 0 2px, rgba(0,0,0,.16) 3px, rgba(0,0,0,0) 4px);
+    animation: scan .18s steps(2) infinite;
+  }
+  @keyframes scan { from { background-position: 0 0; } to { background-position: 0 4px; } }
+  .vignette {
+    z-index: 119;
+    background: radial-gradient(120% 100% at 50% 42%, rgba(0,0,0,0) 55%, rgba(0,0,0,.5) 100%);
+  }
+
+  /* ── Nav ────────────────────────────────────────────────────────────── */
+  .site-nav {
+    position: sticky; top: 0; z-index: 90;
+    display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    height: 62px; padding: 0 44px;
+    background: rgba(10, 7, 18, .8);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+  }
+  .wordmark { display: flex; align-items: center; gap: 10px; color: #fff; }
+  .wordmark span:last-child {
+    font-family: var(--mono); font-weight: 700; font-size: 15px; letter-spacing: .22em;
+  }
+  .wordmark:hover { color: #fff; }
+  .diamond {
+    width: 13px; height: 13px; flex: none;
+    background: var(--rose); transform: rotate(45deg); border-radius: 2px;
+    box-shadow: 0 0 14px rgba(255, 61, 110, .9);
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 30px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .18em;
+  }
+  .nav-links > a { color: var(--text-dim); }
+
+  /* ── Hero ───────────────────────────────────────────────────────────── */
+  .hero { position: relative; overflow: hidden; padding: 96px 40px 84px; text-align: center; }
+  .hero-glow {
+    position: absolute; pointer-events: none;
+    left: 50%; top: -180px; width: 900px; height: 560px; transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 157, 61, .22), transparent 72%);
+  }
+  .hero-inner { position: relative; max-width: 780px; margin: 0 auto; }
+  .kicker {
+    margin: 0 0 22px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em; color: var(--teal);
+  }
+  .game-art {
+    width: 168px; height: 168px; display: block; margin: 0 auto 26px;
+    border-radius: 30px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .55), 0 0 60px rgba(255, 157, 61, .3);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(48px, 10vw, 96px); line-height: .96; letter-spacing: .01em;
+    text-transform: uppercase;
+    filter: drop-shadow(0 0 30px rgba(255, 45, 142, .4));
+  }
+  .tagline {
+    margin: 20px 0 0;
+    font-family: var(--mono); font-size: 14px; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--text);
+  }
+
+  /* ── Body ───────────────────────────────────────────────────────────── */
+  main { position: relative; max-width: 720px; margin: 0 auto; padding: 0 32px 110px; }
+  main p { margin: 0 0 20px; font-size: 18px; line-height: 1.75; color: var(--text-muted); }
+  main p:last-child { margin-bottom: 0; }
+
+  .facts {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin: 0 0 34px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+  .facts span {
+    padding: 10px 16px;
+    border: 1px solid var(--line); border-radius: 6px; color: var(--text-dim);
+  }
+
+  .legal {
+    margin-top: 44px; padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    font-family: var(--mono); font-size: 13px; letter-spacing: .12em; color: var(--text-dim);
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  .site-footer {
+    position: relative; z-index: 2;
+    padding: 34px 44px;
+    border-top: 1px solid rgba(255, 255, 255, .07);
+    background: var(--bg);
+  }
+  .footer-row {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; max-width: 1400px; margin: 0 auto;
+  }
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+  }
+  .chips a {
+    padding: 11px 18px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 6px;
+    color: var(--text-muted);
+  }
+  .chips a.email { border-color: rgba(63, 224, 216, .4); color: var(--teal); }
+  .copyright {
+    margin: 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em; color: #6f6490;
+  }
+
+  @media (max-width: 720px) {
+    .site-nav { padding: 0 20px; gap: 12px; }
+    .nav-links { gap: 16px; font-size: 12px; }
+    .hero { padding: 56px 20px 56px; }
+    .game-art { width: 132px; height: 132px; }
+    main { padding: 0 20px 80px; }
+    main p { font-size: 17px; }
+    .site-footer { padding: 28px 20px; }
+    .footer-row { justify-content: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .crt { animation: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="crt" aria-hidden="true"></div>
+
+  <nav class="site-nav">
+    <a class="wordmark" href="../">
+      <span class="diamond" aria-hidden="true"></span>
+      <span>EL DESTRO 5000</span>
+    </a>
+    <div class="nav-links">
+      <a href="../"><span aria-hidden="true">&#9666;</span> STUDIO SITE</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="kicker">&gt; CAB_01</p>
+      <img class="game-art" src="../chonk-crunch-icon.webp" width="168" height="168"
+           alt="Chonk Crunch &mdash; a very round, very fluffy ginger cat" fetchpriority="high">
+      <h1 class="gradient-text">Chonk Crunch</h1>
+      <p class="tagline">Drop &middot; Merge &middot; Chonk</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Every line below is lifted from files/marketing/store-listing-copy.md, which is checked
+         claim-by-claim against the shipped build. Do not add claims here that are not in that
+         file — if the game changes, that file and this page change together. -->
+    <div class="facts">
+      <span>Cozy merge puzzle</span>
+      <span>iOS &amp; Android</span>
+      <span>No ads</span>
+      <span>No purchases</span>
+      <span>Plays offline</span>
+    </div>
+
+    <p>Chonk Crunch is a cozy cat merge puzzle. Drop round, extremely fluffy cats into the jar and watch two of a kind squish together into something bigger and even fluffier. Simple to pick up, hard to put down, and completely relaxing &mdash; there is no timer, no failure music, and nothing chasing you.</p>
+
+    <p>Twelve tiers of increasingly magnificent chonk, from a tiny cherry-sized kitten all the way up to the legendary Cosmic Cat. Your score is not just a number: earn fish, yarn and catnip as you play, then spend them furnishing a warm little caf&eacute; &mdash; and eventually seven more places, because the cats have ambitions.</p>
+
+    <p>No banners, no forced videos, no pop-up offers and nothing to buy. No account and no sign-up either; your progress is saved on your device.</p>
+
+    <p class="legal">Privacy: <a href="privacy/">Chonk Crunch privacy policy</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <a class="wordmark" href="../">
+        <span class="diamond" aria-hidden="true"></span>
+        <span>EL DESTRO 5000</span>
+      </a>
+      <!-- No store badges. The game is not live on the App Store or Google Play yet; a badge
+           linking nowhere is worse than no badge. Add both when the listings go public. -->
+      <div class="chips">
+        <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+        <a href="privacy/">PRIVACY POLICY</a>
+      </div>
+      <p class="copyright">&copy; 2026 &middot; POWER LEVEL 5000</p>
+    </div>
+  </footer>
+
+</body>
+</html>

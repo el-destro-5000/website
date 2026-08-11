@@ -305,6 +305,57 @@
     text-transform: uppercase; color: var(--text-dim);
   }
 
+  /* ── Games / cabinet row ────────────────────────────────────────────── */
+  #games .section-head { text-align: center; margin-bottom: 44px; }
+  #games .section-head p {
+    margin: 18px auto 0; max-width: 520px;
+    font-size: 18px; line-height: 1.6; color: var(--text-muted);
+  }
+  /* One shipped game, one slot — deliberately a single wide cabinet rather than a grid with
+     holes in it. When a second game is announced, drop the max-width and let it become a
+     two-column grid; the .cabinet card is already sized to sit in one. */
+  .cabinet {
+    display: block;
+    max-width: 780px; margin: 0 auto;
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    background: linear-gradient(#120826, #0b0418);
+    color: var(--text) !important;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  }
+  .cabinet:hover {
+    border-color: rgba(63, 224, 216, .45);
+    box-shadow: 0 0 0 1px rgba(63, 220, 255, .1), 0 26px 60px rgba(0, 0, 0, .5);
+    transform: translateY(-2px);
+  }
+  .cabinet-inner { display: flex; align-items: center; gap: 30px; padding: 30px 34px 34px; }
+  .cabinet-slot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 34px; margin-top: 22px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .16em; color: var(--text-dim);
+  }
+  .cabinet-art {
+    width: 132px; height: 132px; flex: none;
+    border-radius: 22px; display: block;
+    box-shadow: 0 0 40px rgba(255, 157, 61, .28);
+  }
+  .cabinet-body { min-width: 0; }
+  .cabinet-body h3 {
+    margin: 0;
+    font-family: var(--display); font-weight: 400; font-size: 38px;
+    letter-spacing: .01em; text-transform: uppercase; color: var(--text);
+  }
+  .cabinet-tagline {
+    display: block; margin-top: 8px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  .cabinet-body p { margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
+  .cabinet-enter {
+    display: inline-block; margin-top: 18px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--teal);
+  }
+
   /* ── Crew ───────────────────────────────────────────────────────────── */
   #crew .section-head { text-align: center; margin-bottom: 44px; }
   #crew .section-head p {
@@ -371,6 +422,9 @@
     display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
     margin: 34px 0 0;
   }
+  /* .signup sets display:flex, and an author rule beats the UA's [hidden]{display:none} —
+     without this the form would stay visible after a successful submit hides it. */
+  .signup[hidden] { display: none; }
   .signup input[type="email"] {
     width: 355px; max-width: 100%; padding: 16px 18px;
     font-family: var(--mono); font-size: 15px;
@@ -386,7 +440,35 @@
     box-shadow: 0 10px 30px rgba(255, 157, 61, .3);
   }
   .signup button:hover { filter: brightness(1.08); }
+  .signup button[disabled] { opacity: .6; cursor: progress; }
   .hp { position: absolute; left: -9999px; }
+
+  /* Inline submit result. Replaces Netlify's own "Thank you" page, which throws the visitor
+     off the site onto unbranded chrome. The two states are visually distinct on purpose:
+     showing a success state for a POST that failed is exactly the silent-data-loss bug this
+     form already had once. */
+  .signup-msg {
+    margin: 34px auto 0; max-width: 560px; padding: 20px 24px;
+    border: 1px solid; border-radius: 10px; text-align: center;
+    animation: msgIn 220ms ease-out both;
+  }
+  .signup-msg[hidden] { display: none; }
+  .signup-msg .msg-head {
+    display: block;
+    font-family: var(--mono); font-weight: 700; font-size: 14px; letter-spacing: .22em;
+    text-transform: uppercase;
+  }
+  .signup-msg .msg-sub {
+    display: block; margin-top: 10px;
+    font-family: var(--mono); font-size: 13px; line-height: 1.7; letter-spacing: .04em;
+    color: var(--text-muted);
+  }
+  .signup-msg.ok { border-color: rgba(63, 224, 216, .5); background: rgba(63, 224, 216, .07); }
+  .signup-msg.ok .msg-head { color: var(--teal); }
+  .signup-msg.err { border-color: rgba(255, 77, 109, .55); background: rgba(255, 77, 109, .08); }
+  .signup-msg.err .msg-head { color: var(--rose); }
+  .signup-msg:focus { outline: none; }
+  @keyframes msgIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   .coin-credits {
     margin: 26px 0 0;
     font-family: var(--mono); font-size: 12px; letter-spacing: .22em; color: var(--text-dim);
@@ -430,6 +512,10 @@
     .stats { grid-template-columns: 1fr; gap: 18px; }
     .stat-inner { padding: 34px 24px; }
     .crew { grid-template-columns: 1fr; gap: 18px; }
+    .cabinet-inner { flex-direction: column; text-align: center; gap: 22px; padding: 24px 22px 30px; }
+    .cabinet-slot { padding: 0 22px; }
+    .cabinet-art { width: 108px; height: 108px; }
+    .cabinet-body h3 { font-size: 32px; }
     #coin { padding-bottom: 150px; }
     .signup input[type="email"] { width: 100%; }
     .signup button { width: 100%; }
@@ -441,7 +527,7 @@
      Honour a reduced-motion preference — and keep smooth scrolling out of it too. */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .crt, .sun, .floor::before, .band-row { animation: none; }
+    .crt, .sun, .floor::before, .band-row, .signup-msg { animation: none; }
     * { transition: none !important; }
   }
 </style>
@@ -458,6 +544,7 @@
     </a>
     <div class="nav-links">
       <a class="hide-sm" href="#studio">STUDIO</a>
+      <a class="hide-sm" href="#games">GAMES</a>
       <a class="hide-sm" href="#crew">CREW</a>
       <a class="nav-cta" href="#coin">JOIN THE LIST</a>
     </div>
@@ -503,6 +590,34 @@
         <p>We&rsquo;re not shipping anything until it&rsquo;s actually good, so this site is mostly a promise and a vibe right now. If that sounds like your kind of trouble, say hi at <a href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>.</p>
       </div>
     </div>
+  </section>
+
+  <!-- GAMES. Also the route to the per-game privacy policy now that the footer's bare "PRIVACY"
+       link is gone: homepage → game entry → game page → that game's policy. A privacy policy is
+       per-game, so a studio-level footer link implied a studio-wide policy that does not exist.
+       The URL chonk-crunch/privacy/ is printed on both store listings and is re-checked by the
+       stores — the PAGE must never move or 404, only the homepage link to it went away.
+       One game, one slot: no invented second title, no "coming soon" filler. -->
+  <section class="section" id="games">
+    <div class="section-head">
+      <p class="kicker pink">&gt; GAME_SELECT</p>
+      <h2>The cabinet</h2>
+      <p>One game on the floor so far. It is a very round one.</p>
+    </div>
+    <a class="cabinet" href="chonk-crunch/">
+      <div class="topbar" aria-hidden="true"></div>
+      <div class="cabinet-slot"><span>CAB 01</span><span>MERGE PUZZLE</span></div>
+      <div class="cabinet-inner">
+        <img class="cabinet-art" src="chonk-crunch-icon.webp" width="132" height="132"
+             alt="Chonk Crunch &mdash; a very round, very fluffy ginger cat" loading="lazy">
+        <div class="cabinet-body">
+          <h3>Chonk Crunch</h3>
+          <span class="cabinet-tagline">Drop &middot; Merge &middot; Chonk</span>
+          <p>A cozy cat merge puzzle. Drop round, extremely fluffy cats into the jar, watch two of a kind squish into something bigger, and spend what you earn furnishing a cat caf&eacute;. No timer, no ads, nothing to buy.</p>
+          <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
+        </div>
+      </div>
+    </a>
   </section>
 
   <section class="section" id="scores">
@@ -588,6 +703,10 @@
         <button type="submit">Continue <span aria-hidden="true">&#9656;</span></button>
       </form>
 
+      <!-- Filled in by the inline script below. Empty and hidden until a submit resolves, so
+           with JS off it never appears and the plain form POSTs to Netlify as before. -->
+      <p class="signup-msg" id="signup-msg" role="status" aria-live="polite" tabindex="-1" hidden></p>
+
       <p class="coin-credits">CREDITS 00 &middot; PRESS START</p>
     </div>
   </section>
@@ -602,13 +721,69 @@
            four were href="#" — they scrolled to the top of the page and nothing else. A link that
            goes nowhere is worse than no link. Restore them with REAL destinations (a Discord
            invite, https://bsky.app/profile/…, a press-kit page), never "#". -->
+      <!-- No bare "PRIVACY" chip here. Policies are PER GAME, and a studio footer link labelled
+           only "PRIVACY" implies one policy covering the studio, which is not what that document
+           is. It is reached through the game instead: GAMES → Chonk Crunch → Privacy policy.
+           The page itself at chonk-crunch/privacy/ must never move — both store listings point
+           at that exact URL and the stores re-check it. -->
       <div class="chips">
         <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
-        <a href="chonk-crunch/privacy/">PRIVACY</a>
       </div>
       <p class="copyright">&copy; 2026 &middot; POWER LEVEL 5000</p>
     </div>
   </footer>
+
+<script>
+/* Mailing-list submit — PROGRESSIVE ENHANCEMENT, not a requirement.
+   Without this script (or without fetch) the form is a plain POST and Netlify serves its own
+   generic thank-you page: worse, but working. With it, the POST goes to Netlify in the
+   background and the result is shown inline, in this page's voice, without a navigation.
+
+   The error path is deliberately as loud as the success path. This form previously discarded
+   every address it was given while looking like it worked; showing "CREDIT ACCEPTED" for a POST
+   that never landed would rebuild that exact failure. On error the typed address stays in the
+   field and the button re-enables so the visitor can simply try again. */
+(function () {
+  var form = document.querySelector('form.signup');
+  var msg  = document.getElementById('signup-msg');
+  if (!form || !msg || !window.fetch || !window.URLSearchParams || !window.FormData) return;
+
+  function show(kind, head, sub) {
+    msg.className = 'signup-msg ' + kind;
+    msg.textContent = '';
+    var h = document.createElement('span'); h.className = 'msg-head'; h.textContent = head;
+    var s = document.createElement('span'); s.className = 'msg-sub';  s.textContent = sub;
+    msg.appendChild(h); msg.appendChild(s);
+    msg.hidden = false;
+    msg.focus();
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var button = form.querySelector('button[type="submit"]');
+    var body = new URLSearchParams(new FormData(form)).toString();
+    button.disabled = true;
+    msg.hidden = true;
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function (res) {
+      if (!res.ok) { throw new Error('HTTP ' + res.status); }
+      form.hidden = true;
+      show('ok',
+           'Credit accepted · Player 1 ready',
+           'You are on the list. One transmission when the grid lights up — nothing else, ever.');
+    }).catch(function () {
+      button.disabled = false;
+      show('err',
+           'Credit rejected · coin returned',
+           'That did not go through, so your address was NOT saved. Your typing is still in the box — press Continue to try again, or mail contact@eldestro5000.com and we will add you by hand.');
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
