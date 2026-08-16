@@ -391,14 +391,14 @@
     font-family: var(--display); font-size: 44px; color: #fff;
     text-shadow: 0 3px 10px rgba(0, 0, 0, .4);
   }
-  .avatar.p1 { background: linear-gradient(160deg, #ff4d8f, #ff8a3d); box-shadow: 0 0 40px rgba(255, 77, 143, .35); }
+  .avatar.p1 { background: linear-gradient(160deg, #ff4d8f, #ff8a3d); box-shadow: 0 0 40px rgba(255, 77, 143, .35); overflow: visible; }
   .avatar.p2 { background: linear-gradient(160deg, #3fb6ff, #8b4dff); box-shadow: 0 0 40px rgba(99, 122, 255, .35); overflow: visible; }
-  .avatar.p2 img {
+  .avatar.p1 img, .avatar.p2 img {
     width: 100%; height: 100%; object-fit: cover; border-radius: 20px;
     display: block; opacity: 1;
     transition: opacity .2s ease, box-shadow .25s ease;
   }
-  .avatar.p2 img:hover {
+  .avatar.p1 img:hover, .avatar.p2 img:hover {
     /* Fills the whole card top-to-bottom and centers horizontally within it, so it
        can never overflow above the card the way a centered scale-up would. */
     position: absolute; top: 0; left: 50%; height: 100%;
@@ -673,7 +673,7 @@
         <div class="topbar" aria-hidden="true"></div>
         <div class="player-inner">
           <div class="player-slot"><span>P1</span><span class="ready">READY</span></div>
-          <div class="avatar p1" aria-hidden="true">P1</div>
+          <div class="avatar p1"><img src="player-one.webp" alt="Player One" width="100" height="100" loading="lazy"></div>
           <h3>Player One</h3>
           <span class="player-role">CO-FOUNDER &middot; CODE</span>
           <p>Engineering and design &mdash; the systems that make it move.</p>
