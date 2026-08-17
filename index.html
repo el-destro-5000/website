@@ -311,12 +311,16 @@
     margin: 18px auto 0; max-width: 520px;
     font-size: 18px; line-height: 1.6; color: var(--text-muted);
   }
-  /* One shipped game, one slot — deliberately a single wide cabinet rather than a grid with
-     holes in it. When a second game is announced, drop the max-width and let it become a
-     two-column grid; the .cabinet card is already sized to sit in one. */
+  /* Two shipped games, two cabinets. While there was one game this was a single centered
+     780px card ("no grid with holes in it"); the second cabinet has arrived, so the row is
+     now the two-column grid that layout always promised. Below 980px two columns would
+     crush the card copy, so the row collapses back to the original single-column stack at
+     the original width — see the responsive block. */
+  .cabinet-row {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px;
+  }
   .cabinet {
     display: block;
-    max-width: 780px; margin: 0 auto;
     border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
     background: linear-gradient(#120826, #0b0418);
     color: var(--text) !important;
@@ -515,6 +519,9 @@
   }
 
   /* ── Responsive ─────────────────────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .cabinet-row { grid-template-columns: 1fr; max-width: 780px; margin: 0 auto; }
+  }
   @media (max-width: 720px) {
     .site-nav { padding: 0 20px; gap: 12px; }
     .nav-links { gap: 16px; font-size: 12px; }
@@ -610,29 +617,47 @@
   <!-- GAMES. Also the route to the per-game privacy policy now that the footer's bare "PRIVACY"
        link is gone: homepage → game entry → game page → that game's policy. A privacy policy is
        per-game, so a studio-level footer link implied a studio-wide policy that does not exist.
-       The URL chonk-crunch/privacy/ is printed on both store listings and is re-checked by the
-       stores — the PAGE must never move or 404, only the homepage link to it went away.
-       One game, one slot: no invented second title, no "coming soon" filler. -->
+       The URLs chonk-crunch/privacy/ and buffalo-co-solitaire/privacy/ are printed on store
+       listings and are re-checked by the stores — those PAGES must never move or 404, only the
+       homepage link to them went away.
+       Two games, two slots: still no invented titles and no "coming soon" filler — a cabinet
+       appears here only when its game is real. -->
   <section class="section" id="games">
     <div class="section-head">
       <p class="kicker pink">&gt; GAME_SELECT</p>
       <h2>The cabinet</h2>
-      <p>One game on the floor so far. It is a very round one.</p>
+      <p>Two games on the floor now. One is very round, one is wearing a tuxedo.</p>
     </div>
-    <a class="cabinet" href="chonk-crunch/">
-      <div class="topbar" aria-hidden="true"></div>
-      <div class="cabinet-slot"><span>CAB 01</span><span>MERGE PUZZLE</span></div>
-      <div class="cabinet-inner">
-        <img class="cabinet-art" src="chonk-crunch-icon.webp" width="132" height="132"
-             alt="Chonk Crunch &mdash; a very round, very fluffy ginger cat" loading="lazy">
-        <div class="cabinet-body">
-          <h3>Chonk Crunch</h3>
-          <span class="cabinet-tagline">Drop &middot; Merge &middot; Chonk</span>
-          <p>A cozy cat merge puzzle. Drop round, extremely fluffy cats into the jar, watch two of a kind squish into something bigger, and spend what you earn furnishing a cat caf&eacute;. No timers, no pressure.</p>
-          <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
+    <div class="cabinet-row">
+      <a class="cabinet" href="chonk-crunch/">
+        <div class="topbar" aria-hidden="true"></div>
+        <div class="cabinet-slot"><span>CAB 01</span><span>MERGE PUZZLE</span></div>
+        <div class="cabinet-inner">
+          <img class="cabinet-art" src="chonk-crunch-icon.webp" width="132" height="132"
+               alt="Chonk Crunch &mdash; a very round, very fluffy ginger cat" loading="lazy">
+          <div class="cabinet-body">
+            <h3>Chonk Crunch</h3>
+            <span class="cabinet-tagline">Drop &middot; Merge &middot; Chonk</span>
+            <p>A cozy cat merge puzzle. Drop round, extremely fluffy cats into the jar, watch two of a kind squish into something bigger, and spend what you earn furnishing a cat caf&eacute;. No timers, no pressure.</p>
+            <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+      <a class="cabinet" href="buffalo-co-solitaire/">
+        <div class="topbar" aria-hidden="true"></div>
+        <div class="cabinet-slot"><span>CAB 02</span><span>KLONDIKE SOLITAIRE</span></div>
+        <div class="cabinet-inner">
+          <img class="cabinet-art" src="buffalo-co-solitaire-icon.webp" width="132" height="132"
+               alt="Buffalo &amp; Co. Solitaire &mdash; a smiling buffalo in a tuxedo on green felt" loading="lazy">
+          <div class="cabinet-body">
+            <h3>Buffalo &amp; Co. Solitaire</h3>
+            <span class="cabinet-tagline">Deal &middot; Stack &middot; Win</span>
+            <p>Classic Klondike solitaire, hosted by a buffalo in a tuxedo and his impeccably dressed friends. Every Winning Deal is machine-proven beatable before it reaches you &mdash; no rigged shuffles, ever. Daily challenges, streaks, and a collection album to fill while you&rsquo;re at it.</p>
+            <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
+          </div>
+        </div>
+      </a>
+    </div>
   </section>
 
   <section class="section" id="scores">
@@ -737,10 +762,10 @@
            goes nowhere is worse than no link. Restore them with REAL destinations (a Discord
            invite, https://bsky.app/profile/…, a press-kit page), never "#". -->
       <!-- No bare "PRIVACY" chip here. Policies are PER GAME, and a studio footer link labelled
-           only "PRIVACY" implies one policy covering the studio, which is not what that document
-           is. It is reached through the game instead: GAMES → Chonk Crunch → Privacy policy.
-           The page itself at chonk-crunch/privacy/ must never move — both store listings point
-           at that exact URL and the stores re-check it. -->
+           only "PRIVACY" implies one policy covering the studio, which is not what those documents
+           are. Each is reached through its game instead: GAMES → the game → its privacy policy.
+           The pages at chonk-crunch/privacy/ and buffalo-co-solitaire/privacy/ must never move —
+           store listings point at those exact URLs and the stores re-check them. -->
       <div class="chips">
         <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
       </div>
