@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — Skywarp | El Destro 5000</title>
+<meta name="description" content="The Skywarp Terms of Service. A simulated slot machine for adults 18+, played with virtual coins that have no monetary value and can never be cashed out. Covers eligibility, purchases and refunds, responsible-play tools, dispute resolution and governing law.">
+<meta name="robots" content="index,follow">
+<style>
+  /* Skywarp Terms of Service — retro-arcade / synthwave, matching eldestro5000.com and the
+     other El Destro 5000 legal pages this layout is shared with.
+
+     SOURCE OF TRUTH: this file lives in the Skywarp game repo at files/legal/terms.html.
+     The published copy at eldestro5000.com/skywarp/terms/ is a verbatim copy of it —
+     edit here, then copy the built page to the website repo.
+
+     FONTS ARE SELF-HOSTED, DELIBERATELY (same reasoning as the privacy pages):
+     legal routes on this site make ZERO third-party requests, so reading the terms
+     is not itself a disclosure. All three families are OFL 1.1; licenses ship in
+     fonts/. Latin subsets, ~84 KB total; DM Sans and JetBrains Mono are variable
+     fonts, so one file each covers every weight used here.
+
+     Clauses marked <!-- LEGAL REVIEW --> need counsel sign-off before the effective
+     date is filled in. Search the source for that string to find them all. */
+
+  @font-face {
+    font-family: 'Anton';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/anton-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/500/700 */
+    font-display: swap;
+    src: url('fonts/dm-sans-var-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/700 */
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-var-latin.woff2') format('woff2');
+  }
+
+  :root {
+    --bg: #080510;
+    --surface: #140c1f;
+    --text: #e8e2f2;
+    --text-muted: #c9c1dc;
+    --text-dim: #9d93b5;
+    --text-faint: #7f7595;
+    --teal: #2ce8c8;
+    --pink: #ff3d6e;
+    --amber: #ffb03d;
+    --hairline: rgba(255, 255, 255, .07);
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration: none; transition: color 120ms ease; }
+  a:hover { color: var(--pink); }
+
+  /* Keyboard users must be able to see where they are. */
+  a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
+
+  .diamond {
+    width: 13px; height: 13px;
+    background: var(--pink);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 0 14px rgba(255, 61, 110, .9);
+    flex: none;
+  }
+
+  .wordmark {
+    display: flex; align-items: center; gap: 14px;
+    color: #fff;
+  }
+  .wordmark span:last-child {
+    font-family: var(--mono);
+    font-weight: 700; font-size: 15px; letter-spacing: .22em;
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding: 18px 40px;
+    background: rgba(8, 5, 16, .82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .site-nav {
+    display: flex; align-items: center; gap: 34px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .18em;
+  }
+  .site-nav a { color: var(--text-dim); }
+
+  /* ── Hero ───────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 96px 40px 120px; text-align: center;
+  }
+  .hero-grid, .hero-glow, .hero-scan { position: absolute; pointer-events: none; }
+  .hero-grid {
+    inset: auto 0 0 0; height: 340px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .55) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .45) 1px, transparent 1px);
+    background-size: 100% 34px, 4.2% 100%;
+    transform: perspective(340px) rotateX(72deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+    mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+  }
+  .hero-glow {
+    left: 50%; top: -160px; width: 900px; height: 520px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 61, 110, .22), transparent 72%);
+  }
+  .hero-scan {
+    inset: 0; opacity: .6;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .28) 0 1px, transparent 1px 4px);
+    animation: edscan 6s linear infinite;
+  }
+  @keyframes edscan { from { background-position: 0 0; } to { background-position: 0 4px; } }
+
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    margin: 0 0 22px;
+    font-family: var(--mono); font-size: 14px; letter-spacing: .28em;
+    color: var(--teal);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(48px, 9vw, 116px); line-height: .94; letter-spacing: .01em;
+    text-transform: uppercase;
+    background: linear-gradient(#fff6e6 8%, var(--amber) 46%, var(--pink) 96%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 34px rgba(255, 61, 110, .45));
+  }
+  .hero-meta {
+    margin: 26px 0 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .24em;
+    color: var(--text-dim);
+  }
+
+  /* ── Body ───────────────────────────────────────────────────────────── */
+  main { position: relative; max-width: 860px; margin: 0 auto; padding: 0 32px 120px; }
+
+  .summary {
+    position: relative;
+    border: 1px solid rgba(44, 232, 200, .28); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(44, 232, 200, .07), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+    box-shadow: 0 0 60px rgba(44, 232, 200, .07);
+  }
+  .summary p { margin: 0 0 14px; }
+  .summary p:last-child { margin-bottom: 0; }
+  .label {
+    margin: 0 0 18px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--teal);
+  }
+  strong { color: #fff; font-weight: 700; }
+  .setting { color: var(--amber); }
+
+  /* Clauses the law wants conspicuous (arbitration, liability caps) get the amber box. */
+  .notice {
+    border: 1px solid rgba(255, 176, 61, .4); border-radius: 12px;
+    background: rgba(255, 176, 61, .06);
+    padding: 22px 24px; margin: 0 0 18px;
+  }
+  .notice p { margin: 0; color: var(--text); }
+
+  .policy-section { margin-top: 64px; }
+  .policy-section > p { color: var(--text-muted); margin: 0 0 14px; }
+  .policy-section > p:last-child { margin-bottom: 0; }
+  .policy-section ul, .policy-section ol { color: var(--text-muted); margin: 0 0 14px; padding-left: 24px; }
+  .policy-section li { margin: 0 0 8px; }
+  .num {
+    margin: 0 0 10px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--pink) !important;
+  }
+  h2 {
+    margin: 0 0 18px;
+    font-family: var(--display); font-weight: 400;
+    font-size: 34px; line-height: 1.1; letter-spacing: .02em;
+    text-transform: uppercase; color: #fff;
+  }
+  h3 {
+    margin: 38px 0 14px;
+    font-family: var(--mono); font-weight: 400;
+    font-size: 14px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  code {
+    font-family: var(--mono); font-size: 14px;
+    color: var(--teal);
+    background: rgba(44, 232, 200, .09);
+    border: 1px solid rgba(44, 232, 200, .22);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  .cards { display: grid; gap: 14px; margin-top: 26px; }
+  .card {
+    display: grid; gap: 8px;
+    border: 1px solid rgba(255, 255, 255, .09); border-radius: 12px;
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .card p { margin: 0; }
+  .card-title { font-family: var(--mono); font-size: 12px; letter-spacing: .2em; color: var(--amber); }
+  .card-example { color: var(--text); }
+  .card-why { color: var(--text-dim); font-size: 15px; }
+
+  .rights { display: grid; gap: 12px; }
+  .right { border-left: 2px solid var(--teal); padding: 4px 0 4px 18px; }
+  .right p { margin: 0; color: var(--text-muted); }
+  .right strong {
+    color: var(--teal);
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .contact {
+    margin-top: 64px;
+    border: 1px solid rgba(255, 61, 110, .32); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 61, 110, .09), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+  }
+  .contact > p { color: var(--text-muted); margin: 0 0 18px; }
+  .mailto-chip {
+    display: inline-block;
+    font-family: var(--mono); font-size: 15px; letter-spacing: .1em;
+    padding: 14px 22px;
+    border: 1px solid rgba(44, 232, 200, .5); border-radius: 8px;
+    background: rgba(44, 232, 200, .06);
+  }
+  .contact-org {
+    margin: 20px 0 0 !important;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-dim) !important;
+  }
+  .colophon {
+    margin: 56px 0 0; padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: var(--text-faint); font-size: 15px;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  .site-footer {
+    position: relative; overflow: hidden;
+    padding: 56px 40px 44px;
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-grid {
+    position: absolute; pointer-events: none;
+    inset: auto 0 -40px 0; height: 220px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .28) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .22) 1px, transparent 1px);
+    background-size: 100% 30px, 5% 100%;
+    transform: perspective(300px) rotateX(74deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000, transparent 85%);
+    mask-image: linear-gradient(to top, #000, transparent 85%);
+  }
+  .footer-row {
+    position: relative;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; max-width: 1400px; margin: 0 auto;
+  }
+  .footer-row .diamond { width: 12px; height: 12px; }
+  .footer-row .wordmark { gap: 12px; }
+  .footer-row .wordmark span:last-child { font-size: 14px; }
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+  }
+  .chips a { padding: 11px 18px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 6px; color: var(--text-muted); }
+  .chips a.email { border-color: rgba(44, 232, 200, .4); color: var(--teal); }
+  .copyright {
+    margin: 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-faint);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .site-header { padding: 16px 20px; gap: 16px; }
+    .site-nav { gap: 18px; font-size: 12px; }
+    .site-nav .hide-sm { display: none; }
+    .hero { padding: 64px 20px 88px; }
+    main { padding: 0 20px 88px; }
+    .summary, .contact { padding: 26px 22px; }
+    .card, .notice { padding: 20px 20px; }
+    h2 { font-size: 30px; }
+    .site-footer { padding: 44px 20px 36px; }
+    .footer-row { justify-content: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scan { animation: none; }
+    * { transition: none !important; }
+  }
+
+  /* Legal text must survive being printed or saved to PDF. */
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    .site-header, .site-footer, .hero-grid, .hero-glow, .hero-scan { display: none; }
+    .hero { padding: 0 0 24px; text-align: left; }
+    h1 { color: #000; background: none; -webkit-text-fill-color: #000; filter: none; font-size: 32pt; }
+    h2, strong { color: #000; }
+    .policy-section > p, .policy-section li, .notice p, .card-example, .card-why, .right p, .contact > p { color: #000; }
+    .num, .label, .eyebrow, h3, .card-title { color: #444; }
+    a { color: #000; text-decoration: underline; }
+    .summary, .card, .notice, .contact { border: 1px solid #999; background: none; box-shadow: none; }
+    main { max-width: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="https://eldestro5000.com/">
+      <span class="diamond" aria-hidden="true"></span>
+      <span>EL DESTRO 5000</span>
+    </a>
+    <nav class="site-nav">
+      <a class="hide-sm" href="https://eldestro5000.com/skywarp/privacy/">PRIVACY</a>
+      <a class="hide-sm" href="https://eldestro5000.com/#studio">STUDIO</a>
+      <a href="https://eldestro5000.com/">&#9666; BACK TO SITE</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scan" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">&gt; LEGAL_TERMINAL</p>
+      <h1>Terms of Service</h1>
+      <p class="hero-meta">SKYWARP &middot; EFFECTIVE [EFFECTIVE DATE]</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div class="summary">
+      <p class="label">&gt; THE_SHORT_VERSION</p>
+      <p>Skywarp is a <strong>simulated slot machine played for entertainment</strong>. Every spin is decided by a random number generator, and every win pays out in <strong>virtual coins that have no real-world value</strong>. You cannot win money, prizes, or anything you could sell. It is not gambling, and it is not a way to make money.</p>
+      <p>You must be <strong>18 or over</strong>. The Game is offered in the countries where it is listed on Google Play, and it is <strong>not offered to players in Washington State</strong>.</p>
+      <p>Coins you buy are a <strong>limited licence to use them inside the game</strong> &mdash; they cannot be redeemed, transferred or cashed out, and purchases are <strong>final</strong> except where Google Play&rsquo;s refund policy says otherwise. <strong>You never have to spend money to keep playing:</strong> a free bonus is always on its way.</p>
+      <p>If you ever feel play is getting away from you, <strong class="setting">Settings &rsaquo; Play responsibly</strong> lets you cap your spending or lock yourself out. See section 06.</p>
+      <p>If you are in the United States, disputes are resolved by <strong>individual arbitration</strong>, not in court or as a class action &mdash; you can opt out within 30 days of first playing. See section 15.</p>
+    </div>
+
+    <section class="policy-section">
+      <p class="num">01</p>
+      <h2>These terms, and who they are with</h2>
+      <p>These Terms of Service (&ldquo;Terms&rdquo;) are an agreement between you and <strong>El Destro 5000</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;), a game studio based in the United States. They govern your use of the mobile game Skywarp (a working title &mdash; the game may ship under a different name, and these Terms follow it) on Android, application identifier <code>com.eldestro5000.skywarp</code>, distributed through Google Play, together with all updates, content and virtual items in it (the &ldquo;Game&rdquo;).</p>
+      <!-- LEGAL REVIEW: contracting entity. Confirm the legal entity name and form (LLC / sole proprietorship
+           / other) and its registered address; the entity named here must match the Google Play developer
+           account and the governing-law choice in section 16. -->
+      <p>By installing, opening or playing the Game you accept these Terms and our <a href="https://eldestro5000.com/skywarp/privacy/">Privacy Policy</a>, which explains what information the Game collects and is part of these Terms. If you do not agree, do not play, and uninstall the Game.</p>
+      <p>Google Play&rsquo;s own terms also apply to your download and to any purchase you make through it. Google is not a party to these Terms and is not responsible for the Game.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">02</p>
+      <h2>Who may play</h2>
+      <p>You may use the Game only if <strong>all</strong> of the following are true:</p>
+      <ul>
+        <li>You are <strong>at least 18 years old</strong> (or the age of majority where you live, if that is higher). The Game is a simulated-gambling product and is not directed at, or intended for, anyone under 18. The age gate on first launch asks you to confirm this, and by confirming you represent that it is true.</li>
+        <li>You downloaded the Game from Google Play in a country where we have made it available, and you are <strong>not a resident of, or playing from, the State of Washington</strong> in the United States.</li>
+        <li>You are not barred from using the Game under the laws of your country or by a previous termination under section 14.</li>
+      </ul>
+      <!-- LEGAL REVIEW: geographic restriction (REVISED 2026-10-04). The in-app country block was removed by
+           owner decision; country availability is now the Google Play country list only, which is the
+           industry-standard control for social casino titles. Washington State stays excluded post-Kater v.
+           Big Fish, enforced by a self-declared state at the age gate (no location permission is requested,
+           so no stronger state signal exists). Counsel to confirm: (a) the launch country list set in Play
+           Console; (b) whether any other US state or Canadian province warrants exclusion; (c) that
+           self-declaration is an acceptable standard for the Washington exclusion. -->
+      <p><strong>Washington State.</strong> If you are in the United States, the age gate asks which state you are in. If you tell us you are in Washington State, the Game will not open. Giving a false state, or using any other means to disguise where you are, is a breach of these Terms, and any virtual items obtained that way may be removed. We may also restrict access from any jurisdiction where we decide not to offer the Game, without notice and without any refund or compensation.</p>
+      <p>The Game may be unavailable, or specific features may be disabled, in some regions from time to time for legal, technical or business reasons.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">03</p>
+      <h2>The game is not gambling</h2>
+      <!-- LEGAL REVIEW: "not gambling" characterisation — this is the core Kater v. Big Fish (9th Cir. 2018)
+           mitigation. The Ninth Circuit held virtual chips could be a "thing of value" under Washington law
+           because they extend play. Counsel to confirm: the wording below does not overstate legal conclusions
+           for any permitted territory (UK Gambling Act 2005 "money's worth", Australian Interactive Gambling
+           Act, Canadian Criminal Code s.206/207, NZ Gambling Act 2003); that "extends play" is addressed by
+           the free-bonus-always-available fact; and that no marketing uses "win", "winnings" or "cash out". -->
+      <div class="notice">
+        <p><strong>Skywarp simulates a slot machine. It is played for entertainment only.</strong> The coins used to play are virtual, have no monetary value, and cannot be exchanged for money, goods, services or anything of value outside the Game. No real money is wagered, and no real money, prize or thing of value can be won. Nothing in the Game is an offer of, or a licence to conduct, gambling.</p>
+      </div>
+      <p><strong>Outcomes are random.</strong> The result of every spin and bonus feature is decided by a random number generator at the moment you press spin, before the reels animate. Nothing you do &mdash; timing, bet size, how long you have played, or how many coins you have bought &mdash; changes the odds of a given result. The animations, near-misses and celebrations are presentation of a result that has already been determined; they never invent a result.</p>
+      <p><strong>Published figures are for the simulation.</strong> Where the Game displays a return-to-player percentage, volatility or maximum win for a machine, those figures describe the long-run behaviour of the simulated machine over very many spins. They are not a promise about any session, and they are not a payout of money.</p>
+      <p><strong>You never need to pay to keep playing.</strong> When your virtual coin balance reaches zero, a free bonus timer is always available and always visible. Buying coins is entirely optional and only lets you play sooner or for longer; it does not improve your odds.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">04</p>
+      <h2>Virtual coins and virtual items</h2>
+      <!-- LEGAL REVIEW: virtual-currency licence and no-value clause (Kater mitigation, continued). Confirm
+           the "limited licence, no property interest, no monetary value, no redemption/transfer/cash-out,
+           may be modified or removed without compensation" formulation is enforceable in each permitted
+           territory, and that "may expire" / "balance may be reset" does not conflict with any state
+           gift-card or unclaimed-property rules given the coins have no cash value. -->
+      <p>The Game contains virtual coins (&ldquo;Coins&rdquo;) and other virtual items such as machine unlocks, boosters and cosmetic content (together with Coins, &ldquo;Virtual Items&rdquo;). Coins are earned by playing, by claiming free bonuses, by watching reward ads, or by purchase.</p>
+      <p><strong>Virtual Items have no monetary value.</strong> Whether you earned them or bought them:</p>
+      <ul>
+        <li>they <strong>cannot be redeemed</strong> for money, goods or services from us or anyone else;</li>
+        <li>they <strong>cannot be transferred, gifted, traded or sold</strong> to another person or between devices, and any attempt to do so is void;</li>
+        <li>they <strong>cannot be cashed out</strong>, and there is no way to withdraw them;</li>
+        <li>they <strong>are not property</strong>. You do not own Virtual Items. What you receive is a <strong>limited, personal, non-transferable, non-exclusive, revocable licence</strong> to use them inside the Game, in accordance with these Terms, for as long as we make the Game available and your licence has not been terminated.</li>
+      </ul>
+      <p><strong>We may change Virtual Items.</strong> Because the Game is a live, evolving product, we may at any time and at our discretion add, change, re-price, rebalance, limit or remove Virtual Items, the machines they can be used on, the odds and pay tables of any machine, and the rate at which Coins are earned or spent, without notice and without any obligation to compensate you. A Virtual Item balance is not a deposit, a debt we owe you, or a stored-value account.</p>
+      <p><strong>Balances live on your device.</strong> At launch there is no account and no cloud save. Your Coin balance and progress are stored only on your device; if you uninstall the Game, lose or reset your device, or use <strong class="setting">Settings &rsaquo; Delete my data</strong>, your balance and progress are gone and cannot be restored by us. If we later add an optional cloud-save feature, we will say so in the Privacy Policy before it goes live.</p>
+      <p>Virtual Items may be removed and your balance reset if they were obtained through fraud, a bug, a chargeback, a breach of these Terms, or from a jurisdiction where the Game is not offered.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">05</p>
+      <h2>Purchases, prices and refunds</h2>
+      <!-- LEGAL REVIEW: all-sales-final / refund clause. Confirm compatibility with consumer cancellation
+           rights in the UK (Consumer Contracts Regulations 2013 — digital content supplied immediately with
+           acknowledged loss of the 14-day cancellation right), Australia (ACL consumer guarantees cannot be
+           excluded), New Zealand (CGA) and Canada (provincial consumer-protection statutes, especially Quebec).
+           Confirm the "we may remove Coins after a refund" remedy and the chargeback-suspension language. -->
+      <p>Purchases are optional. If you choose to buy Virtual Items, the purchase is made through <strong>Google Play</strong> using the payment method on your Google account. The price, including any applicable taxes, is shown in the Game and in Google Play before you confirm. We do not receive your card number or billing details. Prices may change at any time; a change does not affect a purchase you have already completed.</p>
+      <p>Virtual Items are delivered to your device immediately after Google Play confirms the purchase. By confirming a purchase you agree that delivery begins straight away and, where the law allows you to give it up, you waive any right to cancel once delivery has begun.</p>
+      <p><strong>Purchases are final, and we do not give refunds.</strong> Refunds, if any, are handled by Google under <a href="https://support.google.com/googleplay/answer/2479637" rel="noopener">Google Play&rsquo;s refund policy</a>; requests must be made to Google. If Google refunds a purchase, or a payment is reversed or charged back, we may remove the Virtual Items it bought, and if they have already been used we may deduct the equivalent from your balance, which may then go negative until it is repaid by play. Repeated chargebacks or refund abuse may lead to suspension under section 14.</p>
+      <p>Because Virtual Items have no monetary value and cannot be withdrawn, <strong>no refund is ever due for unused Coins or for Virtual Items you no longer want, including when the Game changes or ends</strong>.</p>
+      <p>Nothing in this section limits rights that consumer-protection law gives you and does not allow us to exclude &mdash; see section 16.</p>
+    </section>
+
+    <section class="policy-section" id="responsible-play">
+      <p class="num">06</p>
+      <h2>Responsible play</h2>
+      <p>Skywarp is built to be fun, and we do not want it to be anything else. The Game never blocks you at zero Coins &mdash; a free bonus is always coming &mdash; and it includes tools you can use to keep play within the limits you choose. They are in <strong class="setting">Settings &rsaquo; Play responsibly</strong>.</p>
+      <div class="rights">
+        <div class="right">
+          <p><strong>Spend limit</strong><br>Set the maximum you are prepared to spend on in-app purchases per day, week or month. Once the limit is reached, the store shows the limit instead of the buy button until the period rolls over. Lowering a limit takes effect immediately; raising or removing one takes effect only after a <strong>24-hour cooling-off period</strong>, so a decision made in the moment cannot undo one made calmly.</p>
+        </div>
+        <div class="right">
+          <p><strong>Self-exclusion</strong><br>Lock yourself out of the Game for a period you choose &mdash; from 24 hours to permanently. During an exclusion the Game opens only to a screen showing when the exclusion ends and how to contact us. An exclusion <strong>cannot be shortened or cancelled early</strong>, and a permanent exclusion can only be lifted by emailing us after a minimum of six months, followed by a further 7-day waiting period. Uninstalling and reinstalling does not end an exclusion.</p>
+        </div>
+        <div class="right">
+          <p><strong>Play information</strong><br>The Game shows your session length and Coins spent in the session, and the return-to-player and volatility of each machine, so that you always know what you are playing and for how long.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px;">You can also ask us to exclude you by emailing <a href="mailto:contact@eldestro5000.com?subject=Skywarp%20self-exclusion">contact@eldestro5000.com</a> with the subject line <code>Skywarp self-exclusion</code>; we will confirm and apply the exclusion to the installation you identify. Please remember that with no account system, an exclusion applies to the device it is set on.</p>
+      <p>If you are worried about your own or someone else&rsquo;s play, free confidential help is available: in the US, the <strong>National Problem Gambling Helpline</strong> on 1-800-GAMBLER; in Canada, your provincial helpline; in the UK, <strong>GamCare</strong> on 0808 8020 133; in Australia, <strong>Gambling Help Online</strong> on 1800 858 858; in New Zealand, the <strong>Gambling Helpline</strong> on 0800 654 655. Skywarp involves no real money, but the feeling of play is real, and these services will talk to anyone.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">07</p>
+      <h2>Your data and your device</h2>
+      <p>The Game does not have accounts at launch. Everything about your play &mdash; Coin balance, unlocks, settings, responsible-play limits &mdash; is stored on your device, and what little we collect is anonymous. The <a href="https://eldestro5000.com/skywarp/privacy/">Privacy Policy</a> describes it in full.</p>
+      <p>You can delete everything at any time with <strong class="setting">Settings &rsaquo; Delete my data</strong>, or by emailing <a href="mailto:contact@eldestro5000.com?subject=Skywarp%20data%20deletion">contact@eldestro5000.com</a>. In-game deletion also erases your Virtual Items, which cannot be restored; this is not a refund event.</p>
+      <p>You are responsible for your device, for keeping it secure, and for anyone you allow to use it. Virtual Items lost because a device was lost, reset, shared or compromised cannot be restored.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">08</p>
+      <h2>Your licence to the game, and the rules</h2>
+      <p>Subject to these Terms, we grant you a limited, personal, non-transferable, non-exclusive, revocable licence to install and play the Game on an Android device you own or control, for your own private entertainment. All other rights are reserved.</p>
+      <p>You agree <strong>not</strong> to:</p>
+      <ul>
+        <li>play if you are under 18, in Washington State, or anywhere the Game is not offered, or help anyone else to;</li>
+        <li>copy, modify, decompile, reverse-engineer, or create derivative works of the Game, except to the extent the law where you live expressly allows it despite this term;</li>
+        <li>use cheats, exploits, bots, automation, memory editors, modified clients, tampered save files, or manipulated device clocks, or exploit a bug to obtain Virtual Items or advantages;</li>
+        <li>sell, buy, trade, gift or advertise Virtual Items, progress, devices or save data, or use the Game for any commercial purpose;</li>
+        <li>interfere with the Game&rsquo;s operation, its servers, or our partners&rsquo; services, or attempt to defeat the age gate, the geographic restrictions, or the responsible-play tools;</li>
+        <li>use the Game for anything unlawful, or in a way that could harm us, other players, or our partners.</li>
+      </ul>
+      <p>We may investigate suspected breaches and take action under section 14, including removing Virtual Items and blocking installations.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">09</p>
+      <h2>Advertising</h2>
+      <p>The Game is free to play and supported by <strong>reward ads</strong> &mdash; short videos that play only when you choose to watch one in exchange for a virtual reward. No ad ever starts on its own, and you never have to watch one to keep playing. Rewards are granted only when our ad partner confirms the ad was watched to completion; a reward may be unavailable if an ad cannot be loaded, a daily cap has been reached, or completion cannot be verified.</p>
+      <p>Ads are provided by third parties, and we do not control their content. Anything you buy or sign up for through an ad is between you and that advertiser. The Privacy Policy describes the information ad partners receive and how to limit it.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">10</p>
+      <h2>Ownership and feedback</h2>
+      <p>The Game &mdash; its code, art, animation, sound, music, machine designs, names, logos and text &mdash; is owned by El Destro 5000 or its licensors and is protected by copyright, trade-mark and other laws. Nothing in these Terms transfers any of it to you. &ldquo;Skywarp&rdquo;, &ldquo;El Destro 5000&rdquo; and the associated logos are our marks. Third-party names and marks belong to their owners.</p>
+      <p>If you send us ideas, suggestions or feedback about the Game, you agree that we may use them freely, without payment or credit, and that you keep no rights in them.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">11</p>
+      <h2>Updates, availability and the end of the game</h2>
+      <p>We may update, change, suspend or discontinue all or part of the Game at any time, with or without notice. Updates may be required to keep playing. We will try to give reasonable notice on this site if we discontinue the Game entirely, but we are not required to keep any machine, feature or Virtual Item available, and because Virtual Items have no monetary value, discontinuation does not entitle you to any refund or compensation.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">12</p>
+      <h2>No warranty</h2>
+      <!-- LEGAL REVIEW: warranty disclaimer. Confirm conspicuousness and the carve-out for non-excludable
+           statutory guarantees (ACL in Australia, CGA in New Zealand, Consumer Rights Act 2015 in the UK,
+           provincial consumer law in Canada); UK/EU-style disclaimers cannot exclude the digital-content
+           quality guarantee. -->
+      <div class="notice">
+        <p>TO THE FULLEST EXTENT PERMITTED BY LAW, THE GAME AND ALL VIRTUAL ITEMS ARE PROVIDED <strong>&ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo;</strong>, WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. WE DO NOT PROMISE THAT THE GAME WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR AVAILABLE AT ANY PARTICULAR TIME OR PLACE, OR THAT ANY DEFECT WILL BE CORRECTED.</p>
+      </div>
+      <p>Some countries and states do not allow the exclusion of certain warranties, so some of the above may not apply to you. See section 16 for consumer-law rights we do not exclude.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">13</p>
+      <h2>Limitation of liability</h2>
+      <!-- LEGAL REVIEW: liability cap. Confirm the cap amount (greater of amounts paid in the prior 12 months
+           or US$100), the excluded-loss categories, and the carve-outs (death/personal injury from negligence,
+           fraud, gross negligence, wilful misconduct, and anything not excludable under the consumer law of each
+           permitted territory). Under ACL the remedy for a failed guarantee on a service may be limited to
+           re-supply where "fair and reasonable" — confirm the AU-specific limitation wording. -->
+      <div class="notice">
+        <p>TO THE FULLEST EXTENT PERMITTED BY LAW, EL DESTRO 5000 AND ITS OWNERS, STAFF, CONTRACTORS AND PARTNERS WILL NOT BE LIABLE TO YOU FOR ANY <strong>INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES</strong>, OR FOR ANY LOSS OF DATA, PROGRESS, VIRTUAL ITEMS, PROFITS, GOODWILL OR OPPORTUNITY, ARISING FROM OR RELATED TO THE GAME OR THESE TERMS, HOWEVER CAUSED AND UNDER ANY THEORY OF LIABILITY, EVEN IF WE WERE TOLD SUCH DAMAGES WERE POSSIBLE.</p>
+      </div>
+      <div class="notice">
+        <p>TO THE FULLEST EXTENT PERMITTED BY LAW, OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATED TO THE GAME OR THESE TERMS WILL NOT EXCEED THE GREATER OF <strong>(A) THE AMOUNT YOU PAID US THROUGH GOOGLE PLAY FOR THE GAME IN THE TWELVE MONTHS BEFORE THE CLAIM AROSE</strong>, AND <strong>(B) ONE HUNDRED US DOLLARS (US$100)</strong>.</p>
+      </div>
+      <p>Nothing in these Terms excludes or limits our liability for death or personal injury caused by our negligence, for fraud or fraudulent misrepresentation, for gross negligence or wilful misconduct, or for anything else that the law where you live does not allow us to exclude or limit.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">14</p>
+      <h2>Termination</h2>
+      <p><strong>By you.</strong> You can stop using the Game at any time by uninstalling it. Doing so ends your licence and removes your Virtual Items from your device.</p>
+      <p><strong>By us.</strong> We may suspend or terminate your licence, block your installation, and remove or reset Virtual Items, with or without notice, if we reasonably believe you have breached these Terms (including the age, region and fair-play rules), if required by law or by Google Play, if a payment is reversed, or if we discontinue the Game. Where reasonable, we will tell you why.</p>
+      <p>On termination for any reason your licence to the Game and to all Virtual Items ends immediately. Because Virtual Items have no monetary value, no refund or compensation is due on termination. Sections 03, 04, 05, 10, 12, 13, 14, 15, 16 and 18 survive termination.</p>
+    </section>
+
+    <section class="policy-section" id="disputes">
+      <p class="num">15</p>
+      <h2>Dispute resolution &mdash; arbitration and class-action waiver (United States)</h2>
+      <!-- LEGAL REVIEW: mandatory arbitration + class-action waiver. Counsel to confirm: the arbitration
+           provider and rules (AAA Consumer Arbitration Rules assumed), fee allocation, the 30-day opt-out
+           mechanism and its notice requirements, the small-claims carve-out, a mass-arbitration / batching
+           protocol (post-Uber/Amazon mass-filing practice), delegation of arbitrability, the FAA choice,
+           the jury waiver, and whether the clause is enforceable as an in-app clickwrap given the age gate
+           and first-launch acceptance flow. This section applies to US residents only — confirm that Canadian,
+           UK, Australian and NZ residents are correctly carved out in section 16 (Quebec CPA s.11.1 and UK/AU/NZ
+           consumer law generally prohibit pre-dispute mandatory consumer arbitration). -->
+      <div class="notice">
+        <p><strong>PLEASE READ THIS SECTION CAREFULLY. IF YOU LIVE IN THE UNITED STATES, IT REQUIRES YOU TO RESOLVE DISPUTES WITH US THROUGH BINDING INDIVIDUAL ARBITRATION, AND IT WAIVES YOUR RIGHT TO A JURY TRIAL AND TO PARTICIPATE IN A CLASS ACTION. YOU CAN OPT OUT WITHIN 30 DAYS &mdash; SEE &ldquo;OPTING OUT&rdquo; BELOW.</strong></p>
+      </div>
+      <p>This section 15 applies to you only if you live in the United States. If you live anywhere else, section 16 applies to disputes instead.</p>
+
+      <h3>Talk to us first</h3>
+      <p>Before starting arbitration or any other proceeding, you agree to email us at <a href="mailto:contact@eldestro5000.com?subject=Skywarp%20dispute%20notice">contact@eldestro5000.com</a> with the subject line <code>Skywarp dispute notice</code>, describing the problem, what you want, and how to reach you, and to give us <strong>60 days</strong> to work it out with you informally. We will do the same before bringing a claim against you. Most problems can be fixed this way.</p>
+
+      <h3>Agreement to arbitrate</h3>
+      <p>If we cannot resolve a dispute informally, <strong>you and we agree that any dispute, claim or controversy arising out of or relating to the Game, Virtual Items, purchases, these Terms or the Privacy Policy &mdash; including whether this section applies and whether a claim is arbitrable &mdash; will be resolved by binding individual arbitration</strong>, and not in court, except as set out under &ldquo;Exceptions&rdquo; below. The Federal Arbitration Act governs this section.</p>
+      <p>The arbitration will be administered by the <strong>American Arbitration Association</strong> (AAA) under its Consumer Arbitration Rules in force when the claim is filed, available at <a href="https://www.adr.org/" rel="noopener">adr.org</a>. It will be conducted by a single arbitrator, by video or telephone conference or on written submissions unless the arbitrator decides an in-person hearing is needed, in which case it will be held in the county where you live. The arbitrator may award you individually the same relief a court could, must follow these Terms, and will issue a reasoned written decision. Judgment on the award may be entered in any court with jurisdiction.</p>
+      <p><strong>Fees.</strong> Filing, administration and arbitrator fees are allocated under the AAA Consumer Arbitration Rules. If your claim is for US$10,000 or less, we will pay all AAA fees other than an initial filing fee capped at the amount you would pay to file in small-claims court, and we will reimburse that too if the arbitrator finds your claim was not frivolous. Each side pays its own lawyers unless the law or the arbitrator provides otherwise.</p>
+
+      <h3>No class actions, no jury</h3>
+      <p><strong>You and we each agree to bring claims only in an individual capacity, and not as a plaintiff or class member in any purported class, collective, consolidated or representative proceeding.</strong> The arbitrator may not consolidate more than one person&rsquo;s claims or preside over any form of class or representative proceeding, and may award relief only to the individual party seeking it and only to the extent necessary to resolve that party&rsquo;s claim. <strong>You and we each waive the right to a trial by jury.</strong> If this class-action waiver is found unenforceable as to a particular claim, that claim must be brought in court under section 16 and severed from any arbitration, and the rest of this section remains in force.</p>
+
+      <h3>Exceptions</h3>
+      <p>Either of us may instead bring an individual claim in <strong>small-claims court</strong> if it qualifies, and either of us may seek an injunction in court to protect intellectual-property rights or to stop unauthorised use of the Game. Nothing here prevents you from reporting a concern to a government agency or regulator.</p>
+
+      <h3>Opting out</h3>
+      <p><strong>You may opt out of this arbitration agreement and class-action waiver within 30 days of the day you first accept these Terms</strong> by emailing <a href="mailto:contact@eldestro5000.com?subject=Skywarp%20arbitration%20opt-out">contact@eldestro5000.com</a> with the subject line <code>Skywarp arbitration opt-out</code>, stating your name and that you wish to opt out of arbitration. Opting out does not affect any other part of these Terms and does not affect your ability to keep playing.</p>
+
+      <h3>Changes to this section</h3>
+      <p>If we change this section after you accept these Terms, you may reject the change by emailing us within 30 days of the change taking effect, in which case the version you last accepted continues to apply between us. Any dispute already notified to us will be governed by the version in force when it was notified.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">16</p>
+      <h2>Governing law and courts</h2>
+      <!-- LEGAL REVIEW: governing law placeholder. Fill in the governing US state (normally the state of the
+           legal entity's formation or principal place of business) and the venue county, and confirm the
+           per-territory consumer-law carve-outs below (UK: CRA 2015 + local courts; Australia: ACL s.64 non-exclusion
+           and the "fair and reasonable" limitation; New Zealand: CGA + FTA; Canada: provincial consumer law
+           and the Quebec Civil Code / CPA rules on adhesion contracts, language and arbitration). -->
+      <p><strong>If you live in the United States</strong>, these Terms and any dispute between us are governed by the laws of the State of <strong>[GOVERNING STATE]</strong> and the federal laws of the United States, without regard to conflict-of-law rules. Subject to section 15, you and we agree to the exclusive jurisdiction of the state and federal courts located in <strong>[VENUE COUNTY], [GOVERNING STATE]</strong>, and waive any objection to that venue.</p>
+      <p><strong>If you live outside the United States</strong>, these Terms are governed by the laws of the State of [GOVERNING STATE], United States, <strong>except that</strong> you also benefit from any mandatory provisions of the consumer-protection law of the country (and, in Canada, the province) where you live, and nothing in these Terms takes those rights away. You may bring a claim against us, and we will bring any claim against you, only in the courts of the place where you live, and section 15 (arbitration) does not apply to you.</p>
+      <p>In particular: if you are a consumer in the <strong>United Kingdom</strong>, nothing in these Terms limits your rights under the Consumer Rights Act 2015, including that digital content be of satisfactory quality, fit for purpose and as described. If you are in <strong>Australia</strong>, our goods and services come with guarantees that cannot be excluded under the Australian Consumer Law, and where the law allows us to limit our liability for a failed guarantee we limit it to re-supplying the Game or Virtual Item or paying the cost of doing so. If you are in <strong>New Zealand</strong>, the Consumer Guarantees Act 1993 applies, and nothing in these Terms excludes it where you are acquiring the Game for personal use. If you are in <strong>Quebec</strong>, these Terms are drawn up in English at the parties&rsquo; express wish; <em>les parties ont expressément demandé que ces conditions soient rédigées en anglais</em>.</p>
+      <p>The United Nations Convention on Contracts for the International Sale of Goods does not apply.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">17</p>
+      <h2>Changes to these terms</h2>
+      <p>We may change these Terms from time to time &mdash; for example when we add a feature such as cloud save, change a partner, or need to reflect a change in the law. When we do, we will update the date at the top of this page and, for material changes, tell you inside the Game before they take effect, where the law requires it by asking you to accept them again. Continuing to play after a change takes effect means you accept the changed Terms; if you do not agree, stop playing and uninstall the Game. Changes to section 15 are handled as described there.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">18</p>
+      <h2>General</h2>
+      <p><strong>Entire agreement.</strong> These Terms and the Privacy Policy are the whole agreement between you and us about the Game and replace any earlier terms. <strong>Severability.</strong> If any part of these Terms is found invalid or unenforceable, that part will be enforced to the extent permitted and the rest remains in force. <strong>No waiver.</strong> If we do not enforce a term, we may still enforce it later. <strong>Assignment.</strong> You may not transfer these Terms or your licence to anyone else; we may transfer them to a successor of the studio or the Game, who will be bound by them. <strong>Events beyond our control.</strong> We are not liable for delay or failure caused by events beyond our reasonable control, including outages at Google Play or our partners. <strong>Notices.</strong> We may notify you inside the Game or on this site; you may notify us at the address below. <strong>Language.</strong> These Terms are written in English; any translation is for convenience only.</p>
+      <p><strong>Export and sanctions.</strong> You confirm you are not on any US government restricted-party list and are not located in a country subject to a US embargo.</p>
+    </section>
+
+    <section class="contact">
+      <p class="num">19 &middot; CONTACT</p>
+      <h2>Talk to a human</h2>
+      <p>Questions about these Terms, dispute notices, arbitration opt-outs, or self-exclusion requests:</p>
+      <a class="mailto-chip" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      <p class="contact-org">EL DESTRO 5000 &middot; UNITED STATES</p>
+    </section>
+
+    <p class="colophon">Skywarp is a product of El Destro 5000. This page is the Terms of Service referenced from the Game and from its Google Play listing. The <a href="https://eldestro5000.com/skywarp/privacy/">Privacy Policy</a> is published separately.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid" aria-hidden="true"></div>
+    <div class="footer-row">
+      <a class="wordmark" href="https://eldestro5000.com/">
+        <span class="diamond" aria-hidden="true"></span>
+        <span>EL DESTRO 5000</span>
+      </a>
+      <div class="chips">
+        <a href="https://eldestro5000.com/skywarp/privacy/">PRIVACY POLICY</a>
+        <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      </div>
+      <p class="copyright">&copy; 2026 &middot; POWER LEVEL 5000</p>
+    </div>
+  </footer>
+
+</body>
+</html>

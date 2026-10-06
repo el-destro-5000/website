@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Skywarp | El Destro 5000</title>
+<meta name="description" content="The Skywarp privacy policy. A simulated slot machine with virtual coins only. Anonymous gameplay and crash data, optional reward ads through our mediation partners with consent where required, purchases handled by Google Play — no account, and no name, email or precise location collected.">
+<meta name="robots" content="index,follow">
+<style>
+  /* Skywarp privacy policy — retro-arcade / synthwave, matching eldestro5000.com and the
+     Buffalo & Co. Solitaire / Chonk Crunch policy pages this layout is shared with.
+
+     SOURCE OF TRUTH: this file lives in the Skywarp game repo at files/legal/privacy.html.
+     The published copy at eldestro5000.com/skywarp/privacy/ is a verbatim copy of it —
+     edit here, then copy the built page to the website repo.
+
+     FONTS ARE SELF-HOSTED, DELIBERATELY (same reasoning as the other policy pages):
+     loading them from fonts.googleapis.com would send every visitor's IP address to
+     Google on the very page that explains who we share data with. Serving them from
+     our own origin makes this page load ZERO third-party requests, so reading the
+     policy is not itself a disclosure. All three families are OFL 1.1; licenses ship
+     in fonts/. Latin subsets, ~84 KB total; DM Sans and JetBrains Mono are variable
+     fonts, so one file each covers every weight used here. */
+
+  @font-face {
+    font-family: 'Anton';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/anton-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/500/700 */
+    font-display: swap;
+    src: url('fonts/dm-sans-var-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/700 */
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-var-latin.woff2') format('woff2');
+  }
+
+  :root {
+    --bg: #080510;
+    --surface: #140c1f;
+    --text: #e8e2f2;
+    --text-muted: #c9c1dc;
+    --text-dim: #9d93b5;
+    --text-faint: #7f7595;
+    --teal: #2ce8c8;
+    --pink: #ff3d6e;
+    --amber: #ffb03d;
+    --hairline: rgba(255, 255, 255, .07);
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration: none; transition: color 120ms ease; }
+  a:hover { color: var(--pink); }
+
+  /* Keyboard users must be able to see where they are. */
+  a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
+
+  .diamond {
+    width: 13px; height: 13px;
+    background: var(--pink);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 0 14px rgba(255, 61, 110, .9);
+    flex: none;
+  }
+
+  .wordmark {
+    display: flex; align-items: center; gap: 14px;
+    color: #fff;
+  }
+  .wordmark span:last-child {
+    font-family: var(--mono);
+    font-weight: 700; font-size: 15px; letter-spacing: .22em;
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding: 18px 40px;
+    background: rgba(8, 5, 16, .82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .site-nav {
+    display: flex; align-items: center; gap: 34px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .18em;
+  }
+  .site-nav a { color: var(--text-dim); }
+
+  /* ── Hero ───────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 96px 40px 120px; text-align: center;
+  }
+  .hero-grid, .hero-glow, .hero-scan { position: absolute; pointer-events: none; }
+  .hero-grid {
+    inset: auto 0 0 0; height: 340px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .55) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .45) 1px, transparent 1px);
+    background-size: 100% 34px, 4.2% 100%;
+    transform: perspective(340px) rotateX(72deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+    mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+  }
+  .hero-glow {
+    left: 50%; top: -160px; width: 900px; height: 520px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 61, 110, .22), transparent 72%);
+  }
+  .hero-scan {
+    inset: 0; opacity: .6;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .28) 0 1px, transparent 1px 4px);
+    animation: edscan 6s linear infinite;
+  }
+  @keyframes edscan { from { background-position: 0 0; } to { background-position: 0 4px; } }
+
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    margin: 0 0 22px;
+    font-family: var(--mono); font-size: 14px; letter-spacing: .28em;
+    color: var(--teal);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(48px, 9vw, 116px); line-height: .94; letter-spacing: .01em;
+    text-transform: uppercase;
+    background: linear-gradient(#fff6e6 8%, var(--amber) 46%, var(--pink) 96%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 34px rgba(255, 61, 110, .45));
+  }
+  .hero-meta {
+    margin: 26px 0 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .24em;
+    color: var(--text-dim);
+  }
+
+  /* ── Body ───────────────────────────────────────────────────────────── */
+  main { position: relative; max-width: 860px; margin: 0 auto; padding: 0 32px 120px; }
+
+  .summary {
+    position: relative;
+    border: 1px solid rgba(44, 232, 200, .28); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(44, 232, 200, .07), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+    box-shadow: 0 0 60px rgba(44, 232, 200, .07);
+  }
+  .summary p { margin: 0 0 14px; }
+  .summary p:last-child { margin-bottom: 0; }
+  .label {
+    margin: 0 0 18px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--teal);
+  }
+  strong { color: #fff; font-weight: 700; }
+  .setting { color: var(--amber); }
+
+  .policy-section { margin-top: 64px; }
+  .policy-section > p { color: var(--text-muted); margin: 0 0 14px; }
+  .policy-section > p:last-child { margin-bottom: 0; }
+  .policy-section ul, .policy-section ol { color: var(--text-muted); margin: 0 0 14px; padding-left: 24px; }
+  .policy-section li { margin: 0 0 8px; }
+  .num {
+    margin: 0 0 10px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--pink) !important;
+  }
+  h2 {
+    margin: 0 0 18px;
+    font-family: var(--display); font-weight: 400;
+    font-size: 34px; line-height: 1.1; letter-spacing: .02em;
+    text-transform: uppercase; color: #fff;
+  }
+  h3 {
+    margin: 38px 0 14px;
+    font-family: var(--mono); font-weight: 400;
+    font-size: 14px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  code {
+    font-family: var(--mono); font-size: 14px;
+    color: var(--teal);
+    background: rgba(44, 232, 200, .09);
+    border: 1px solid rgba(44, 232, 200, .22);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  .cards { display: grid; gap: 14px; margin-top: 26px; }
+  .card {
+    display: grid; gap: 8px;
+    border: 1px solid rgba(255, 255, 255, .09); border-radius: 12px;
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .card p { margin: 0; }
+  .card-title { font-family: var(--mono); font-size: 12px; letter-spacing: .2em; color: var(--amber); }
+  .card-example { color: var(--text); }
+  .card-why { color: var(--text-dim); font-size: 15px; }
+
+  .rights { display: grid; gap: 12px; }
+  .right { border-left: 2px solid var(--teal); padding: 4px 0 4px 18px; }
+  .right p { margin: 0; color: var(--text-muted); }
+  .right strong {
+    color: var(--teal);
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .contact {
+    margin-top: 64px;
+    border: 1px solid rgba(255, 61, 110, .32); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 61, 110, .09), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+  }
+  .contact > p { color: var(--text-muted); margin: 0 0 18px; }
+  .mailto-chip {
+    display: inline-block;
+    font-family: var(--mono); font-size: 15px; letter-spacing: .1em;
+    padding: 14px 22px;
+    border: 1px solid rgba(44, 232, 200, .5); border-radius: 8px;
+    background: rgba(44, 232, 200, .06);
+  }
+  .contact-org {
+    margin: 20px 0 0 !important;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-dim) !important;
+  }
+  .colophon {
+    margin: 56px 0 0; padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: var(--text-faint); font-size: 15px;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  .site-footer {
+    position: relative; overflow: hidden;
+    padding: 56px 40px 44px;
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-grid {
+    position: absolute; pointer-events: none;
+    inset: auto 0 -40px 0; height: 220px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .28) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .22) 1px, transparent 1px);
+    background-size: 100% 30px, 5% 100%;
+    transform: perspective(300px) rotateX(74deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000, transparent 85%);
+    mask-image: linear-gradient(to top, #000, transparent 85%);
+  }
+  .footer-row {
+    position: relative;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; max-width: 1400px; margin: 0 auto;
+  }
+  .footer-row .diamond { width: 12px; height: 12px; }
+  .footer-row .wordmark { gap: 12px; }
+  .footer-row .wordmark span:last-child { font-size: 14px; }
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+  }
+  .chips a { padding: 11px 18px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 6px; color: var(--text-muted); }
+  .chips a.email { border-color: rgba(44, 232, 200, .4); color: var(--teal); }
+  .copyright {
+    margin: 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-faint);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .site-header { padding: 16px 20px; gap: 16px; }
+    .site-nav { gap: 18px; font-size: 12px; }
+    .site-nav .hide-sm { display: none; }
+    .hero { padding: 64px 20px 88px; }
+    main { padding: 0 20px 88px; }
+    .summary, .contact { padding: 26px 22px; }
+    .card { padding: 20px 20px; }
+    h2 { font-size: 30px; }
+    .site-footer { padding: 44px 20px 36px; }
+    .footer-row { justify-content: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scan { animation: none; }
+    * { transition: none !important; }
+  }
+
+  /* Legal text must survive being printed or saved to PDF. */
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    .site-header, .site-footer, .hero-grid, .hero-glow, .hero-scan { display: none; }
+    .hero { padding: 0 0 24px; text-align: left; }
+    h1 { color: #000; background: none; -webkit-text-fill-color: #000; filter: none; font-size: 32pt; }
+    h2, strong { color: #000; }
+    .policy-section > p, .policy-section li, .card-example, .card-why, .right p, .contact > p { color: #000; }
+    .num, .label, .eyebrow, h3, .card-title { color: #444; }
+    a { color: #000; text-decoration: underline; }
+    .summary, .card, .contact { border: 1px solid #999; background: none; box-shadow: none; }
+    main { max-width: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="https://eldestro5000.com/">
+      <span class="diamond" aria-hidden="true"></span>
+      <span>EL DESTRO 5000</span>
+    </a>
+    <nav class="site-nav">
+      <a class="hide-sm" href="https://eldestro5000.com/skywarp/terms/">TERMS</a>
+      <a class="hide-sm" href="https://eldestro5000.com/#studio">STUDIO</a>
+      <a href="https://eldestro5000.com/">&#9666; BACK TO SITE</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scan" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">&gt; LEGAL_TERMINAL</p>
+      <h1>Privacy Policy</h1>
+      <p class="hero-meta">SKYWARP &middot; EFFECTIVE [EFFECTIVE DATE]</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div class="summary">
+      <p class="label">&gt; THE_SHORT_VERSION</p>
+      <p>Skywarp is a free simulated slot-machine game for adults, supported by <strong>optional reward ads and in-app purchases</strong>. The coins in the game are <strong>virtual currency with no real-world value</strong> &mdash; nothing you win can be cashed out, and nothing about money or gambling accounts is collected, because there are none.</p>
+      <p>We collect anonymous gameplay and crash information to fix bugs and improve the game, and our advertising partners use your device&rsquo;s advertising identifier to show and measure reward ads &mdash; with a consent dialog first where the law requires one.</p>
+      <p>We do <strong>not</strong> ask for your name, email, phone number or precise location. There is <strong>no account to sign in to</strong>: your progress lives on your device. Payments are handled entirely by <strong>Google Play</strong> &mdash; we never see your card details. We do <strong>not</strong> sell your information.</p>
+      <p>You can erase everything we hold from inside the game with <strong class="setting">Settings &rsaquo; Delete my data</strong>, or by emailing us. Details in section 07.</p>
+    </div>
+
+    <section class="policy-section">
+      <p class="num">01</p>
+      <h2>Who we are</h2>
+      <p>Skywarp (a working title &mdash; the game may ship under a different name, and this policy will follow it) is published by <strong>El Destro 5000</strong>, a studio based in the United States. This policy covers the Skywarp mobile game on Android (application identifier <code>com.eldestro5000.skywarp</code>), distributed through Google Play.</p>
+      <p>The game is offered to players aged <strong>18 and over</strong> in the countries where it is listed on Google Play. It is <strong>not offered in Washington State</strong>. Our <a href="https://eldestro5000.com/skywarp/terms/">Terms of Service</a> explain the rules of play, including that the coins are virtual currency with no monetary value.</p>
+      <!-- LEGAL REVIEW: controller identity. Confirm the legal entity name (LLC / sole proprietorship / other),
+           its registered address, and whether a UK GDPR Article 27 representative is required because the game
+           is offered in the UK with no UK establishment. -->
+      <p>For the purposes of data-protection law, El Destro 5000 is the <strong>controller</strong> of the information described in this policy, except where we say a partner acts as an independent controller.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">02</p>
+      <h2>What we collect</h2>
+      <p>Analytics and crash information is collected through Google Firebase (Analytics and Crashlytics), which acts as our data processor. We do not run our own servers at launch, and there is no account, so nothing we collect is tied to your name.</p>
+
+      <div class="cards">
+        <div class="card">
+          <p class="card-title">GAMEPLAY EVENTS</p>
+          <p class="card-example">A spin played, a bonus feature triggered, a machine unlocked, a daily bonus claimed, virtual coins earned or spent inside the game, a reward ad watched, a purchase completed.</p>
+          <p class="card-why">Why: to understand which parts of the game are enjoyed, confusing, or never seen, and to balance the game. Coin amounts are virtual game currency &mdash; not money, and not payment data.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">AN ANONYMOUS INSTALL IDENTIFIER</p>
+          <p class="card-example">A random value generated on your device the first time the game runs.</p>
+          <p class="card-why">Why: so events from one installation can be grouped together. It is not derived from your name, email, phone number or Google account. Deleting your data (section 07) or uninstalling the game discards it.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">CRASH AND PERFORMANCE DATA</p>
+          <p class="card-example">The point in the code where a crash happened, and diagnostic context such as free memory and what screen was open.</p>
+          <p class="card-why">Why: to find and fix crashes.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">BASIC DEVICE AND APP INFORMATION</p>
+          <p class="card-example">Device model, operating system version, app version, language, screen size, and the country your Google Play store is set to.</p>
+          <p class="card-why">Why: to reproduce bugs, know which devices to support, and, for players in the United States, apply the Washington State exclusion (see section 01).</p>
+        </div>
+        <div class="card">
+          <p class="card-title">ADVERTISING DATA (REWARD ADS ONLY)</p>
+          <p class="card-example">Your device&rsquo;s advertising identifier, IP address, coarse (city-level) location derived from it, device and app information, and which ads were shown, watched to completion, and tapped.</p>
+          <p class="card-why">Why: our advertising partners use this to serve relevant ads, prevent fraud, and measure ad performance. See section 03 for who receives it and the choices you have.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">PURCHASE CONFIRMATIONS</p>
+          <p class="card-example">A Google Play purchase token and order confirmation for each in-app purchase, and which virtual item it unlocked.</p>
+          <p class="card-why">Why: to deliver what you bought, verify the purchase was genuine, and handle refund reversals. It contains no card number, name or billing address.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">03</p>
+      <h2>Advertising</h2>
+      <p>Skywarp shows <strong>reward ads only</strong> &mdash; short videos that <strong>play only when you choose to watch one</strong> in exchange for a virtual reward such as bonus coins. There are no banner ads and no interstitials, and no ad ever starts on its own.</p>
+      <p>Ads are delivered through <strong>Unity LevelPlay</strong> (ironSource) mediation, with <strong>Google AdMob</strong> as a participating ad network. The ad networks participating in an ad request receive the advertising data described in section 02 and act as independent controllers of it. See <a href="https://unity.com/legal/privacy-policy" rel="noopener">Unity&rsquo;s privacy policy</a>, <a href="https://developers.is.com/ironsource-mobile/air/ironsource-mobile-privacy-policy/" rel="noopener">ironSource&rsquo;s ads privacy notice</a>, and <a href="https://policies.google.com/technologies/ads" rel="noopener">how Google uses information in advertising</a>.</p>
+      <h3>Your choices about ads</h3>
+      <p>Where the law requires it (for example in the United Kingdom, the European Economic Area, and certain US states), a consent dialog appears before any ad is requested, and you can change your choice later from <strong class="setting">Settings &rsaquo; Privacy options</strong> inside the game. Everywhere, you can reset or delete your device&rsquo;s advertising identifier in Android&rsquo;s own <strong class="setting">Settings &rsaquo; Privacy &rsaquo; Ads</strong>; if you delete it, ads become non-personalised.</p>
+      <p>Because reward ads only ever play when you tap to watch one, the simplest way to keep ad partners from receiving anything at all is not to watch them. <strong>You never have to watch an ad to keep playing.</strong></p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">04</p>
+      <h2>Purchases</h2>
+      <p>In-app purchases &mdash; packs of virtual coins and other virtual items &mdash; are processed by <strong>Google Play</strong>. Google handles your payment details; we never receive your card number or billing address &mdash; only confirmation that a purchase completed, so we can deliver what you bought.</p>
+      <p>The coins and items you buy are <strong>virtual currency and virtual goods with no monetary value</strong>. They cannot be redeemed for money, transferred to another person, or cashed out, and buying them gives you a limited licence to use them inside the game, as described in our <a href="https://eldestro5000.com/skywarp/terms/">Terms of Service</a>. Refunds follow <a href="https://support.google.com/googleplay/answer/2479637" rel="noopener">Google Play&rsquo;s refund policy</a>; we do not handle refunds ourselves.</p>
+      <p>There are no subscriptions in Skywarp.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">05</p>
+      <h2>What we do not collect</h2>
+      <p>We do not collect your name, email address, phone number, postal address, precise location, contacts, photos, microphone or camera input, biometric data, or any payment information. We do not collect your date of birth &mdash; the age gate on first launch only records that you confirmed you are 18 or over. There is no account, no chat, no friends list and no social feature.</p>
+      <p>Because there is no real money in play, we hold no bank details, no wallet and no balance that could be paid out.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">06</p>
+      <h2>Information stored only on your device</h2>
+      <p>Your game progress and settings &mdash; virtual coin balance, unlocked machines, level, daily-bonus timers, statistics, volume, motion and haptics preferences, your age-gate confirmation, and your responsible-play settings (spend limits and self-exclusion, see section 08) &mdash; are saved locally on your device. They are not uploaded to an account, because there is none. Uninstalling the game removes them, and your virtual coin balance with them.</p>
+      <p><strong>Cloud save may come later.</strong> At launch there is no cloud save. If we add an optional cloud-save or account feature in a future update, it will be opt-in, this policy will be updated before it goes live, and the update will describe exactly what is stored and where.</p>
+    </section>
+
+    <section class="policy-section" id="delete-data">
+      <p class="num">07</p>
+      <h2>Deleting your data</h2>
+      <p>There are two ways to have your data deleted. Both are free, and neither requires an account.</p>
+      <h3>In the game</h3>
+      <p>Open <strong class="setting">Settings &rsaquo; Delete my data</strong> and confirm. The game erases all locally stored progress and settings (including your virtual coin balance, which cannot be restored), discards the anonymous install identifier, and sends a deletion request for the analytics and crash records linked to that identifier. The game then restarts as a fresh install. Reward-ad data held by advertising partners is deleted through their own processes (see section 03) and by resetting your advertising identifier in Android settings.</p>
+      <h3>By email</h3>
+      <p>Write to <a href="mailto:contact@eldestro5000.com?subject=Skywarp%20data%20deletion">contact@eldestro5000.com</a> with the subject line <code>Skywarp data deletion</code>. Because we hold no identifying information, please include your device model and the approximate dates you played so we can locate the relevant records; where we cannot link records to you, we will tell you so. We respond within 30 days, and sooner where the law requires it.</p>
+      <p>Purchase records held by Google Play are governed by Google&rsquo;s own policies and are not deleted by either method; you can manage them from your Google account.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">08</p>
+      <h2>Responsible-play settings</h2>
+      <p>Skywarp is a game of chance played for entertainment with virtual currency, and we want it to stay fun. In <strong class="setting">Settings &rsaquo; Play responsibly</strong> you can set a <strong>spend limit</strong> on in-app purchases (daily, weekly or monthly) and a <strong>self-exclusion</strong> period that locks the game for the time you choose. These settings are stored only on your device; we do not receive them and do not use them for advertising. How they work, and how to request an exclusion from us directly, is described in our <a href="https://eldestro5000.com/skywarp/terms/#responsible-play">Terms of Service</a>.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">09</p>
+      <h2>Who your information is shared with</h2>
+      <p><strong>Google</strong>, who provide Firebase Analytics and Firebase Crashlytics on our behalf, Google Play billing, and the AdMob ad network. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase&rsquo;s privacy information</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google&rsquo;s privacy policy</a>.</p>
+      <p><strong>Unity (ironSource) and the ad networks in our mediation stack</strong>, for the reward advertising described in section 03.</p>
+      <p>We do <strong>not</strong> sell your information or share it with data brokers. We may disclose information if required by law, to enforce our Terms of Service, or to protect the rights and safety of players and others. If El Destro 5000 is ever acquired or merges with another studio, the information described here may transfer to the new owner, who will be bound by this policy.</p>
+      <!-- LEGAL REVIEW: CPRA "sharing". Passing the advertising identifier to ad networks for personalised
+           ads is likely "sharing" for cross-context behavioural advertising under CCPA/CPRA (and "targeted
+           advertising" under other US state privacy laws) even though no money changes hands. Confirm the
+           wording below, whether a "Do Not Sell or Share My Personal Information" link/toggle must be exposed
+           in-app (beyond the UMP privacy options), and whether the studio's size keeps it below CCPA thresholds. -->
+      <p>We do not sell personal information for money. Under California law and some other US state laws, sending advertising data to ad partners to show personalised ads can count as &ldquo;sharing&rdquo; or &ldquo;targeted advertising&rdquo;. You can opt out at any time using the choices in section 03; if you opt out, ads you choose to watch will be non-personalised.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">10</p>
+      <h2>Where information is processed, and how long we keep it</h2>
+      <p>Our processors run on servers that may be located outside your country, including in the United States. Where information about players in the United Kingdom or the European Economic Area is transferred abroad, our processors rely on standard contractual clauses or equivalent safeguards under their own terms.</p>
+      <!-- LEGAL REVIEW: international transfers. Confirm the transfer mechanism actually relied on for UK/EEA
+           data (Google/Unity SCCs + UK IDTA/Addendum), and the Australian Privacy Act APP 8 overseas-disclosure
+           notice (the countries named) and NZ IPP 12 position for AU/NZ players. -->
+      <p>Analytics data is retained according to our Firebase configuration and is deleted automatically when that period elapses. Crash reports are retained while they remain useful for fixing the crash. Purchase confirmations are retained for as long as needed to deliver and support the purchase and to meet tax and accounting rules. Ad-serving data is retained by the advertising partners under their own policies.</p>
+      <p>Information is transmitted over encrypted connections (HTTPS/TLS).</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">11</p>
+      <h2>Children</h2>
+      <p>Skywarp is a simulated slot-machine game intended for adults only. It is listed on Google Play with a target audience of 18 and over, carries a simulated-gambling content rating, and asks you to confirm you are 18 or over before you can play. It is not directed at children, and we do not knowingly collect personal information from anyone under 18.</p>
+      <p>If you are a parent or guardian and believe a child has played the game or provided us with personal information, please contact us using the details below and we will delete it.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">12</p>
+      <h2>Your choices and rights</h2>
+      <div class="rights">
+        <div class="right">
+          <p><strong>Control ads</strong><br>Use the consent dialog (where shown), change your choice in <strong class="setting">Settings &rsaquo; Privacy options</strong>, reset or delete your advertising identifier in Android settings &mdash; or simply don&rsquo;t watch reward ads.</p>
+        </div>
+        <div class="right">
+          <p><strong>Delete your data</strong><br>Use <strong class="setting">Settings &rsaquo; Delete my data</strong>, or email us. See section 07.</p>
+        </div>
+        <div class="right">
+          <p><strong>Access, correct or ask about your data</strong><br>Contact us using the details below. Because we do not collect identifying information, please include your device model and the approximate dates you played so we can locate the relevant records; in some cases we may not be able to identify data as yours.</p>
+        </div>
+        <div class="right">
+          <p><strong>Object or restrict</strong><br>You can object to, or ask us to restrict, processing that relies on our legitimate interests (crash reporting and fraud prevention). Contact us and we will respond.</p>
+        </div>
+      </div>
+
+      <h3>If you are in the United Kingdom or the European Economic Area</h3>
+      <!-- LEGAL REVIEW: GDPR / UK GDPR legal bases. Confirm the basis mapping below (consent for personalised
+           ads and analytics where the UMP dialog is shown; legitimate interests for crash reporting, fraud
+           prevention and age/geo eligibility; contract for purchase delivery), and whether analytics needs
+           consent rather than legitimate interests under PECR / the ePrivacy rules. -->
+      <p>We process your information on these legal bases: your <strong>consent</strong> for personalised advertising and, where the consent dialog is shown, analytics; our <strong>legitimate interests</strong> in fixing crashes, preventing fraud and confirming the game is only offered where and to whom it is permitted; and <strong>performance of a contract</strong> to deliver purchases you make. You may withdraw consent at any time (section 03) without affecting processing that happened before. You have the right to access, rectify, erase, restrict and port your personal data, to object to processing based on legitimate interests, and to lodge a complaint with your supervisory authority &mdash; in the UK, the <a href="https://ico.org.uk/" rel="noopener">Information Commissioner&rsquo;s Office</a>.</p>
+
+      <h3>If you are in the United States</h3>
+      <p>Depending on your state (including under the California Consumer Privacy Act as amended by the CPRA), you may have the right to know what personal information we collect and how it is used, to delete it, to correct it, to opt out of its sale or sharing for targeted advertising, and not to be discriminated against for exercising those rights. We do not sell personal information and do not use or disclose sensitive personal information. Opt out of sharing for advertising using the choices in section 03; exercise your other rights using section 07 or the contact details below. You may authorise an agent to make a request for you; we will ask the agent for proof of your authorisation.</p>
+
+      <h3>If you are in Canada</h3>
+      <p>Under PIPEDA and applicable provincial law you have the right to access and correct your personal information and to withdraw consent, subject to legal or contractual restrictions. You may complain to the <a href="https://www.priv.gc.ca/" rel="noopener">Office of the Privacy Commissioner of Canada</a>.</p>
+
+      <h3>If you are in Australia</h3>
+      <!-- LEGAL REVIEW: Australian Privacy Act applicability. El Destro 5000 is a small business and may fall
+           under the AU$3M small-business exemption; confirm whether the Act applies (e.g. via trading in
+           personal information) and whether the APP 5 collection notice below is sufficient. -->
+      <p>We handle personal information in line with the Australian Privacy Principles. You have the right to access and correct your personal information and to complain about how we handle it; contact us first, and if you are not satisfied you may complain to the <a href="https://www.oaic.gov.au/" rel="noopener">Office of the Australian Information Commissioner</a>. Your information may be disclosed to the overseas recipients named in section 09, located in the United States and elsewhere.</p>
+
+      <h3>If you are in New Zealand</h3>
+      <p>Under the Privacy Act 2020 you have the right to access and correct your personal information. Contact us first; if you are not satisfied you may complain to the <a href="https://www.privacy.org.nz/" rel="noopener">Office of the Privacy Commissioner</a>.</p>
+
+      <p style="margin-top:22px;">Wherever you live, we will not charge you for a request, and we will respond within the time the applicable law allows &mdash; and in any case within 30 days.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">13</p>
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes, we will update the date at the top of this page. Material changes &mdash; for example the introduction of cloud save, a new advertising partner, or a change in the data our ad partners receive &mdash; will be described here before they take effect, and where the law requires it we will ask for your consent again inside the game.</p>
+    </section>
+
+    <section class="contact">
+      <p class="num">14 &middot; CONTACT</p>
+      <h2>Talk to a human</h2>
+      <p>Questions about this policy, or requests about your information:</p>
+      <a class="mailto-chip" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      <p class="contact-org">EL DESTRO 5000 &middot; UNITED STATES</p>
+    </section>
+
+    <p class="colophon">Skywarp is a product of El Destro 5000. This page is the privacy policy referenced from the game&rsquo;s Google Play listing, and section 07 is the data-deletion page referenced from its Data Safety form. The <a href="https://eldestro5000.com/skywarp/terms/">Terms of Service</a> are published separately.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid" aria-hidden="true"></div>
+    <div class="footer-row">
+      <a class="wordmark" href="https://eldestro5000.com/">
+        <span class="diamond" aria-hidden="true"></span>
+        <span>EL DESTRO 5000</span>
+      </a>
+      <div class="chips">
+        <a href="https://eldestro5000.com/skywarp/terms/">TERMS OF SERVICE</a>
+        <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      </div>
+      <p class="copyright">&copy; 2026 &middot; POWER LEVEL 5000</p>
+    </div>
+  </footer>
+
+</body>
+</html>
