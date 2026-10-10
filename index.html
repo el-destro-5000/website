@@ -312,16 +312,19 @@
     margin: 18px auto 0; max-width: 520px;
     font-size: 18px; line-height: 1.6; color: var(--text-muted);
   }
-  /* Two shipped games, two cabinets. While there was one game this was a single centered
-     780px card ("no grid with holes in it"); the second cabinet has arrived, so the row is
-     now the two-column grid that layout always promised. Below 980px two columns would
-     crush the card copy, so the row collapses back to the original single-column stack at
-     the original width — see the responsive block. */
+  /* Three shipped games, three cabinets. One game was a single centered 780px card ("no grid
+     with holes in it"); two made a two-column grid; three is a full row of three — still no
+     holes. At three across a card is ~336px wide, too narrow for art-beside-copy, so on wide
+     screens each cabinet stands upright like an actual arcade cabinet: art on top, copy
+     centered beneath, equal heights, ENTER pinned to the bottom so the row lines up. Below
+     980px three columns would crush the card copy, so the row collapses back to the original
+     single-column stack at the original width with the original side-by-side card — see the
+     responsive block. */
   .cabinet-row {
-    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px;
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px;
   }
   .cabinet {
-    display: block;
+    display: flex; flex-direction: column;
     border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
     background: linear-gradient(#120826, #0b0418);
     color: var(--text) !important;
@@ -332,10 +335,13 @@
     box-shadow: 0 0 0 1px rgba(63, 220, 255, .1), 0 26px 60px rgba(0, 0, 0, .5);
     transform: translateY(-2px);
   }
-  .cabinet-inner { display: flex; align-items: center; gap: 30px; padding: 30px 34px 34px; }
+  .cabinet-inner {
+    flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 24px; padding: 28px 28px 32px;
+  }
   .cabinet-slot {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 34px; margin-top: 22px;
+    padding: 0 28px; margin-top: 22px;
     font-family: var(--mono); font-size: 12px; letter-spacing: .16em; color: var(--text-dim);
   }
   .cabinet-art {
@@ -343,10 +349,10 @@
     border-radius: 22px; display: block;
     box-shadow: 0 0 40px rgba(255, 157, 61, .28);
   }
-  .cabinet-body { min-width: 0; }
+  .cabinet-body { min-width: 0; flex: 1; display: flex; flex-direction: column; align-items: center; }
   .cabinet-body h3 {
     margin: 0;
-    font-family: var(--display); font-weight: 400; font-size: 38px;
+    font-family: var(--display); font-weight: 400; font-size: 34px; line-height: 1.1;
     letter-spacing: .01em; text-transform: uppercase; color: var(--text);
   }
   .cabinet-tagline {
@@ -356,7 +362,7 @@
   }
   .cabinet-body p { margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
   .cabinet-enter {
-    display: inline-block; margin-top: 18px;
+    display: inline-block; margin-top: auto; padding-top: 18px;
     font-family: var(--mono); font-size: 12px; letter-spacing: .2em;
     text-transform: uppercase; color: var(--teal);
   }
@@ -522,6 +528,11 @@
   /* ── Responsive ─────────────────────────────────────────────────────── */
   @media (max-width: 980px) {
     .cabinet-row { grid-template-columns: 1fr; max-width: 780px; margin: 0 auto; }
+    /* One per row again: back to the original art-beside-copy cabinet. */
+    .cabinet-inner { flex-direction: row; text-align: left; gap: 30px; padding: 30px 34px 34px; }
+    .cabinet-slot { padding: 0 34px; }
+    .cabinet-body { align-items: flex-start; }
+    .cabinet-body h3 { font-size: 38px; }
   }
   @media (max-width: 720px) {
     .site-nav { padding: 0 20px; gap: 12px; }
@@ -537,6 +548,7 @@
     .crew { grid-template-columns: 1fr; gap: 18px; }
     .cabinet-inner { flex-direction: column; text-align: center; gap: 22px; padding: 24px 22px 30px; }
     .cabinet-slot { padding: 0 22px; }
+    .cabinet-body { align-items: center; }
     .cabinet-art { width: 108px; height: 108px; }
     .cabinet-body h3 { font-size: 32px; }
     #coin { padding-bottom: 150px; }
@@ -618,16 +630,17 @@
   <!-- GAMES. Also the route to the per-game privacy policy now that the footer's bare "PRIVACY"
        link is gone: homepage → game entry → game page → that game's policy. A privacy policy is
        per-game, so a studio-level footer link implied a studio-wide policy that does not exist.
-       The URLs chonk-crunch/privacy/ and buffalo-co-solitaire/privacy/ are printed on store
-       listings and are re-checked by the stores — those PAGES must never move or 404, only the
-       homepage link to them went away.
-       Two games, two slots: still no invented titles and no "coming soon" filler — a cabinet
-       appears here only when its game is real. -->
+       The URLs chonk-crunch/privacy/, buffalo-co-solitaire/privacy/ and
+       buffalo-gold-rush/privacy/ are printed on store listings and are re-checked by the
+       stores — those PAGES must never move or 404, only the homepage link to them went away.
+       Three games, three slots: still no invented titles and no "coming soon" filler cabinets —
+       a cabinet appears here only when its game is real. (Gold Rush is built and has its store
+       listing in progress; its game page says "coming soon to Google Play" until it is live.) -->
   <section class="section" id="games">
     <div class="section-head">
       <p class="kicker pink">&gt; GAME_SELECT</p>
       <h2>The cabinet</h2>
-      <p>Two games on the floor now. One is very round, one is wearing a tuxedo.</p>
+      <p>Three games on the floor now. One is very round, one is wearing a tuxedo, and one just rode in wearing a cattleman hat and a duster.</p>
     </div>
     <div class="cabinet-row">
       <a class="cabinet" href="chonk-crunch/">
@@ -654,6 +667,20 @@
             <h3>Buffalo &amp; Co. Solitaire</h3>
             <span class="cabinet-tagline">Deal &middot; Stack &middot; Win</span>
             <p>Classic Klondike solitaire, hosted by a buffalo in a tuxedo and his impeccably dressed friends. Every Winning Deal is machine-proven beatable before it reaches you &mdash; no rigged shuffles, ever. Daily challenges, streaks, and a collection album to fill while you&rsquo;re at it.</p>
+            <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="cabinet" href="buffalo-gold-rush/">
+        <div class="topbar" aria-hidden="true"></div>
+        <div class="cabinet-slot"><span>CAB 03</span><span>TRIPEAKS SOLITAIRE</span></div>
+        <div class="cabinet-inner">
+          <img class="cabinet-art" src="buffalo-gold-rush-icon.webp" width="132" height="132"
+               alt="Buffalo &amp; Co. Gold Rush Solitaire &mdash; a winking buffalo in a cattleman hat and red neckerchief, holding a fan of cards" loading="lazy">
+          <div class="cabinet-body">
+            <h3>Buffalo &amp; Co. Gold Rush Solitaire</h3>
+            <span class="cabinet-tagline">Tap &middot; Strike &middot; Claim</span>
+            <p>TriPeaks solitaire out on the gold-rush trail, with the buffalo as your Trail Boss. Tap cards one higher or lower to clear 160 claims across 8 territories &mdash; and every claim is verified winnable before it ships. Coming soon to Google Play.</p>
             <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
           </div>
         </div>
@@ -765,8 +792,9 @@
       <!-- No bare "PRIVACY" chip here. Policies are PER GAME, and a studio footer link labelled
            only "PRIVACY" implies one policy covering the studio, which is not what those documents
            are. Each is reached through its game instead: GAMES → the game → its privacy policy.
-           The pages at chonk-crunch/privacy/ and buffalo-co-solitaire/privacy/ must never move —
-           store listings point at those exact URLs and the stores re-check them. -->
+           The pages at chonk-crunch/privacy/, buffalo-co-solitaire/privacy/ and
+           buffalo-gold-rush/privacy/ must never move — store listings point at those exact URLs
+           and the stores re-check them. -->
       <div class="chips">
         <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
       </div>
