@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!-- Kitty Cab Jam terms of service — source of truth: Motormaster repo files/legal/. Layout derived from buffalo-gold-rush/privacy/. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — Kitty Cab Jam | El Destro 5000</title>
+<meta name="description" content="The Kitty Cab Jam terms of service: a free puzzle game for everyone, optional reward ads for players 13 and over, no in-app purchases, plain-language rules.">
+<meta name="robots" content="index,follow">
+<style>
+  /* Kitty Cab Jam legal pages — retro-arcade / synthwave, matching eldestro5000.com and the
+     other El Destro 5000 legal pages this layout is shared with.
+
+     SOURCE OF TRUTH: the Kitty Cab Jam game repo (Motormaster) at files/legal/. The published
+     copies at eldestro5000.com/kitty-cab-jam/privacy/ and /terms/ are verbatim copies — edit
+     there, then copy the built pages to the website repo.
+
+     FONTS ARE SELF-HOSTED, DELIBERATELY: legal routes on this site make ZERO third-party
+     requests, so reading the policy is not itself a disclosure. All three families are OFL 1.1;
+     licenses ship in fonts/. */
+
+  @font-face {
+    font-family: 'Anton';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/anton-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/500/700 */
+    font-display: swap;
+    src: url('fonts/dm-sans-var-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/700 */
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-var-latin.woff2') format('woff2');
+  }
+
+  :root {
+    --bg: #080510;
+    --surface: #140c1f;
+    --text: #e8e2f2;
+    --text-muted: #c9c1dc;
+    --text-dim: #9d93b5;
+    --text-faint: #7f7595;
+    --teal: #2ce8c8;
+    --pink: #ff3d6e;
+    --amber: #ffb03d;
+    --hairline: rgba(255, 255, 255, .07);
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration: none; transition: color 120ms ease; }
+  a:hover { color: var(--pink); }
+
+  /* Keyboard users must be able to see where they are. */
+  a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
+
+  .diamond {
+    width: 13px; height: 13px;
+    background: var(--pink);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 0 14px rgba(255, 61, 110, .9);
+    flex: none;
+  }
+
+  .wordmark {
+    display: flex; align-items: center; gap: 14px;
+    color: #fff;
+  }
+  .wordmark span:last-child {
+    font-family: var(--mono);
+    font-weight: 700; font-size: 15px; letter-spacing: .22em;
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding: 18px 40px;
+    background: rgba(8, 5, 16, .82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .site-nav {
+    display: flex; align-items: center; gap: 34px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .18em;
+  }
+  .site-nav a { color: var(--text-dim); }
+
+  /* ── Hero ───────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 96px 40px 120px; text-align: center;
+  }
+  .hero-grid, .hero-glow, .hero-scan { position: absolute; pointer-events: none; }
+  .hero-grid {
+    inset: auto 0 0 0; height: 340px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .55) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .45) 1px, transparent 1px);
+    background-size: 100% 34px, 4.2% 100%;
+    transform: perspective(340px) rotateX(72deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+    mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+  }
+  .hero-glow {
+    left: 50%; top: -160px; width: 900px; height: 520px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 61, 110, .22), transparent 72%);
+  }
+  .hero-scan {
+    inset: 0; opacity: .6;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .28) 0 1px, transparent 1px 4px);
+    animation: edscan 6s linear infinite;
+  }
+  @keyframes edscan { from { background-position: 0 0; } to { background-position: 0 4px; } }
+
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    margin: 0 0 22px;
+    font-family: var(--mono); font-size: 14px; letter-spacing: .28em;
+    color: var(--teal);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(48px, 9vw, 116px); line-height: .94; letter-spacing: .01em;
+    text-transform: uppercase;
+    background: linear-gradient(#fff6e6 8%, var(--amber) 46%, var(--pink) 96%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 34px rgba(255, 61, 110, .45));
+  }
+  .hero-meta {
+    margin: 26px 0 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .24em;
+    color: var(--text-dim);
+  }
+
+  /* ── Body ───────────────────────────────────────────────────────────── */
+  main { position: relative; max-width: 860px; margin: 0 auto; padding: 0 32px 120px; }
+
+  .summary {
+    position: relative;
+    border: 1px solid rgba(44, 232, 200, .28); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(44, 232, 200, .07), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+    box-shadow: 0 0 60px rgba(44, 232, 200, .07);
+  }
+  .summary p { margin: 0 0 14px; }
+  .summary p:last-child { margin-bottom: 0; }
+  .label {
+    margin: 0 0 18px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--teal);
+  }
+  strong { color: #fff; font-weight: 700; }
+  .setting { color: var(--amber); }
+
+  .policy-section { margin-top: 64px; }
+  .policy-section > p { color: var(--text-muted); margin: 0 0 14px; }
+  .policy-section > p:last-child { margin-bottom: 0; }
+  .num {
+    margin: 0 0 10px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--pink) !important;
+  }
+  h2 {
+    margin: 0 0 18px;
+    font-family: var(--display); font-weight: 400;
+    font-size: 34px; line-height: 1.1; letter-spacing: .02em;
+    text-transform: uppercase; color: #fff;
+  }
+  h3 {
+    margin: 38px 0 14px;
+    font-family: var(--mono); font-weight: 400;
+    font-size: 14px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  code {
+    font-family: var(--mono); font-size: 14px;
+    color: var(--teal);
+    background: rgba(44, 232, 200, .09);
+    border: 1px solid rgba(44, 232, 200, .22);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+
+  .notice {
+    border: 1px solid rgba(255, 176, 61, .4); border-radius: 12px;
+    background: rgba(255, 176, 61, .06);
+    padding: 22px 24px; margin: 0 0 18px;
+  }
+  .notice p { margin: 0; color: var(--text); }
+  .policy-section ul { color: var(--text-muted); margin: 0 0 14px; padding-left: 24px; }
+  .policy-section li { margin: 0 0 8px; }
+
+  .cards { display: grid; gap: 14px; margin-top: 26px; }
+  .card {
+    display: grid; gap: 8px;
+    border: 1px solid rgba(255, 255, 255, .09); border-radius: 12px;
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .card p { margin: 0; }
+  .card-title { font-family: var(--mono); font-size: 12px; letter-spacing: .2em; color: var(--amber); }
+  .card-example { color: var(--text); }
+  .card-why { color: var(--text-dim); font-size: 15px; }
+
+  .rights { display: grid; gap: 12px; }
+  .right { border-left: 2px solid var(--teal); padding: 4px 0 4px 18px; }
+  .right p { margin: 0; color: var(--text-muted); }
+  .right strong {
+    color: var(--teal);
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .contact {
+    margin-top: 64px;
+    border: 1px solid rgba(255, 61, 110, .32); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 61, 110, .09), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+  }
+  .contact > p { color: var(--text-muted); margin: 0 0 18px; }
+  .mailto-chip {
+    display: inline-block;
+    font-family: var(--mono); font-size: 15px; letter-spacing: .1em;
+    padding: 14px 22px;
+    border: 1px solid rgba(44, 232, 200, .5); border-radius: 8px;
+    background: rgba(44, 232, 200, .06);
+  }
+  .contact-org {
+    margin: 20px 0 0 !important;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-dim) !important;
+  }
+  .colophon {
+    margin: 56px 0 0; padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: var(--text-faint); font-size: 15px;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  .site-footer {
+    position: relative; overflow: hidden;
+    padding: 56px 40px 44px;
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-grid {
+    position: absolute; pointer-events: none;
+    inset: auto 0 -40px 0; height: 220px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .28) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .22) 1px, transparent 1px);
+    background-size: 100% 30px, 5% 100%;
+    transform: perspective(300px) rotateX(74deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000, transparent 85%);
+    mask-image: linear-gradient(to top, #000, transparent 85%);
+  }
+  .footer-row {
+    position: relative;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; max-width: 1400px; margin: 0 auto;
+  }
+  .footer-row .diamond { width: 12px; height: 12px; }
+  .footer-row .wordmark { gap: 12px; }
+  .footer-row .wordmark span:last-child { font-size: 14px; }
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+  }
+  .chips a { padding: 11px 18px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 6px; color: var(--text-muted); }
+  .chips a.email { border-color: rgba(44, 232, 200, .4); color: var(--teal); }
+  .copyright {
+    margin: 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-faint);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .site-header { padding: 16px 20px; gap: 16px; }
+    .site-nav { gap: 18px; font-size: 12px; }
+    .site-nav .hide-sm { display: none; }
+    .hero { padding: 64px 20px 88px; }
+    main { padding: 0 20px 88px; }
+    .summary, .contact { padding: 26px 22px; }
+    .card { padding: 20px 20px; }
+    h2 { font-size: 30px; }
+    .site-footer { padding: 44px 20px 36px; }
+    .footer-row { justify-content: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scan { animation: none; }
+    * { transition: none !important; }
+  }
+
+  /* Legal text must survive being printed or saved to PDF. */
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    .site-header, .site-footer, .hero-grid, .hero-glow, .hero-scan { display: none; }
+    .hero { padding: 0 0 24px; text-align: left; }
+    h1 { color: #000; background: none; -webkit-text-fill-color: #000; filter: none; font-size: 32pt; }
+    h2, strong { color: #000; }
+    .policy-section > p, .card-example, .card-why, .right p, .contact > p { color: #000; }
+    .num, .label, .eyebrow, h3, .card-title { color: #444; }
+    a { color: #000; text-decoration: underline; }
+    .summary, .card, .contact { border: 1px solid #999; background: none; box-shadow: none; }
+    main { max-width: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="https://eldestro5000.com/">
+      <span class="diamond" aria-hidden="true"></span>
+      <span>EL DESTRO 5000</span>
+    </a>
+    <nav class="site-nav">
+      <a class="hide-sm" href="https://eldestro5000.com/#studio">STUDIO</a>
+      <a class="hide-sm" href="https://eldestro5000.com/#crew">CREW</a>
+      <a href="https://eldestro5000.com/">&#9666; BACK TO SITE</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scan" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">&gt; LEGAL_TERMINAL</p>
+      <h1>Terms of Service</h1>
+      <p class="hero-meta">KITTY CAB JAM &middot; EFFECTIVE 16 OCTOBER 2026</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div class="summary">
+      <p class="label">&gt; THE_SHORT_VERSION</p>
+      <p>Kitty Cab Jam is a free puzzle game for everyone. Play it for fun, on your own device, and please don&rsquo;t cheat, copy or resell it.</p>
+      <p>The game is free. Players aged 13 and over can choose to watch a reward ad for an extra parking bay; nobody ever has to. There are no in-app purchases at the moment.</p>
+      <p>If you are under 18, please read these Terms with a parent or guardian, who agrees to them for you.</p>
+    </div>
+
+    <section class="policy-section">
+      <p class="num">01</p>
+      <h2>These terms, and who they are with</h2>
+      <p>These Terms of Service (&ldquo;Terms&rdquo;) are an agreement between you and <strong>El Destro 5000</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;), a game studio based in the United States. They govern your use of the mobile game <strong>Kitty Cab Jam</strong> on Android (application identifier <code>com.eldestro5000.kittycabjam</code>), distributed through Google Play, together with all updates and content in it (the &ldquo;Game&rdquo;).</p>
+      <p>By installing, opening or playing the Game you accept these Terms and our <a href="../privacy/">Privacy Policy</a>, which explains what information the Game collects. If you do not agree, do not play, and uninstall the Game. Google Play&rsquo;s own terms also apply to your download. Google is not a party to these Terms and is not responsible for the Game.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">02</p>
+      <h2>Who may play</h2>
+      <p>Anyone may play the Game. If you are under 18 (or under the age of majority where you live), a parent or guardian must agree to these Terms on your behalf, and they are responsible for your use of the Game.</p>
+      <p>On first launch the Game asks for your year of birth. Please answer honestly: the answer decides whether ads can ever be shown (see section 04 and the Privacy Policy).</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">03</p>
+      <h2>Your licence to the game, and the rules</h2>
+      <p>Subject to these Terms, we grant you a limited, personal, non-transferable, non-exclusive, revocable licence to install and play the Game on an Android device you own or control, for your own private entertainment. All other rights are reserved. You agree not to:</p>
+      <ul>
+        <li>copy, modify, decompile, reverse-engineer, or create derivative works of the Game, except to the extent the law where you live expressly allows it;</li>
+        <li>use cheats, exploits, bots, automation, modified clients or tampered save files, or exploit a bug for an advantage;</li>
+        <li>sell, rent or commercially exploit the Game, or interfere with its operation or our partners&rsquo; services;</li>
+        <li>use the Game for anything unlawful, or in a way that could harm us, other players or our partners.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">04</p>
+      <h2>Advertising</h2>
+      <p>The Game is free and supported by optional <strong>reward ads</strong>: short videos that play only when you choose to watch one, in exchange for an in-game benefit such as an extra parking bay. No ad starts on its own, and you never have to watch one to keep playing. Ads are offered only to players who answered 13 or over to the age question.</p>
+      <p>A reward is given only when our ad partner confirms the ad was watched; a reward may be unavailable if no ad can be loaded, a daily limit has been reached, or a short wait between ads has not passed. Ads are provided by third parties and we do not control their content. Anything you buy or sign up for through an ad is between you and that advertiser.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">05</p>
+      <h2>In-game items and progress</h2>
+      <p>Anything you earn in the Game (for example extra bays, levels unlocked or in-game rewards) is part of the Game, has <strong>no monetary value</strong>, and cannot be exchanged for money or transferred to anyone else. You receive a limited licence to use it inside the Game only. We may change, rebalance or remove in-game content as the Game evolves.</p>
+      <p>The Game has <strong>no in-app purchases</strong> today. If we add them, they will be sold through Google Play, and we will update these Terms before they go live.</p>
+      <p>Your progress is stored only on your device. If you uninstall the Game or lose or reset your device, your progress cannot be restored.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">06</p>
+      <h2>Ownership and feedback</h2>
+      <p>The Game &mdash; its code, art, animation, sound, music, characters, names, logos and text &mdash; is owned by El Destro 5000 or its licensors and is protected by copyright, trade-mark and other laws. Nothing in these Terms transfers any of it to you. &ldquo;Kitty Cab Jam&rdquo;, &ldquo;El Destro 5000&rdquo; and the associated logos are our marks.</p>
+      <p>If you send us ideas or feedback about the Game, you agree that we may use them freely, without payment or credit.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">07</p>
+      <h2>Updates and availability</h2>
+      <p>We may update, change, suspend or discontinue all or part of the Game at any time. Updates may be required to keep playing. The Game may be unavailable in some regions, or at some times, for legal, technical or business reasons.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">08</p>
+      <h2>No warranty</h2>
+      <div class="notice"><p>TO THE FULLEST EXTENT PERMITTED BY LAW, THE GAME IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo;, WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. WE DO NOT PROMISE THAT THE GAME WILL BE UNINTERRUPTED OR ERROR-FREE.</p></div>
+      <p>Some countries and states do not allow the exclusion of certain warranties, so some of the above may not apply to you. Nothing in these Terms limits rights you have under consumer-protection law that cannot be waived.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">09</p>
+      <h2>Limitation of liability</h2>
+      <div class="notice"><p>TO THE FULLEST EXTENT PERMITTED BY LAW, EL DESTRO 5000 WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES, OR FOR ANY LOSS OF DATA OR PROGRESS, ARISING FROM THE GAME OR THESE TERMS. OUR TOTAL LIABILITY FOR ALL CLAIMS WILL NOT EXCEED ONE HUNDRED US DOLLARS (US$100).</p></div>
+      <p>Nothing in these Terms excludes or limits liability for death or personal injury caused by negligence, for fraud, or for anything else the law where you live does not allow us to exclude or limit.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">10</p>
+      <h2>Ending these terms</h2>
+      <p>You can stop using the Game at any time by uninstalling it. We may end your licence if you seriously or repeatedly break these Terms, if required by law or by Google Play, or if we discontinue the Game. Sections 05, 06, 08, 09 and 11 continue to apply after these Terms end.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">11</p>
+      <h2>Governing law</h2>
+      <p>These Terms are governed by the laws of the United States and of the U.S. state in which El Destro 5000 is organised, without regard to conflict-of-law rules. If you live outside the United States, you also keep the protection of the mandatory consumer laws of the country where you live, and you may bring proceedings in your local courts.</p>
+      <p>Before bringing any claim, please email us first &mdash; most problems can be fixed quickly that way.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">12</p>
+      <h2>Changes to these terms</h2>
+      <p>We may update these Terms. When we do, we will change the date at the top of this page, and for material changes we will give notice in the Game or on this page before they take effect. If you keep playing after a change takes effect, the updated Terms apply.</p>
+    </section>
+    <section class="contact">
+      <p class="num">13 &middot; CONTACT</p>
+      <h2>Talk to a human</h2>
+      <p>Questions about these Terms:</p>
+      <a class="mailto-chip" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      <p class="contact-org">EL DESTRO 5000 &middot; UNITED STATES</p>
+    </section>
+
+    <p class="colophon">Kitty Cab Jam is a product of El Destro 5000. This page is the terms of service referenced from the game.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid" aria-hidden="true"></div>
+    <div class="footer-row">
+      <a class="wordmark" href="https://eldestro5000.com/">
+        <span class="diamond" aria-hidden="true"></span>
+        <span>EL DESTRO 5000</span>
+      </a>
+      <div class="chips">
+        <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      </div>
+      <p class="copyright">&copy; 2026 &middot; POWER LEVEL 5000</p>
+    </div>
+  </footer>
+
+</body>
+</html>

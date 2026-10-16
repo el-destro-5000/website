@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<!-- Kitty Cab Jam privacy policy — source of truth: Motormaster repo files/legal/. Layout derived from buffalo-gold-rush/privacy/. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Kitty Cab Jam | El Destro 5000</title>
+<meta name="description" content="The Kitty Cab Jam privacy policy. An age question on first launch; no ads at all for players under 13 or who prefer not to say; anonymous gameplay and crash data; optional reward ads for players 13 and over; no account, and no name, email or location collected.">
+<meta name="robots" content="index,follow">
+<style>
+  /* Kitty Cab Jam legal pages — retro-arcade / synthwave, matching eldestro5000.com and the
+     other El Destro 5000 legal pages this layout is shared with.
+
+     SOURCE OF TRUTH: the Kitty Cab Jam game repo (Motormaster) at files/legal/. The published
+     copies at eldestro5000.com/kitty-cab-jam/privacy/ and /terms/ are verbatim copies — edit
+     there, then copy the built pages to the website repo.
+
+     FONTS ARE SELF-HOSTED, DELIBERATELY: legal routes on this site make ZERO third-party
+     requests, so reading the policy is not itself a disclosure. All three families are OFL 1.1;
+     licenses ship in fonts/. */
+
+  @font-face {
+    font-family: 'Anton';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/anton-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/500/700 */
+    font-display: swap;
+    src: url('fonts/dm-sans-var-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/700 */
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-var-latin.woff2') format('woff2');
+  }
+
+  :root {
+    --bg: #080510;
+    --surface: #140c1f;
+    --text: #e8e2f2;
+    --text-muted: #c9c1dc;
+    --text-dim: #9d93b5;
+    --text-faint: #7f7595;
+    --teal: #2ce8c8;
+    --pink: #ff3d6e;
+    --amber: #ffb03d;
+    --hairline: rgba(255, 255, 255, .07);
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration: none; transition: color 120ms ease; }
+  a:hover { color: var(--pink); }
+
+  /* Keyboard users must be able to see where they are. */
+  a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
+
+  .diamond {
+    width: 13px; height: 13px;
+    background: var(--pink);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 0 14px rgba(255, 61, 110, .9);
+    flex: none;
+  }
+
+  .wordmark {
+    display: flex; align-items: center; gap: 14px;
+    color: #fff;
+  }
+  .wordmark span:last-child {
+    font-family: var(--mono);
+    font-weight: 700; font-size: 15px; letter-spacing: .22em;
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding: 18px 40px;
+    background: rgba(8, 5, 16, .82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .site-nav {
+    display: flex; align-items: center; gap: 34px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .18em;
+  }
+  .site-nav a { color: var(--text-dim); }
+
+  /* ── Hero ───────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 96px 40px 120px; text-align: center;
+  }
+  .hero-grid, .hero-glow, .hero-scan { position: absolute; pointer-events: none; }
+  .hero-grid {
+    inset: auto 0 0 0; height: 340px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .55) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .45) 1px, transparent 1px);
+    background-size: 100% 34px, 4.2% 100%;
+    transform: perspective(340px) rotateX(72deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+    mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+  }
+  .hero-glow {
+    left: 50%; top: -160px; width: 900px; height: 520px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 61, 110, .22), transparent 72%);
+  }
+  .hero-scan {
+    inset: 0; opacity: .6;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .28) 0 1px, transparent 1px 4px);
+    animation: edscan 6s linear infinite;
+  }
+  @keyframes edscan { from { background-position: 0 0; } to { background-position: 0 4px; } }
+
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    margin: 0 0 22px;
+    font-family: var(--mono); font-size: 14px; letter-spacing: .28em;
+    color: var(--teal);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(48px, 9vw, 116px); line-height: .94; letter-spacing: .01em;
+    text-transform: uppercase;
+    background: linear-gradient(#fff6e6 8%, var(--amber) 46%, var(--pink) 96%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 34px rgba(255, 61, 110, .45));
+  }
+  .hero-meta {
+    margin: 26px 0 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .24em;
+    color: var(--text-dim);
+  }
+
+  /* ── Body ───────────────────────────────────────────────────────────── */
+  main { position: relative; max-width: 860px; margin: 0 auto; padding: 0 32px 120px; }
+
+  .summary {
+    position: relative;
+    border: 1px solid rgba(44, 232, 200, .28); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(44, 232, 200, .07), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+    box-shadow: 0 0 60px rgba(44, 232, 200, .07);
+  }
+  .summary p { margin: 0 0 14px; }
+  .summary p:last-child { margin-bottom: 0; }
+  .label {
+    margin: 0 0 18px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--teal);
+  }
+  strong { color: #fff; font-weight: 700; }
+  .setting { color: var(--amber); }
+
+  .policy-section { margin-top: 64px; }
+  .policy-section > p { color: var(--text-muted); margin: 0 0 14px; }
+  .policy-section > p:last-child { margin-bottom: 0; }
+  .num {
+    margin: 0 0 10px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--pink) !important;
+  }
+  h2 {
+    margin: 0 0 18px;
+    font-family: var(--display); font-weight: 400;
+    font-size: 34px; line-height: 1.1; letter-spacing: .02em;
+    text-transform: uppercase; color: #fff;
+  }
+  h3 {
+    margin: 38px 0 14px;
+    font-family: var(--mono); font-weight: 400;
+    font-size: 14px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  code {
+    font-family: var(--mono); font-size: 14px;
+    color: var(--teal);
+    background: rgba(44, 232, 200, .09);
+    border: 1px solid rgba(44, 232, 200, .22);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+
+  .notice {
+    border: 1px solid rgba(255, 176, 61, .4); border-radius: 12px;
+    background: rgba(255, 176, 61, .06);
+    padding: 22px 24px; margin: 0 0 18px;
+  }
+  .notice p { margin: 0; color: var(--text); }
+  .policy-section ul { color: var(--text-muted); margin: 0 0 14px; padding-left: 24px; }
+  .policy-section li { margin: 0 0 8px; }
+
+  .cards { display: grid; gap: 14px; margin-top: 26px; }
+  .card {
+    display: grid; gap: 8px;
+    border: 1px solid rgba(255, 255, 255, .09); border-radius: 12px;
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .card p { margin: 0; }
+  .card-title { font-family: var(--mono); font-size: 12px; letter-spacing: .2em; color: var(--amber); }
+  .card-example { color: var(--text); }
+  .card-why { color: var(--text-dim); font-size: 15px; }
+
+  .rights { display: grid; gap: 12px; }
+  .right { border-left: 2px solid var(--teal); padding: 4px 0 4px 18px; }
+  .right p { margin: 0; color: var(--text-muted); }
+  .right strong {
+    color: var(--teal);
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .contact {
+    margin-top: 64px;
+    border: 1px solid rgba(255, 61, 110, .32); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 61, 110, .09), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+  }
+  .contact > p { color: var(--text-muted); margin: 0 0 18px; }
+  .mailto-chip {
+    display: inline-block;
+    font-family: var(--mono); font-size: 15px; letter-spacing: .1em;
+    padding: 14px 22px;
+    border: 1px solid rgba(44, 232, 200, .5); border-radius: 8px;
+    background: rgba(44, 232, 200, .06);
+  }
+  .contact-org {
+    margin: 20px 0 0 !important;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-dim) !important;
+  }
+  .colophon {
+    margin: 56px 0 0; padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: var(--text-faint); font-size: 15px;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  .site-footer {
+    position: relative; overflow: hidden;
+    padding: 56px 40px 44px;
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-grid {
+    position: absolute; pointer-events: none;
+    inset: auto 0 -40px 0; height: 220px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .28) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .22) 1px, transparent 1px);
+    background-size: 100% 30px, 5% 100%;
+    transform: perspective(300px) rotateX(74deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000, transparent 85%);
+    mask-image: linear-gradient(to top, #000, transparent 85%);
+  }
+  .footer-row {
+    position: relative;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; max-width: 1400px; margin: 0 auto;
+  }
+  .footer-row .diamond { width: 12px; height: 12px; }
+  .footer-row .wordmark { gap: 12px; }
+  .footer-row .wordmark span:last-child { font-size: 14px; }
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+  }
+  .chips a { padding: 11px 18px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 6px; color: var(--text-muted); }
+  .chips a.email { border-color: rgba(44, 232, 200, .4); color: var(--teal); }
+  .copyright {
+    margin: 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-faint);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .site-header { padding: 16px 20px; gap: 16px; }
+    .site-nav { gap: 18px; font-size: 12px; }
+    .site-nav .hide-sm { display: none; }
+    .hero { padding: 64px 20px 88px; }
+    main { padding: 0 20px 88px; }
+    .summary, .contact { padding: 26px 22px; }
+    .card { padding: 20px 20px; }
+    h2 { font-size: 30px; }
+    .site-footer { padding: 44px 20px 36px; }
+    .footer-row { justify-content: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scan { animation: none; }
+    * { transition: none !important; }
+  }
+
+  /* Legal text must survive being printed or saved to PDF. */
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    .site-header, .site-footer, .hero-grid, .hero-glow, .hero-scan { display: none; }
+    .hero { padding: 0 0 24px; text-align: left; }
+    h1 { color: #000; background: none; -webkit-text-fill-color: #000; filter: none; font-size: 32pt; }
+    h2, strong { color: #000; }
+    .policy-section > p, .card-example, .card-why, .right p, .contact > p { color: #000; }
+    .num, .label, .eyebrow, h3, .card-title { color: #444; }
+    a { color: #000; text-decoration: underline; }
+    .summary, .card, .contact { border: 1px solid #999; background: none; box-shadow: none; }
+    main { max-width: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="https://eldestro5000.com/">
+      <span class="diamond" aria-hidden="true"></span>
+      <span>EL DESTRO 5000</span>
+    </a>
+    <nav class="site-nav">
+      <a class="hide-sm" href="https://eldestro5000.com/#studio">STUDIO</a>
+      <a class="hide-sm" href="https://eldestro5000.com/#crew">CREW</a>
+      <a href="https://eldestro5000.com/">&#9666; BACK TO SITE</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scan" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">&gt; LEGAL_TERMINAL</p>
+      <h1>Privacy Policy</h1>
+      <p class="hero-meta">KITTY CAB JAM &middot; EFFECTIVE 16 OCTOBER 2026</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div class="summary">
+      <p class="label">&gt; THE_SHORT_VERSION</p>
+      <p>Kitty Cab Jam is a free puzzle game. The first time you open it, we ask the year you were born. <strong>If you tell us you are under 13, or you choose not to say, the game shows no ads at all</strong> and the advertising services are never started.</p>
+      <p>We collect anonymous gameplay and crash information to fix bugs and improve the game. We do <strong>not</strong> ask for your name, email, phone number or location, there is no account, and we do <strong>not</strong> sell your information. Your birth year stays on your device; we only ever record an age group.</p>
+      <p>Players aged 13 and over may choose to watch a reward ad for an extra parking bay. Ads <strong>only play when you tap to watch one</strong>, and where the law requires it (for example in the EEA and UK) a consent dialog appears first.</p>
+      <p><a href="#delete-data">How to delete your data &rsaquo;</a></p>
+    </div>
+
+    <section class="policy-section">
+      <p class="num">01</p>
+      <h2>Who we are</h2>
+      <p>Kitty Cab Jam is published by <strong>El Destro 5000</strong>. This policy covers the Kitty Cab Jam mobile game on Android (application identifier <code>com.eldestro5000.kittycabjam</code>), distributed through Google Play. Our <a href="../terms/">Terms of Service</a> also apply.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">02</p>
+      <h2>The age question</h2>
+      <p>On first launch the game asks <strong>&ldquo;What year were you born?&rdquo;</strong>. Nothing is pre-selected and you can choose <strong>&ldquo;Prefer not to say&rdquo;</strong>. You can play the whole game whatever you answer.</p>
+      <p>Your answer is stored <strong>only on your device</strong>. We never send the year anywhere; our analytics receive only an age group (<code>under 13</code>, <code>13&ndash;17</code> or <code>18+</code>) so we know the answer was given.</p>
+      <p>Players who answer under 13, or who prefer not to say, are treated as children: <strong>no ads are shown, the advertising services are never started</strong>, and no advertising data is collected about them (see section 09).</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">03</p>
+      <h2>What we collect</h2>
+      <p>Analytics information is collected through Google Firebase Analytics and crash reports through Google Firebase Crashlytics; Google acts as our data processor for both. <strong>Our analytics do not collect your device&rsquo;s advertising identifier</strong>, for any player.</p>
+
+      <div class="cards">
+        <div class="card">
+          <p class="card-title">GAMEPLAY EVENTS</p>
+          <p class="card-example">A level started, won or lost, an extra parking bay unlocked, and the age group from the first-launch question.</p>
+          <p class="card-why">Why: to understand which levels are enjoyed, too hard, or never reached.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">AN ANONYMOUS INSTALL IDENTIFIER</p>
+          <p class="card-example">A random value generated on your device the first time the game runs.</p>
+          <p class="card-why">Why: so events from one installation can be grouped together. It is not linked to your name or any account.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">CRASH AND PERFORMANCE DATA</p>
+          <p class="card-example">Where in the code a crash or error happened, the app version, device model and operating-system version.</p>
+          <p class="card-why">Why: to find and fix crashes.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">BASIC DEVICE AND APP INFORMATION</p>
+          <p class="card-example">Device model, operating system version, app version, language, and approximate country derived from your IP address.</p>
+          <p class="card-why">Why: to reproduce bugs and know which devices and languages to support.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">ADVERTISING DATA (PLAYERS 13 AND OVER ONLY)</p>
+          <p class="card-example">Your device&rsquo;s advertising identifier, IP address, coarse (city-level) location derived from it, device information, and which ads were shown and tapped.</p>
+          <p class="card-why">Why: our advertising partners use this to serve and measure ads and prevent fraud. It is collected by those partners only when an ad is requested, only for players who answered 13 or over, and only after consent where the law requires it. See section 04.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">04</p>
+      <h2>Advertising</h2>
+      <p>Players who answered 13 or over can choose to watch a short <strong>reward ad</strong> to unlock an extra parking bay. A reward ad <strong>only plays when you tap to watch one</strong>, and you never need to watch one to keep playing. The game does not show banner ads, and it does not show full-screen ads you did not choose; if that ever changes we will update this policy first.</p>
+      <p>Ads are delivered through <strong>Unity LevelPlay</strong> (ironSource) mediation, which requests ads from <strong>ironSource Ads</strong>, <strong>Google AdMob</strong> and <strong>Unity Ads</strong>. These networks receive the advertising data described in section 03 and act as independent controllers of it. See <a href="https://unity.com/legal/privacy-policy" rel="noopener">Unity&rsquo;s privacy policy</a> (Unity Ads and LevelPlay), <a href="https://developers.is.com/ironsource-mobile/air/ironsource-mobile-privacy-policy/" rel="noopener">ironSource&rsquo;s ads privacy notice</a> and <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses information from apps that use its services</a> (AdMob).</p>
+      <p><strong>For players under 13, or who preferred not to say,</strong> none of these advertising services is started, so they receive no information from the game at all.</p>
+      <h3>Your choices about ads</h3>
+      <p>Where the law requires it (for example in the EEA and UK), a consent dialog appears before any ad is requested. Everywhere, you can reset or delete your device&rsquo;s advertising identifier in Android&rsquo;s own <strong class="setting">Settings &rsaquo; Privacy &rsaquo; Ads</strong>, or simply never tap to watch an ad.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">05</p>
+      <h2>Purchases</h2>
+      <p>Kitty Cab Jam currently has <strong>no in-app purchases</strong>. If we add them, they will be processed by Google Play (we never receive card details), and we will update this policy before they go live.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">06</p>
+      <h2>What we do not collect</h2>
+      <p>We do not collect your name, email address, phone number, postal address, precise location, contacts, photos, microphone or camera input, or any payment information. There is no account, no chat, no friends list and no way to share content with other players.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">07</p>
+      <h2>Information stored only on your device</h2>
+      <p>Your progress and settings &mdash; levels cleared, sound, music and vibration settings, language, and your answer to the age question &mdash; are saved only on your device. There is no cloud save: if you uninstall the game or reset your device, that progress is gone. The game does not send push notifications.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">08</p>
+      <h2>Who your information is shared with</h2>
+      <p><strong>Google</strong>, who provide Firebase Analytics and Firebase Crashlytics on our behalf. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase&rsquo;s privacy information</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google&rsquo;s privacy policy</a>.</p>
+      <p><strong>Unity (LevelPlay, ironSource Ads, Unity Ads) and Google (AdMob)</strong>, for the advertising described in section 04 &mdash; players 13 and over only.</p>
+      <p>We do <strong>not</strong> sell your information or share it with data brokers. We may disclose information if required by law.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">09</p>
+      <h2>Children</h2>
+      <p>Kitty Cab Jam is a cozy puzzle game that people of all ages may enjoy. To protect younger players, the first-launch age question decides whether advertising is ever switched on.</p>
+      <ul>
+        <li>For players who answer <strong>under 13</strong>, or who choose <strong>&ldquo;Prefer not to say&rdquo;</strong>, the game shows <strong>no ads</strong>, never starts the advertising services, and does not collect or share the device&rsquo;s advertising identifier.</li>
+        <li>For these players we collect only the anonymous gameplay, crash and device information in section 03, without any advertising identifier, and use it only to run, fix and improve the game &mdash; never for advertising, profiling or to contact the child.</li>
+        <li>We never ask a child for their name, email, phone number or location, and the game has no chat or social features.</li>
+      </ul>
+      <p>If you are a parent or guardian and want to know what has been collected from your child, or want it deleted, contact us at the address below (see also <a href="#delete-data">Delete your data</a>). We will respond and delete it.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">10</p>
+      <h2>Where information is processed, and how long we keep it</h2>
+      <p>Our processors run on servers that may be located outside your country, including in the United States.</p>
+      <p><strong>How long we keep it:</strong> analytics event data is deleted automatically after at most 14 months. Crash reports are deleted automatically by Firebase Crashlytics after 90 days. Ad-serving data (players 13 and over) is retained by the advertising partners under their own policies.</p>
+      <p>Information is transmitted over encrypted connections (HTTPS/TLS).</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">11</p>
+      <h2>Your choices and rights</h2>
+      <div class="rights">
+        <div class="right">
+          <p><strong>Control ads</strong><br>Use the consent dialog where shown, reset your advertising identifier in Android settings, or never tap to watch an ad.</p>
+        </div>
+        <div class="right">
+          <p><strong>Delete local data</strong><br>Uninstall the game to remove everything stored on your device, including your age answer and progress.</p>
+        </div>
+      </div>
+      <h3 id="delete-data">Delete your data</h3>
+      <p>To ask what we hold or to have collected data deleted, email <a href="mailto:contact@eldestro5000.com?subject=Kitty%20Cab%20Jam%20data%20request">contact@eldestro5000.com</a> with the subject <strong>&ldquo;Kitty Cab Jam data request&rdquo;</strong>. Because we do not collect identifying information, please include your device model and the approximate dates you played so we can locate the relevant records; in some cases we may not be able to identify data as yours. We respond within 30 days. Analytics and crash data are also deleted automatically on the schedule in section 10.</p>
+      <p>Depending on where you live you may have additional rights over your personal information, such as access, correction, deletion or objection. Contact us and we will respond.</p>
+      <h3>Legal bases (EEA and UK)</h3>
+      <p>We rely on <strong>your consent</strong> for personalised advertising (given or refused in the consent dialog), and on our <strong>legitimate interests</strong> in keeping the game working, secure and free of fraud, and in understanding how it is played, for analytics and crash reports. You can object to processing based on legitimate interests by contacting us, and you may complain to your local data-protection authority.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">12</p>
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes, we will update the date at the top of this page. Material changes &mdash; for example adding purchases, a new kind of ad, or a change in the data our partners receive &mdash; will be described here before they take effect.</p>
+    </section>
+    <section class="contact">
+      <p class="num">13 &middot; CONTACT</p>
+      <h2>Talk to a human</h2>
+      <p>Questions about this policy, or requests about your information or your child&rsquo;s:</p>
+      <a class="mailto-chip" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      <p class="contact-org">EL DESTRO 5000 &middot; UNITED STATES</p>
+    </section>
+
+    <p class="colophon">Kitty Cab Jam is a product of El Destro 5000. This page is the privacy policy referenced from the game&rsquo;s Google Play listing.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid" aria-hidden="true"></div>
+    <div class="footer-row">
+      <a class="wordmark" href="https://eldestro5000.com/">
+        <span class="diamond" aria-hidden="true"></span>
+        <span>EL DESTRO 5000</span>
+      </a>
+      <div class="chips">
+        <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      </div>
+      <p class="copyright">&copy; 2026 &middot; POWER LEVEL 5000</p>
+    </div>
+  </footer>
+
+</body>
+</html>
