@@ -353,7 +353,6 @@
     <nav class="site-nav">
       <a class="hide-sm" href="https://eldestro5000.com/#studio">STUDIO</a>
       <a class="hide-sm" href="https://eldestro5000.com/#crew">CREW</a>
-      <a href="https://eldestro5000.com/">&#9666; BACK TO SITE</a>
       <!-- JOIN THE LIST removed 2026-08-09. Its #list anchor does not exist, and the signup it
            would point to (in SECTION#coin) is a non-functional mockup: the form's onsubmit is an
            unfilled "{{ onSubmit }}" template placeholder and its email input has no name attribute,
@@ -379,8 +378,9 @@
     <div class="summary">
       <p class="label">&gt; THE_SHORT_VERSION</p>
       <p>Chonk Crunch collects gameplay and crash information, linked to a random ID rather than to you, so we can fix bugs and understand which parts of the game people enjoy, and keeps records of in-app purchases so they can be delivered and protected.</p>
-      <p>We do <strong>not</strong> ask for your name, email, phone number or location. We do <strong>not</strong> sell or share your information, and there is no account to sign in to.</p>
-      <p>The game asks every player&rsquo;s year of birth when it first starts. Children get no analytics, and in the European Economic Area and the United Kingdom analytics only runs with your consent. You can turn analytics off at any time in <strong class="setting">Settings &rsaquo; Analytics</strong>, inside the game.</p>
+      <p>For players aged 13 or over, the game can show ads, and our advertising partners collect information such as your device&rsquo;s advertising ID to provide them.</p>
+      <p>We do <strong>not</strong> ask for your name, email, phone number or location, and there is no account to sign in to. We do <strong>not</strong> sell your information for money. Some US state laws count letting advertising partners use your advertising ID as &ldquo;selling&rdquo; or &ldquo;sharing&rdquo; it; you can opt out of that in the game (see <em>Who your information is shared with</em>).</p>
+      <p>The game asks every player&rsquo;s year of birth when it first starts. Children are never shown ads and get no analytics, and in the European Economic Area and the United Kingdom analytics only runs with your consent. You can turn analytics off at any time in <strong class="setting">Settings &rsaquo; Analytics</strong>, inside the game.</p>
     </div>
 
     <section class="policy-section">
@@ -408,7 +408,7 @@
         <div class="card">
           <p class="card-title">IN-APP PURCHASE RECORDS</p>
           <p class="card-example">The product, the store&rsquo;s purchase token and a random install ID the app creates.</p>
-          <p class="card-why">Why: to deliver and protect purchases, prevent fraud and meet legal obligations.</p>
+          <p class="card-why">Why: to deliver and restore purchases and to prevent fraud &mdash; see <em>In-app purchases</em>.</p>
         </div>
         <div class="card">
           <p class="card-title">CRASH AND PERFORMANCE DATA</p>
@@ -438,12 +438,30 @@
     <section class="policy-section">
       <p class="num">03</p>
       <h2>What we do not collect</h2>
-      <p>We do not collect your name, email address, phone number, postal address, precise or approximate location, contacts, photos, microphone or camera input, or any payment information. (For players aged 13 or over, our advertising partners may estimate a general location from your IP address &mdash; see <em>Advertising</em>.)</p>
+      <p>We do not collect your name, email address, phone number, postal address, precise or approximate location, contacts, photos, microphone or camera input, or your payment card or billing details &mdash; the app store takes the payment (see <em>In-app purchases</em>). (For players aged 13 or over, our advertising partners may estimate a general location from your IP address &mdash; see <em>Advertising</em>.)</p>
       <p>This is enforced in the game&rsquo;s own code, not only by policy: before any event is sent, it is checked against a list of prohibited fields &mdash; including name, email, phone, address, location, IP address and any advertising identifier. <strong style="color:#ff3d6e;">If an event contains one of those fields it is discarded and never sent.</strong></p>
     </section>
 
     <section class="policy-section">
       <p class="num">04</p>
+      <h2>In-app purchases</h2>
+      <p>Purchases are made through the app store you downloaded the game from &mdash; Google Play on Android, the App Store on iOS. The store takes the payment and handles your card and billing details under its own privacy policy. We never receive them.</p>
+      <p>When you buy something, the store gives the game a record of the purchase. The game sends it to our purchase-checking server, which asks the store whether the purchase is genuine before the game hands over what you bought. Our server keeps:</p>
+      <ul>
+        <li>the product bought, and whether it is a one-time unlock or something that gets used up, like a tin of fish;</li>
+        <li>the store&rsquo;s identifier for the purchase (on Google Play, its purchase token);</li>
+        <li>the random install ID described in <em>What we collect</em>;</li>
+        <li>when the purchase was first checked, the store&rsquo;s answer (including whether it was a test purchase), and whether and how the item was delivered;</li>
+        <li>whether the store has since told us the purchase was refunded, cancelled or charged back, and if so when and the store&rsquo;s reason code.</li>
+      </ul>
+      <p>The game also keeps a list of what you have bought in its save, on your device.</p>
+      <p><strong>Why:</strong> to deliver what you paid for, to restore your one-time unlocks, to stop one purchase being claimed twice, and, on Android, to take an item back when Google Play refunds its purchase. Where European data-protection law applies, we rely on our contract with you to deliver purchases, and on our legitimate interest in preventing fraud.</p>
+      <p><strong>Restoring purchases:</strong> on Android, each time the game starts it asks Google Play which one-time unlocks your Google account owns and gives back any that are missing &mdash; for example after a reinstall or on a new device. Items that get used up, such as fish and yarn, are not restored.</p>
+      <p><strong>Keeping and deleting:</strong> how long purchase records are kept is explained in <em>Where information is processed, and how long we keep it</em>. <strong class="setting">Delete my data</strong> does not remove them, because they are what lets us restore your unlocks and recognise a refunded purchase.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">05</p>
       <h2>Turning analytics off</h2>
       <p>Whether analytics runs depends on your age and where you are:</p>
       <ul>
@@ -457,14 +475,14 @@
     </section>
 
     <section class="policy-section">
-      <p class="num">05</p>
+      <p class="num">06</p>
       <h2>Deleting your data</h2>
       <p>You can ask us to delete the analytics data linked to your device at any time. In Chonk Crunch, open Settings, choose <strong class="setting">Delete my data</strong>, and hold the button for two seconds. We then ask Google to erase the Google Analytics history for your device, and the app switches to a new analytics ID that isn&rsquo;t linked to the old history. Your game progress is stored only on your device and isn&rsquo;t affected.</p>
-      <p>We keep records of in-app purchases (the product, the store&rsquo;s purchase token and a random install ID the app creates) for fraud prevention and to meet legal obligations. Crash reports are deleted automatically after 90 days. To stop analytics collection altogether, turn off <strong class="setting">Settings &rsaquo; Analytics</strong>.</p>
+      <p>Delete my data does not remove purchase records &mdash; see <em>In-app purchases</em>. Crash reports are deleted automatically after 90 days. To stop analytics collection altogether, turn off <strong class="setting">Settings &rsaquo; Analytics</strong>.</p>
     </section>
 
     <section class="policy-section">
-      <p class="num">06</p>
+      <p class="num">07</p>
       <h2>Information stored only on your device</h2>
       <p>Your game progress and settings &mdash; score, unlocked content, volume, haptics and your analytics choice &mdash; are saved locally on your device. They are not uploaded to us. Uninstalling the game removes them.</p>
       <p>If you allow notifications, reminders are scheduled by your device itself. We do not send push messages from a server, and no notification data leaves your device.</p>
@@ -472,15 +490,16 @@
     </section>
 
     <section class="policy-section">
-      <p class="num">07</p>
+      <p class="num">08</p>
       <h2>Who your information is shared with</h2>
       <p>We share the information described above with <strong>Google</strong>, who provide Firebase Analytics, Firebase Crashlytics and the hosting for our purchase-checking server on our behalf. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase&rsquo;s privacy information</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google&rsquo;s privacy policy</a>.</p>
+      <p>When you make a purchase on Android, our server sends <strong>Google Play</strong> the purchase&rsquo;s identifier and the product, to check that it is genuine and to tell Google it has been delivered; once a day it also asks Google Play for its list of refunded purchases. On iOS, a purchase is usually checked from <strong>Apple</strong>&rsquo;s signed record without contacting Apple; if that record is missing, our server asks Apple for it by its transaction identifier. We send the stores nothing else.</p>
       <p>For players aged 13 or over, the advertising partners named under <em>Advertising</em> receive the information described there, which they use to provide ads.</p>
       <p>We do <strong>not</strong> sell your information for money or share it with data brokers. Under some US state laws, letting advertising partners use your advertising ID for personalised ads can count as &ldquo;selling&rdquo; or &ldquo;sharing&rdquo; it. If you live in a US state that gives you this right, you can opt out in the game: open Settings &rsaquo; Privacy options and choose &ldquo;Don&rsquo;t sell or share my data&rdquo;. The game passes your choice to our advertising partners straight away, and you can change it there at any time. You can also limit this with your device&rsquo;s own ad controls &mdash; resetting or deleting your advertising ID, or opting out of personalised ads &mdash; described under <em>Advertising</em>. We may disclose information if required by law.</p>
     </section>
 
     <section class="policy-section">
-      <p class="num">08</p>
+      <p class="num">09</p>
       <h2>Advertising</h2>
       <p>Chonk Crunch can show ads: short videos you choose to watch for a reward, ads between rounds, and a banner. They are delivered through Unity LevelPlay, which selects an ad from our advertising partners &mdash; ironSource Ads, Unity Ads and Google AdMob.</p>
       <p>To show, measure and limit ads, and to prevent ad fraud, these partners collect your device&rsquo;s advertising identifier (on Android, the Android Advertising ID, and the app set ID), your IP address, from which they may estimate your general location, basic device and app information such as model, operating system and language, diagnostic information about how the ads perform, and how you interact with the ads. Where the law requires your consent &mdash; for example in the European Economic Area and the United Kingdom &mdash; the game asks for it through Google&rsquo;s consent form before any ad loads, and you can change your choice at any time in <strong class="setting">Settings &rsaquo; Privacy options</strong>.</p>
@@ -489,14 +508,21 @@
     </section>
 
     <section class="policy-section">
-      <p class="num">09</p>
+      <p class="num">10</p>
       <h2>Where information is processed, and how long we keep it</h2>
-      <p>Firebase processes data on Google&rsquo;s servers, which may be located outside your country. Analytics data is retained according to our Firebase configuration and is deleted automatically when that period elapses. Crash reports are deleted automatically after 90 days. Purchase records are kept for fraud prevention and to meet legal obligations.</p>
+      <p>Firebase processes data on Google&rsquo;s servers, which may be located outside your country. We keep each kind of information only while its purpose needs it:</p>
+      <ul>
+        <li><strong>Analytics data</strong> is retained according to our Firebase configuration and is deleted automatically when that period elapses.</li>
+        <li><strong>Crash reports</strong> are deleted automatically after 90 days.</li>
+        <li><strong>Purchase records</strong> are kept while they are needed to restore your one-time unlocks, to stop one purchase being claimed twice, and to handle refunds, chargebacks and fraud. They are not yet deleted on a fixed schedule; when we set one, this policy will say how long.</li>
+        <li><strong>Deletion requests:</strong> when you use Delete my data, we keep a record of the request &mdash; when it was made, when we passed it to Google, and its status &mdash; filed under a scrambled (hashed) form of your old analytics ID. If Google&rsquo;s daily limit on deletion requests has been reached, we hold the analytics ID itself until we can pass the request on, and then remove it.</li>
+        <li><strong>Game progress, settings and your year of birth</strong> stay on your device until you uninstall the game.</li>
+      </ul>
       <p>Information is transmitted over encrypted connections (HTTPS/TLS).</p>
     </section>
 
     <section class="policy-section">
-      <p class="num">10</p>
+      <p class="num">11</p>
       <h2>Children</h2>
       <p>Chonk Crunch contains no chat or other communication features and no social features. When the game first starts it asks every player for their year of birth, without suggesting an answer, and keeps only that year, on the device (and in the device&rsquo;s own backup, if you use one). It is never sent to us.</p>
       <p><strong>Players under 13, and players who have not answered</strong>, are treated as children:</p>
@@ -507,12 +533,12 @@
         <li>Outside the European Economic Area and the United Kingdom, crash reports are also collected. A crash report carries a random installation identifier created by Firebase Crashlytics, plus device and app details. It is used for one purpose only: to find and fix crashes so the game keeps working. It is never used for advertising, never used to build a profile of the player, and is not linked to any name or contact details, which we do not have. It is shared only with Google, as our processor.</li>
         <li>In the European Economic Area and the United Kingdom, no crash reports are collected from them either. The same applies to players there who are under their country&rsquo;s age for consenting to online services. (We judge where a player is from the device&rsquo;s own settings, as described in <em>Turning analytics off</em>.)</li>
       </ul>
-      <p><strong>How long we keep children&rsquo;s information:</strong> crash reports are deleted automatically after 90 days. The year of birth stays on the device (and in its own backup, if you use one) until the game is uninstalled. Purchase records are kept for fraud prevention and to meet legal obligations, as for every player. We keep nothing else.</p>
+      <p><strong>How long we keep children&rsquo;s information:</strong> crash reports are deleted automatically after 90 days. The year of birth stays on the device (and in its own backup, if you use one) until the game is uninstalled. Purchase records, and a record of any Delete my data request, are kept as described in <em>Where information is processed, and how long we keep it</em>, as for every player. We keep nothing else.</p>
       <p>Because we do not have a child&rsquo;s name or contact details, we cannot pick out a particular child&rsquo;s crash reports to remove them early; they expire on their own after 90 days. If you are a parent or guardian with a question about your child&rsquo;s information, please contact us using the details below.</p>
     </section>
 
     <section class="policy-section">
-      <p class="num">11</p>
+      <p class="num">12</p>
       <h2>Your choices and rights</h2>
       <div class="rights">
         <div class="right">
@@ -532,13 +558,13 @@
     </section>
 
     <section class="policy-section">
-      <p class="num">12</p>
+      <p class="num">13</p>
       <h2>Changes to this policy</h2>
       <p>If this policy changes, we will update the date at the top of this page. Material changes will be described here before they take effect.</p>
     </section>
 
     <section class="contact">
-      <p class="num">13 &middot; CONTACT</p>
+      <p class="num">14 &middot; CONTACT</p>
       <h2>Talk to a human</h2>
       <p>Questions about this policy, or requests about your information:</p>
       <a class="mailto-chip" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
