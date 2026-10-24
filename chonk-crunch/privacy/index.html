@@ -369,7 +369,7 @@
     <div class="hero-inner">
       <p class="eyebrow">&gt; LEGAL_TERMINAL</p>
       <h1>Privacy Policy</h1>
-      <p class="hero-meta">CHONK CRUNCH &middot; EFFECTIVE 22 OCTOBER 2026 &middot; UPDATED 22 OCTOBER 2026</p>
+      <p class="hero-meta">CHONK CRUNCH &middot; EFFECTIVE 25 OCTOBER 2026 &middot; UPDATED 25 OCTOBER 2026</p>
     </div>
   </section>
 
@@ -377,7 +377,7 @@
 
     <div class="summary">
       <p class="label">&gt; THE_SHORT_VERSION</p>
-      <p>Chonk Crunch collects gameplay and crash information, linked to a random ID rather than to you, so we can fix bugs and understand which parts of the game people enjoy, and keeps records of in-app purchases so they can be delivered and protected.</p>
+      <p>Chonk Crunch collects gameplay and crash information, linked to a random ID rather than to you, so we can fix bugs and understand which parts of the game people enjoy, and keeps records of in-app purchases so they can be delivered and protected. If analytics is on for you, a record of each purchase also goes to a purchase-analytics service.</p>
       <p>For players aged 13 or over, the game can show ads, and our advertising partners collect information such as your device&rsquo;s advertising ID to provide them.</p>
       <p>We do <strong>not</strong> ask for your name, email, phone number or location, and there is no account to sign in to. We do <strong>not</strong> sell your information for money. Some US state laws count letting advertising partners use your advertising ID as &ldquo;selling&rdquo; or &ldquo;sharing&rdquo; it; you can opt out of that in the game (see <em>Who your information is shared with</em>).</p>
       <p>The game asks every player&rsquo;s year of birth when it first starts. Children are never shown ads and get no analytics, and in the European Economic Area and the United Kingdom analytics only runs with your consent. You can turn analytics off at any time in <strong class="setting">Settings &rsaquo; Analytics</strong>, inside the game.</p>
@@ -392,7 +392,7 @@
     <section class="policy-section">
       <p class="num">02</p>
       <h2>What we collect</h2>
-      <p>Gameplay, crash and device information is collected through Google Firebase (Analytics and Crashlytics), which acts as our data processor. Purchase records are kept by our purchase-checking server, which also runs on Google Firebase.</p>
+      <p>Gameplay, crash and device information is collected through Google Firebase (Analytics and Crashlytics), which acts as our data processor. Purchase records are kept by our purchase-checking server, which also runs on Google Firebase. If analytics is on for you, records of your Android purchases are also sent to RevenueCat, which acts as our data processor for purchase analytics.</p>
 
       <div class="cards">
         <div class="card">
@@ -428,7 +428,7 @@
           <p>Firebase&rsquo;s app instance ID, collected by Google Analytics only while analytics is on for you &mdash; see <em>Turning analytics off</em>.</p>
         </div>
         <div class="right">
-          <p>A random install ID created by the app, sent to our purchase-checking server when the app starts and with each purchase, to deliver and protect purchases.</p>
+          <p>A random install ID created by the app, sent to our purchase-checking server when the app starts and with each purchase, to deliver and protect purchases. If analytics is on for you, our server also passes it to RevenueCat with each Android purchase &mdash; see <em>In-app purchases</em>.</p>
         </div>
       </div>
       <p style="margin-top:22px;">Neither is an advertising ID &mdash; neither is your device&rsquo;s advertising identifier (Android Advertising ID or Apple IDFA), and neither can be used to recognise you in other apps.</p>
@@ -456,8 +456,9 @@
       </ul>
       <p>The game also keeps a list of what you have bought in its save, on your device.</p>
       <p><strong>Why:</strong> to deliver what you paid for, to restore your one-time unlocks, to stop one purchase being claimed twice, and, on Android, to take an item back when Google Play refunds its purchase. Where European data-protection law applies, we rely on our contract with you to deliver purchases, and on our legitimate interest in preventing fraud.</p>
+      <p><strong>Purchase analytics:</strong> if analytics is on for you when you buy something on Android (see <em>Turning analytics off</em>), our server also sends <strong>RevenueCat</strong> the product, the store&rsquo;s purchase identifier and the random install ID. RevenueCat checks the purchase with Google Play and gives us reports about purchases &mdash; for example, how many of each product sell and how often a player buys again. It never receives your payment details. If analytics is off for you, or you are under 13 or have not told us your age, nothing is sent to RevenueCat. Where European data-protection law applies, we rely on your consent to analytics for this.</p>
       <p><strong>Restoring purchases:</strong> on Android, each time the game starts it asks Google Play which one-time unlocks your Google account owns and gives back any that are missing &mdash; for example after a reinstall or on a new device. Items that get used up, such as fish and yarn, are not restored.</p>
-      <p><strong>Keeping and deleting:</strong> records of items that get used up are deleted 12 months after the purchase; records of one-time unlocks are kept so they can be restored (see <em>Where information is processed, and how long we keep it</em>). <strong class="setting">Delete my data</strong> does not remove them, because they are what lets us restore your unlocks and recognise a refunded purchase. A parent or guardian can ask us to delete a child&rsquo;s purchase records: send us the order number from the store&rsquo;s receipt email.</p>
+      <p><strong>Keeping and deleting:</strong> records of items that get used up are deleted 12 months after the purchase; records of one-time unlocks are kept so they can be restored (see <em>Where information is processed, and how long we keep it</em>). <strong class="setting">Delete my data</strong> does not remove them, because they are what lets us restore your unlocks and recognise a refunded purchase (it does remove RevenueCat&rsquo;s copy &mdash; see <em>Deleting your data</em>). A parent or guardian can ask us to delete a child&rsquo;s purchase records: send us the order number from the store&rsquo;s receipt email.</p>
     </section>
 
     <section class="policy-section">
@@ -470,15 +471,15 @@
         <li><strong>Children under 13</strong>, and players who have not yet told us their year of birth, get no analytics anywhere.</li>
       </ul>
       <p>We judge where you are from your device&rsquo;s own settings &mdash; its SIM card, mobile network or region &mdash; and from Google&rsquo;s consent check, not from your precise location.</p>
-      <p>Wherever it is on, you can switch it off at any time in <strong class="setting">Settings &rsaquo; Analytics</strong>. When analytics is off, events are discarded inside the game before they are recorded or queued &mdash; nothing is stored on your device waiting to be sent, and no analytics are transmitted. The setting takes effect immediately and persists between sessions.</p>
+      <p>Wherever it is on, you can switch it off at any time in <strong class="setting">Settings &rsaquo; Analytics</strong>. When analytics is off, events are discarded inside the game before they are recorded or queued &mdash; nothing is stored on your device waiting to be sent, and no analytics are transmitted. The setting takes effect immediately and persists between sessions. Purchases you make while analytics is off are not reported to RevenueCat.</p>
       <p>Crash reporting stays on when analytics is off, so we can still fix crashes that would otherwise make the game unplayable &mdash; except for players in the European Economic Area and the United Kingdom who are under their country&rsquo;s consent age, or have not told us their age, from whom we collect no crash reports at all.</p>
     </section>
 
     <section class="policy-section">
       <p class="num">06</p>
       <h2>Deleting your data</h2>
-      <p>You can ask us to delete the analytics data linked to your device at any time. In Chonk Crunch, open Settings, choose <strong class="setting">Delete my data</strong>, and hold the button for two seconds. We then ask Google to erase the Google Analytics history for your device, and the app switches to a new analytics ID that isn&rsquo;t linked to the old history. Your game progress is stored only on your device and isn&rsquo;t affected.</p>
-      <p>Delete my data does not remove purchase records &mdash; see <em>In-app purchases</em>. Crash reports are deleted automatically after 90 days. To stop analytics collection altogether, turn off <strong class="setting">Settings &rsaquo; Analytics</strong>.</p>
+      <p>You can ask us to delete the analytics data linked to your device at any time. In Chonk Crunch, open Settings, choose <strong class="setting">Delete my data</strong>, and hold the button for two seconds. We then ask Google to erase the Google Analytics history for your device, and the app switches to a new analytics ID that isn&rsquo;t linked to the old history. We also ask RevenueCat to delete the purchase information it holds for your install; if RevenueCat cannot be reached, we keep retrying once a day for a limited time, never more than 30 days. Your game progress is stored only on your device and isn&rsquo;t affected.</p>
+      <p>Delete my data does not remove our own purchase records &mdash; see <em>In-app purchases</em>. Crash reports are deleted automatically after 90 days. To stop analytics collection altogether, turn off <strong class="setting">Settings &rsaquo; Analytics</strong>.</p>
     </section>
 
     <section class="policy-section">
@@ -493,6 +494,7 @@
       <p class="num">08</p>
       <h2>Who your information is shared with</h2>
       <p>We share the information described above with <strong>Google</strong>, who provide Firebase Analytics, Firebase Crashlytics and the hosting for our purchase-checking server on our behalf. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase&rsquo;s privacy information</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google&rsquo;s privacy policy</a>.</p>
+      <p>If analytics is on for you, our server sends <strong>RevenueCat, Inc.</strong> the record of each Android purchase described under <em>In-app purchases</em>; RevenueCat processes it on our behalf to produce purchase reports for us. See <a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat&rsquo;s privacy policy</a>.</p>
       <p>When you make a purchase on Android, our server sends <strong>Google Play</strong> the purchase&rsquo;s identifier and the product, to check that it is genuine and to tell Google it has been delivered; once a day it also asks Google Play for its list of refunded purchases. On iOS, a purchase is usually checked from <strong>Apple</strong>&rsquo;s signed record without contacting Apple; if that record is missing, our server asks Apple for it by its transaction identifier. We send the stores nothing else.</p>
       <p>For players aged 13 or over, the advertising partners named under <em>Advertising</em> receive the information described there, which they use to provide ads.</p>
       <p>We do <strong>not</strong> sell your information for money or share it with data brokers. Under some US state laws, letting advertising partners use your advertising ID for personalised ads can count as &ldquo;selling&rdquo; or &ldquo;sharing&rdquo; it. If you live in a US state that gives you this right, you can opt out in the game: open Settings &rsaquo; Privacy options and choose &ldquo;Don&rsquo;t sell or share my data&rdquo;. The game passes your choice to our advertising partners straight away, and you can change it there at any time. You can also limit this with your device&rsquo;s own ad controls &mdash; resetting or deleting your advertising ID, or opting out of personalised ads &mdash; described under <em>Advertising</em>. We may disclose information if required by law.</p>
@@ -510,11 +512,12 @@
     <section class="policy-section">
       <p class="num">10</p>
       <h2>Where information is processed, and how long we keep it</h2>
-      <p>Firebase processes data on Google&rsquo;s servers, which may be located outside your country. We keep each kind of information only while its purpose needs it:</p>
+      <p>Firebase processes data on Google&rsquo;s servers, and RevenueCat on servers in the United States; either may be outside your country. We keep each kind of information only while its purpose needs it:</p>
       <ul>
         <li><strong>Analytics data</strong> is retained according to our Firebase configuration and is deleted automatically when that period elapses.</li>
         <li><strong>Crash reports</strong> are deleted automatically after 90 days.</li>
         <li><strong>Purchase records:</strong> our server&rsquo;s log of checking each purchase is deleted automatically 12 months after the purchase was first checked. Records of items that get used up, like fish and yarn, are deleted on the same schedule, together with the store&rsquo;s identifier for the purchase (on Google Play, its purchase token). For one-time unlocks we keep the record, including the store&rsquo;s identifier, for as long as we offer the game, because it is what lets a reinstall restore the unlock without granting the purchase twice. Deletion runs automatically and may take a day or two after the 12 months.</li>
+        <li><strong>Purchase analytics:</strong> RevenueCat keeps the purchase information our server sent it until you use Delete my data, or until we delete it.</li>
         <li><strong>Server request logs:</strong> when the game contacts our purchase-checking or Delete my data server, Google Cloud records the request, including your IP address and your device&rsquo;s browser or app identification (user agent), for troubleshooting and security. These logs are deleted automatically after 30 days.</li>
         <li><strong>Deletion requests:</strong> when you use Delete my data, we keep a record of the request &mdash; when it was made, when we passed it to Google, and its status &mdash; filed under a scrambled (hashed) form of your old analytics ID. We keep the record of each request for 24 months after that request; if Google&rsquo;s daily limit on deletion requests has been reached, we hold the analytics ID itself only until we can pass the request on, and for no more than about 30 days &mdash; if Google&rsquo;s limit has not allowed it by then, we remove the ID and the request is not passed on.</li>
         <li><strong>Game progress, settings and your year of birth</strong> stay on your device until you uninstall the game.</li>
@@ -529,7 +532,7 @@
       <p><strong>Players under 13, and players who have not answered</strong>, are treated as children:</p>
       <ul>
         <li>They are never shown ads, and the ad software is never started for them, so neither it nor our partners receive their advertising identifier.</li>
-        <li>No analytics are collected from them.</li>
+        <li>No analytics are collected from them, and their purchases are never reported to RevenueCat.</li>
         <li>Like every player, they send the random install ID described in <em>What we collect</em> to our purchase-checking server when the game starts, so that purchases can be delivered; if a purchase is made, its record is kept as described there.</li>
         <li>Outside the European Economic Area and the United Kingdom, crash reports are also collected. A crash report carries a random installation identifier created by Firebase Crashlytics, plus device and app details. It is used for one purpose only: to find and fix crashes so the game keeps working. It is never used for advertising, never used to build a profile of the player, and is not linked to any name or contact details, which we do not have. It is shared only with Google, as our processor.</li>
         <li>In the European Economic Area and the United Kingdom, no crash reports are collected from them either. The same applies to players there who are under their country&rsquo;s age for consenting to online services. (We judge where a player is from the device&rsquo;s own settings, as described in <em>Turning analytics off</em>.)</li>
