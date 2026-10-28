@@ -369,7 +369,7 @@
     <div class="hero-inner">
       <p class="eyebrow">&gt; LEGAL_TERMINAL</p>
       <h1>Privacy Policy</h1>
-      <p class="hero-meta">CHONK CRUNCH &middot; EFFECTIVE 25 OCTOBER 2026 &middot; UPDATED 25 OCTOBER 2026</p>
+      <p class="hero-meta">CHONK CRUNCH &middot; EFFECTIVE 25 OCTOBER 2026 &middot; UPDATED 28 OCTOBER 2026</p>
     </div>
   </section>
 
@@ -392,7 +392,7 @@
     <section class="policy-section">
       <p class="num">02</p>
       <h2>What we collect</h2>
-      <p>Gameplay, crash and device information is collected through Google Firebase (Analytics and Crashlytics), which acts as our data processor. Purchase records are kept by our purchase-checking server, which also runs on Google Firebase. If analytics is on for you, records of your Android purchases are also sent to RevenueCat, which acts as our data processor for purchase analytics.</p>
+      <p>Gameplay, crash and device information is collected through Google Firebase (Analytics, Crashlytics and Remote Config), which acts as our data processor. Purchase records are kept by our purchase-checking server, which also runs on Google Firebase. If analytics is on for you, records of your Android purchases are also sent to RevenueCat, which acts as our data processor for purchase analytics.</p>
 
       <div class="cards">
         <div class="card">
@@ -420,6 +420,11 @@
           <p class="card-example">Device model, operating system version, app version, language.</p>
           <p class="card-why">Why: to reproduce bugs and know which devices to support.</p>
         </div>
+        <div class="card">
+          <p class="card-title">GAME SETTINGS REQUESTS</p>
+          <p class="card-example">When the game starts it downloads its current settings (for example, which cat sizes to use) from Firebase Remote Config. The request carries a random installation identifier created by Firebase, plus basic device and app details. It is made for every player, whatever their analytics choice, and contains no gameplay events.</p>
+          <p class="card-why">Why: so we can adjust the game without releasing an update. It is never used for advertising or to build a profile.</p>
+        </div>
       </div>
 
       <h3>Identifiers we use</h3>
@@ -428,10 +433,13 @@
           <p>Firebase&rsquo;s app instance ID, collected by Google Analytics only while analytics is on for you &mdash; see <em>Turning analytics off</em>.</p>
         </div>
         <div class="right">
+          <p>A random installation identifier created by Firebase, sent with every player&rsquo;s game settings request to Firebase Remote Config &mdash; see <em>Game settings requests</em> above. It is not used for analytics or advertising.</p>
+        </div>
+        <div class="right">
           <p>A random install ID created by the app, sent to our purchase-checking server when the app starts and with each purchase, to deliver and protect purchases. If analytics is on for you, our server also passes it to RevenueCat with each Android purchase &mdash; see <em>In-app purchases</em>.</p>
         </div>
       </div>
-      <p style="margin-top:22px;">Neither is an advertising ID &mdash; neither is your device&rsquo;s advertising identifier (Android Advertising ID or Apple IDFA), and neither can be used to recognise you in other apps.</p>
+      <p style="margin-top:22px;">None of these is an advertising ID &mdash; none is your device&rsquo;s advertising identifier (Android Advertising ID or Apple IDFA), and none can be used to recognise you in other apps.</p>
       <p>The game does have permission to read the Android advertising ID, but only our advertising partners use it, and only for players aged 13 or over &mdash; see <em>Advertising</em> below. It is never added to our analytics.</p>
     </section>
 
@@ -471,7 +479,7 @@
         <li><strong>Children under 13</strong>, and players who have not yet told us their year of birth, get no analytics anywhere.</li>
       </ul>
       <p>We judge where you are from your device&rsquo;s own settings &mdash; its SIM card, mobile network or region &mdash; and from Google&rsquo;s consent check, not from your precise location.</p>
-      <p>Wherever it is on, you can switch it off at any time in <strong class="setting">Settings &rsaquo; Analytics</strong>. When analytics is off, events are discarded inside the game before they are recorded or queued &mdash; nothing is stored on your device waiting to be sent, and no analytics are transmitted. The setting takes effect immediately and persists between sessions. Purchases you make while analytics is off are not reported to RevenueCat.</p>
+      <p>Wherever it is on, you can switch it off at any time in <strong class="setting">Settings &rsaquo; Analytics</strong>. When analytics is off, events are discarded inside the game before they are recorded or queued &mdash; nothing is stored on your device waiting to be sent, and no analytics are transmitted. The setting takes effect immediately and persists between sessions. Purchases you make while analytics is off are not reported to RevenueCat. The game still downloads its settings from Firebase Remote Config, as described in <em>What we collect</em>; no gameplay events are sent with that request.</p>
       <p>Crash reporting stays on when analytics is off, so we can still fix crashes that would otherwise make the game unplayable &mdash; except for players in the European Economic Area and the United Kingdom who are under their country&rsquo;s consent age, or have not told us their age, from whom we collect no crash reports at all.</p>
     </section>
 
@@ -534,6 +542,7 @@
         <li>They are never shown ads, and the ad software is never started for them, so neither it nor our partners receive their advertising identifier.</li>
         <li>No analytics are collected from them, and their purchases are never reported to RevenueCat.</li>
         <li>Like every player, they send the random install ID described in <em>What we collect</em> to our purchase-checking server when the game starts, so that purchases can be delivered; if a purchase is made, its record is kept as described there.</li>
+        <li>Like every player, the game downloads its settings from Firebase Remote Config when it starts. That request carries a random installation identifier created by Firebase, plus device and app details. It is used only to deliver the game&rsquo;s settings, is never used for advertising or to build a profile, and is shared only with Google, as our processor. We do not keep it.</li>
         <li>Outside the European Economic Area and the United Kingdom, crash reports are also collected. A crash report carries a random installation identifier created by Firebase Crashlytics, plus device and app details. It is used for one purpose only: to find and fix crashes so the game keeps working. It is never used for advertising, never used to build a profile of the player, and is not linked to any name or contact details, which we do not have. It is shared only with Google, as our processor.</li>
         <li>In the European Economic Area and the United Kingdom, no crash reports are collected from them either. The same applies to players there who are under their country&rsquo;s age for consenting to online services. (We judge where a player is from the device&rsquo;s own settings, as described in <em>Turning analytics off</em>.)</li>
       </ul>
