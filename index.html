@@ -320,8 +320,11 @@
      980px three columns would crush the card copy, so the row collapses back to the original
      single-column stack at the original width with the original side-by-side card — see the
      responsive block. */
+  /* Four games (2026-10-31): a 2 x 2 grid on wide screens, so the row still has no holes; each
+     upright cabinet is ~500px wide, capped so the copy keeps a readable measure. */
   .cabinet-row {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px;
+    max-width: 1060px; margin: 0 auto;
   }
   .cabinet {
     display: flex; flex-direction: column;
@@ -633,14 +636,14 @@
        The URLs chonk-crunch/privacy/, buffalo-co-solitaire/privacy/ and
        buffalo-gold-rush/privacy/ are printed on store listings and are re-checked by the
        stores — those PAGES must never move or 404, only the homepage link to them went away.
-       Three games, three slots: still no invented titles and no "coming soon" filler cabinets —
+       Four games, four slots: still no invented titles and no "coming soon" filler cabinets —
        a cabinet appears here only when its game is real. (Gold Rush is built and has its store
        listing in progress; its game page says "coming soon to Google Play" until it is live.) -->
   <section class="section" id="games">
     <div class="section-head">
       <p class="kicker pink">&gt; GAME_SELECT</p>
       <h2>The cabinet</h2>
-      <p>Three games on the floor now. One is very round, one is wearing a tuxedo, and one just rode in wearing a cattleman hat and a duster.</p>
+      <p>Four games on the floor now. One is very round, one is wearing a tuxedo, one just rode in wearing a cattleman hat, and one is a taxi full of kittens.</p>
     </div>
     <div class="cabinet-row">
       <a class="cabinet" href="chonk-crunch/">
@@ -681,6 +684,20 @@
             <h3>Buffalo &amp; Co. Gold Rush Solitaire</h3>
             <span class="cabinet-tagline">Tap &middot; Strike &middot; Claim</span>
             <p>TriPeaks solitaire out on the gold-rush trail, with the buffalo as your Trail Boss. Tap cards one higher or lower to clear 160 claims across 8 territories &mdash; and every claim is verified winnable before it ships. Coming soon to Google Play.</p>
+            <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="cabinet" href="kitty-cab-jam/">
+        <div class="topbar" aria-hidden="true"></div>
+        <div class="cabinet-slot"><span>CAB 04</span><span>CAR JAM PUZZLE</span></div>
+        <div class="cabinet-inner">
+          <img class="cabinet-art" src="kitty-cab-jam-icon.webp" width="132" height="132"
+               alt="Kitty Cab Jam &mdash; a yellow cat-eared taxi packed with white kittens in coloured raincoats" loading="lazy">
+          <div class="cabinet-body">
+            <h3>Kitty Cab Jam</h3>
+            <span class="cabinet-tagline">Tap &middot; Park &middot; Purr</span>
+            <p>A cosy one-tap puzzle. Tap cat-eared taxis out of the jam, and every kitty in a matching raincoat hops aboard. Hundreds of levels, mystery cabs, and Hard levels that warn you before they bite. Coming soon to Google Play.</p>
             <span class="cabinet-enter">Enter <span aria-hidden="true">&#9656;</span></span>
           </div>
         </div>
