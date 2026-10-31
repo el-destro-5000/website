@@ -25,10 +25,8 @@
      gradients and glows; every structural token is the shared site palette. Chonk leans warm
      orange/pink the same way. Same system, different cabinet.
 
-     Kept intentionally minimal. There are no screenshots, review quotes, ratings or store badges
-     here because none exist yet — the game is not live on either store, and a "Download on the
-     App Store" button that goes nowhere is the same dead-link mistake as an href="#" social chip.
-     Add them when the listings are real. */
+     Kept intentionally minimal. Live on Google Play since 2026-10: the page links the listing (https://play.google.com/store/apps/details?id=com.eldestro5000.buffalocosolitaire). Add screenshots or
+     ratings only if they are real. */
 
   @font-face {
     font-family: 'Anton';
@@ -200,6 +198,15 @@
     color: var(--text-muted);
   }
   .chips a.email { border-color: rgba(63, 224, 216, .4); color: var(--teal); }
+  .chips a.store { border-color: rgba(255, 206, 92, .5); color: var(--gold); }
+  .chips a.store:hover { color: #fff; border-color: var(--gold); }
+  .store-cta { margin: 6px 0 22px; }
+  .store-cta a {
+    display: inline-block; padding: 14px 22px; border-radius: 8px;
+    border: 1px solid rgba(255, 206, 92, .55); color: var(--gold);
+    font-family: var(--mono); font-size: 14px; letter-spacing: .16em; text-transform: uppercase;
+  }
+  .store-cta a:hover { color: #fff; border-color: var(--gold); }
   .copyright {
     margin: 0;
     font-family: var(--mono); font-size: 13px; letter-spacing: .16em; color: #6f6490;
@@ -268,6 +275,8 @@
 
     <p>Come back for a fresh challenge every day, keep your streak alive, and fill the collection album one win at a time. Feeling flush? Vegas Stakes puts your coins on the table. No account and no sign-up; your progress is saved on your device.</p>
 
+    <p class="store-cta"><a href="https://play.google.com/store/apps/details?id=com.eldestro5000.buffalocosolitaire" rel="noopener">Get Buffalo &amp; Co. Solitaire on Google Play &#9656;</a></p>
+
     <p class="legal">Privacy: <a href="privacy/">Buffalo &amp; Co. Solitaire privacy policy</a></p>
   </main>
 
@@ -277,9 +286,8 @@
         <span class="diamond" aria-hidden="true"></span>
         <span>EL DESTRO 5000</span>
       </a>
-      <!-- No store badges. The game is not live on the App Store or Google Play yet; a badge
-           linking nowhere is worse than no badge. Add both when the listings go public. -->
       <div class="chips">
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.eldestro5000.buffalocosolitaire" rel="noopener">GET IT ON GOOGLE PLAY</a>
         <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
         <a href="privacy/">PRIVACY POLICY</a>
       </div>
