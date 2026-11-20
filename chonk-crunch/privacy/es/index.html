@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad — Chonk Crunch | El Destro 5000</title>
+<meta name="description" content="La política de privacidad de Chonk Crunch. Datos de juego y de fallos vinculados a un ID aleatorio, más registros de compras dentro de la app — sin nombre, correo electrónico ni ubicación, y la analítica se puede desactivar o borrar desde el juego.">
+<meta name="robots" content="index,follow">
+<style>
+  /* Chonk Crunch privacy policy — retro-arcade / synthwave, matching eldestro5000.com.
+     Rebuilt from files/legal/design_handoff_privacy_policy/ for production: no design-tool
+     runtime, no inline styles, reduced-motion honoured, responsive at 720px.
+
+     FONTS ARE SELF-HOSTED, DELIBERATELY. The design reference loaded these from
+     fonts.googleapis.com, which would send every visitor's IP address to Google on the very
+     page that tells them we share data with nobody but our processor. Serving them from our
+     own origin makes this page load ZERO third-party requests, so reading the policy is not
+     itself a disclosure. All three families are OFL 1.1; licenses ship in fonts/.
+     Latin subsets, ~84 KB total. DM Sans and JetBrains Mono are variable fonts, so one file
+     each covers every weight used here. */
+
+  @font-face {
+    font-family: 'Anton';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/anton-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/500/700 */
+    font-display: swap;
+    src: url('../fonts/dm-sans-var-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400 700;          /* variable: one file covers 400/700 */
+    font-display: swap;
+    src: url('../fonts/jetbrains-mono-var-latin.woff2') format('woff2');
+  }
+
+  :root {
+    --bg: #080510;
+    --surface: #140c1f;
+    --text: #e8e2f2;
+    --text-muted: #c9c1dc;
+    --text-dim: #9d93b5;
+    --text-faint: #7f7595;
+    --teal: #2ce8c8;
+    --pink: #ff3d6e;
+    --amber: #ffb03d;
+    --hairline: rgba(255, 255, 255, .07);
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration: none; transition: color 120ms ease; }
+  a:hover { color: var(--pink); }
+
+  /* Keyboard users must be able to see where they are — the design specifies no focus
+     style, but shipping a legal page without one is an accessibility regression. */
+  a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
+
+  .diamond {
+    width: 13px; height: 13px;
+    background: var(--pink);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 0 14px rgba(255, 61, 110, .9);
+    flex: none;
+  }
+
+  .wordmark {
+    display: flex; align-items: center; gap: 14px;
+    color: #fff;
+  }
+  .wordmark span:last-child {
+    font-family: var(--mono);
+    font-weight: 700; font-size: 15px; letter-spacing: .22em;
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding: 18px 40px;
+    background: rgba(8, 5, 16, .82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .site-nav {
+    display: flex; align-items: center; gap: 34px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .18em;
+  }
+  .site-nav a { color: var(--text-dim); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 20px;
+    border: 1px solid var(--teal); border-radius: 6px;
+    color: var(--teal) !important;
+    box-shadow: inset 0 0 18px rgba(44, 232, 200, .18);
+  }
+  .nav-cta::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--teal); box-shadow: 0 0 10px var(--teal);
+  }
+
+  /* ── Hero ───────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 96px 40px 120px; text-align: center;
+  }
+  .hero-grid, .hero-glow, .hero-scan { position: absolute; pointer-events: none; }
+  .hero-grid {
+    inset: auto 0 0 0; height: 340px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .55) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .45) 1px, transparent 1px);
+    background-size: 100% 34px, 4.2% 100%;
+    transform: perspective(340px) rotateX(72deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+    mask-image: linear-gradient(to top, #000 5%, transparent 92%);
+  }
+  .hero-glow {
+    left: 50%; top: -160px; width: 900px; height: 520px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 61, 110, .22), transparent 72%);
+  }
+  .hero-scan {
+    inset: 0; opacity: .6;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .28) 0 1px, transparent 1px 4px);
+    animation: edscan 6s linear infinite;
+  }
+  @keyframes edscan { from { background-position: 0 0; } to { background-position: 0 4px; } }
+
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    margin: 0 0 22px;
+    font-family: var(--mono); font-size: 14px; letter-spacing: .28em;
+    color: var(--teal);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(48px, 9vw, 116px); line-height: .94; letter-spacing: .01em;
+    text-transform: uppercase;
+    background: linear-gradient(#fff6e6 8%, var(--amber) 46%, var(--pink) 96%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 34px rgba(255, 61, 110, .45));
+  }
+  .hero-meta {
+    margin: 26px 0 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .24em;
+    color: var(--text-dim);
+  }
+
+  /* ── Body ───────────────────────────────────────────────────────────── */
+  main { position: relative; max-width: 860px; margin: 0 auto; padding: 0 32px 120px; }
+
+  .summary {
+    position: relative;
+    border: 1px solid rgba(44, 232, 200, .28); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(44, 232, 200, .07), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+    box-shadow: 0 0 60px rgba(44, 232, 200, .07);
+  }
+  .summary p { margin: 0 0 14px; }
+  .summary p:last-child { margin-bottom: 0; }
+  .label {
+    margin: 0 0 18px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--teal);
+  }
+  strong { color: #fff; font-weight: 700; }
+  .setting { color: var(--amber); }
+
+  .policy-section { margin-top: 64px; }
+  .policy-section > p { color: var(--text-muted); margin: 0 0 14px; }
+  .policy-section > p:last-child { margin-bottom: 0; }
+  .policy-section > ul { color: var(--text-muted); margin: 0 0 14px; padding-left: 1.3em; }
+  .policy-section > ul > li { margin-bottom: 8px; }
+  .num {
+    margin: 0 0 10px !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em;
+    color: var(--pink) !important;
+  }
+  h2 {
+    margin: 0 0 18px;
+    font-family: var(--display); font-weight: 400;
+    font-size: 34px; line-height: 1.1; letter-spacing: .02em;
+    text-transform: uppercase; color: #fff;
+  }
+  h3 {
+    margin: 38px 0 14px;
+    font-family: var(--mono); font-weight: 400;
+    font-size: 14px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  code {
+    font-family: var(--mono); font-size: 14px;
+    color: var(--teal);
+    background: rgba(44, 232, 200, .09);
+    border: 1px solid rgba(44, 232, 200, .22);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  .cards { display: grid; gap: 14px; margin-top: 26px; }
+  .card {
+    display: grid; gap: 8px;
+    border: 1px solid rgba(255, 255, 255, .09); border-radius: 12px;
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .card p { margin: 0; }
+  .card-title { font-family: var(--mono); font-size: 12px; letter-spacing: .2em; color: var(--amber); }
+  .card-example { color: var(--text); }
+  .card-why { color: var(--text-dim); font-size: 15px; }
+
+  .rights { display: grid; gap: 12px; }
+  .right { border-left: 2px solid var(--teal); padding: 4px 0 4px 18px; }
+  .right p { margin: 0; color: var(--text-muted); }
+  .right strong {
+    color: var(--teal);
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .contact {
+    margin-top: 64px;
+    border: 1px solid rgba(255, 61, 110, .32); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 61, 110, .09), rgba(20, 12, 31, .9));
+    padding: 34px 36px;
+  }
+  .contact > p { color: var(--text-muted); margin: 0 0 18px; }
+  .mailto-chip {
+    display: inline-block;
+    font-family: var(--mono); font-size: 15px; letter-spacing: .1em;
+    padding: 14px 22px;
+    border: 1px solid rgba(44, 232, 200, .5); border-radius: 8px;
+    background: rgba(44, 232, 200, .06);
+  }
+  .contact-org {
+    margin: 20px 0 0 !important;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-dim) !important;
+  }
+  .colophon {
+    margin: 56px 0 0; padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: var(--text-faint); font-size: 15px;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  .site-footer {
+    position: relative; overflow: hidden;
+    padding: 56px 40px 44px;
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-grid {
+    position: absolute; pointer-events: none;
+    inset: auto 0 -40px 0; height: 220px;
+    background-image:
+      linear-gradient(rgba(255, 61, 110, .28) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 232, 200, .22) 1px, transparent 1px);
+    background-size: 100% 30px, 5% 100%;
+    transform: perspective(300px) rotateX(74deg);
+    transform-origin: bottom center;
+    -webkit-mask-image: linear-gradient(to top, #000, transparent 85%);
+    mask-image: linear-gradient(to top, #000, transparent 85%);
+  }
+  .footer-row {
+    position: relative;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; max-width: 1400px; margin: 0 auto;
+  }
+  .footer-row .diamond { width: 12px; height: 12px; }
+  .footer-row .wordmark { gap: 12px; }
+  .footer-row .wordmark span:last-child { font-size: 14px; }
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+  }
+  .chips a { padding: 11px 18px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 6px; color: var(--text-muted); }
+  .chips a.email { border-color: rgba(44, 232, 200, .4); color: var(--teal); }
+  .copyright {
+    margin: 0;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+    color: var(--text-faint);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .site-header { padding: 16px 20px; gap: 16px; }
+    .site-nav { gap: 18px; font-size: 12px; }
+    .site-nav .hide-sm { display: none; }   /* STUDIO / CREW collapse; CTA stays */
+    .hero { padding: 64px 20px 88px; }
+    main { padding: 0 20px 88px; }
+    .summary, .contact { padding: 26px 22px; }
+    .card { padding: 20px 20px; }
+    h2 { font-size: 30px; }
+    .site-footer { padding: 44px 20px 36px; }
+    .footer-row { justify-content: flex-start; }
+  }
+
+  /* The scanline overlay animates continuously; honour a reduced-motion preference.
+     Specified as a production requirement in the handoff README. */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scan { animation: none; }
+    * { transition: none !important; }
+  }
+
+  /* Legal text must survive being printed or saved to PDF. */
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    .site-header, .site-footer, .hero-grid, .hero-glow, .hero-scan { display: none; }
+    .hero { padding: 0 0 24px; text-align: left; }
+    h1 { color: #000; background: none; -webkit-text-fill-color: #000; filter: none; font-size: 32pt; }
+    h2, strong { color: #000; }
+    .policy-section > p, .policy-section > ul, .card-example, .card-why, .right p, .contact > p { color: #000; }
+    .num, .label, .eyebrow, h3, .card-title { color: #444; }
+    a { color: #000; text-decoration: underline; }
+    .summary, .card, .contact { border: 1px solid #999; background: none; box-shadow: none; }
+    main { max-width: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="https://eldestro5000.com/">
+      <span class="diamond" aria-hidden="true"></span>
+      <span>EL DESTRO 5000</span>
+    </a>
+    <nav class="site-nav">
+      <a class="hide-sm" href="https://eldestro5000.com/#studio">ESTUDIO</a>
+      <a class="hide-sm" href="https://eldestro5000.com/#crew">EQUIPO</a>
+      <!-- JOIN THE LIST removed 2026-08-09. Its #list anchor does not exist, and the signup it
+           would point to (in SECTION#coin) is a non-functional mockup: the form's onsubmit is an
+           unfilled "{{ onSubmit }}" template placeholder and its email input has no name attribute,
+           so the browser sends nothing. Routing users from the page that asks them to trust us to a
+           form that silently discards their address is worse than having no CTA. Restore this once
+           the signup actually works, pointing at whatever the real destination turns out to be. -->
+      <a href="../" hreflang="en" lang="en">READ IN ENGLISH</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scan" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">&gt; TERMINAL_LEGAL</p>
+      <h1>Política de privacidad</h1>
+      <p class="hero-meta">CHONK CRUNCH &middot; VIGENTE DESDE EL 8 DE NOVIEMBRE DE 2026 &middot; ACTUALIZADA EL 8 DE NOVIEMBRE DE 2026</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div class="summary">
+      <p class="label">&gt; LA_VERSIÓN_CORTA</p>
+      <p>Chonk Crunch recopila información de juego y de fallos, vinculada a un ID aleatorio y no a ti, para que podamos corregir errores y entender qué partes del juego disfruta la gente, y guarda registros de las compras dentro de la app para que puedan entregarse y protegerse. Si tienes la analítica activada, también se envía un registro de cada compra a un servicio de analítica de compras.</p>
+      <p>A los jugadores de 13 años o más, el juego puede mostrarles anuncios, y nuestros socios publicitarios recopilan información como el ID de publicidad de tu dispositivo para ofrecerlos.</p>
+      <p><strong>No</strong> te pedimos tu nombre, correo electrónico, número de teléfono ni ubicación, y no hay ninguna cuenta en la que iniciar sesión. <strong>No</strong> vendemos tu información a cambio de dinero. Algunas leyes estatales de EE.&nbsp;UU. consideran que permitir que los socios publicitarios usen tu ID de publicidad es &ldquo;vender&rdquo; o &ldquo;compartir&rdquo; ese dato; puedes excluirte de eso en el juego (consulta <em>Con quién se comparte tu información</em>).</p>
+      <p>El juego pregunta el año de nacimiento a cada jugador la primera vez que se inicia. A los niños nunca se les muestran anuncios ni se les aplica analítica, y en el Espacio Económico Europeo y el Reino Unido la analítica solo funciona con tu consentimiento. Puedes desactivar la analítica en cualquier momento en <strong class="setting">Ajustes &rsaquo; Analítica</strong>, dentro del juego.</p>
+    </div>
+
+    <section class="policy-section">
+      <p class="num">01</p>
+      <h2>Quiénes somos</h2>
+      <p>Chonk Crunch es un juego publicado por <strong>El Destro 5000</strong>. Esta política abarca el juego para móviles Chonk Crunch en iOS y Android (identificador de aplicación <code>com.eldestro5000.chonkcrunch</code>).</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">02</p>
+      <h2>Qué recopilamos</h2>
+      <p>La información de juego, de fallos y del dispositivo se recopila a través de Google Firebase (Analytics, Crashlytics y Remote Config), que actúa como nuestro encargado del tratamiento de datos. Los registros de compras los guarda nuestro servidor de verificación de compras, que también funciona en Google Firebase. Si tienes la analítica activada, los registros de tus compras en Android también se envían a RevenueCat, que actúa como nuestro encargado del tratamiento de datos para la analítica de compras.</p>
+
+      <div class="cards">
+        <div class="card">
+          <p class="card-title">EVENTOS DE JUEGO</p>
+          <p class="card-example">Una jugada que empezó o terminó, un puntaje, una fusión, un caf&eacute; desbloqueado, un paso del tutorial completado, una compra realizada (qué producto, más un código corto con hash para poder relacionar entre sí los eventos de una misma compra).</p>
+          <p class="card-why">Para qué: para entender qué partes del juego se disfrutan, cuáles son demasiado difíciles o cuáles nunca se ven.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">UN ID DE ANALÍTICA</p>
+          <p class="card-example">El ID de instancia de la app de Firebase, que se recopila solo mientras tienes la analítica activada (consulta <em>Cómo desactivar la analítica</em>).</p>
+          <p class="card-why">Para qué: para poder agrupar los eventos de una misma instalación.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">REGISTROS DE COMPRAS DENTRO DE LA APP</p>
+          <p class="card-example">El producto, el token de compra de la tienda y un ID de instalación aleatorio que crea la app.</p>
+          <p class="card-why">Para qué: para entregar y restaurar compras y para prevenir fraudes &mdash; consulta <em>Compras dentro de la app</em>.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">DATOS DE FALLOS Y DE RENDIMIENTO</p>
+          <p class="card-example">El punto del código donde ocurrió un fallo, y contexto de diagnóstico.</p>
+          <p class="card-why">Para qué: para encontrar y corregir fallos.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">INFORMACIÓN BÁSICA DEL DISPOSITIVO Y DE LA APP</p>
+          <p class="card-example">Modelo del dispositivo, versión del sistema operativo, versión de la app, idioma.</p>
+          <p class="card-why">Para qué: para reproducir errores y saber qué dispositivos admitir.</p>
+        </div>
+        <div class="card">
+          <p class="card-title">SOLICITUDES DE CONFIGURACIÓN DEL JUEGO</p>
+          <p class="card-example">Una vez que respondes la pregunta de edad, el juego descarga su configuración actual (por ejemplo, qué tamaños de gato usar) desde Firebase Remote Config. La solicitud lleva un identificador de instalación aleatorio creado por Firebase, más datos básicos del dispositivo y de la app. Se hace para cada jugador que haya respondido, sea cual sea su elección sobre la analítica, y no contiene eventos de juego. Antes de que respondas, el juego no envía nada a los servicios de analítica, de informes de fallos ni de configuración.</p>
+          <p class="card-why">Para qué: para poder ajustar el juego sin publicar una actualización. Nunca se usa para publicidad ni para crear un perfil.</p>
+        </div>
+      </div>
+
+      <h3>Identificadores que usamos</h3>
+      <div class="rights">
+        <div class="right">
+          <p>El ID de instancia de la app de Firebase, que Google Analytics recopila solo mientras tienes la analítica activada &mdash; consulta <em>Cómo desactivar la analítica</em>.</p>
+        </div>
+        <div class="right">
+          <p>Un identificador de instalación aleatorio creado por Firebase (un ID de instalación de Firebase), que se envía con la solicitud de configuración del juego a Firebase Remote Config una vez respondida la pregunta de edad &mdash; consulta <em>Solicitudes de configuración del juego</em> más arriba. No se usa para analítica ni para publicidad.</p>
+        </div>
+        <div class="right">
+          <p>Un identificador de instalación aleatorio creado por Firebase Crashlytics (un ID de instalación de Crashlytics), que se envía con los informes de fallos, los cuales empiezan solo una vez respondida la pregunta de edad &mdash; consulta <em>Cómo desactivar la analítica</em>. No se usa para analítica ni para publicidad.</p>
+        </div>
+        <div class="right">
+          <p>Un ID de instalación aleatorio creado por la app, que se envía a nuestro servidor de verificación de compras cuando se inicia la app y con cada compra, para entregar y proteger las compras. Si tienes la analítica activada, nuestro servidor también se lo pasa a RevenueCat con cada compra en Android &mdash; consulta <em>Compras dentro de la app</em>.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px;">Ninguno de ellos es un ID de publicidad &mdash; ninguno es el identificador de publicidad de tu dispositivo (el ID de publicidad de Android o el IDFA de Apple), y ninguno puede usarse para reconocerte en otras apps.</p>
+      <p>El juego sí tiene permiso para leer el ID de publicidad de Android, pero solo lo usan nuestros socios publicitarios, y solo para jugadores de 13 años o más &mdash; consulta <em>Publicidad</em> más abajo. Nunca se agrega a nuestra analítica.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">03</p>
+      <h2>Qué no recopilamos</h2>
+      <p>No recopilamos tu nombre, dirección de correo electrónico, número de teléfono, dirección postal, ubicación precisa o aproximada, contactos, fotos, entrada de micrófono o de cámara, ni los datos de tu tarjeta de pago o de facturación &mdash; el pago lo cobra la tienda de apps (consulta <em>Compras dentro de la app</em>). (Para los jugadores de 13 años o más, nuestros socios publicitarios pueden estimar una ubicación general a partir de tu dirección IP &mdash; consulta <em>Publicidad</em>).</p>
+      <p>Esto lo garantiza el propio código del juego, no solo la política: antes de enviar cualquier evento, se comprueba contra una lista de campos prohibidos &mdash; entre ellos nombre, correo electrónico, teléfono, dirección, ubicación, dirección IP y cualquier identificador de publicidad. <strong style="color:#ff3d6e;">Si un evento contiene alguno de esos campos, se descarta y nunca se envía.</strong></p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">04</p>
+      <h2>Compras dentro de la app</h2>
+      <p>Las compras se hacen a través de la tienda de apps desde la que descargaste el juego &mdash; Google Play en Android, el App Store en iOS. La tienda cobra el pago y gestiona los datos de tu tarjeta y de facturación según su propia política de privacidad. Nosotros nunca los recibimos.</p>
+      <p>Cuando compras algo, la tienda le da al juego un registro de la compra. El juego lo envía a nuestro servidor de verificación de compras, que le pregunta a la tienda si la compra es auténtica antes de que el juego te entregue lo que compraste. Nuestro servidor guarda:</p>
+      <ul>
+        <li>el producto comprado, y si es un desbloqueo único o algo que se consume, como una lata de pescado;</li>
+        <li>el identificador de la compra de la tienda (en Google Play, su token de compra);</li>
+        <li>el ID de instalación aleatorio descrito en <em>Qué recopilamos</em>;</li>
+        <li>cuándo se verificó la compra por primera vez, la respuesta de la tienda (incluido si fue una compra de prueba), y si el artículo se entregó y cómo;</li>
+        <li>si la tienda nos ha informado después que la compra fue reembolsada, cancelada o sujeta a un contracargo, y, en ese caso, cuándo y el código de motivo de la tienda.</li>
+      </ul>
+      <p>El juego también guarda una lista de lo que has comprado en su partida guardada, en tu dispositivo.</p>
+      <p><strong>Para qué:</strong> para entregarte lo que pagaste, para restaurar tus desbloqueos únicos, para evitar que una misma compra se reclame dos veces y, en Android, para retirar un artículo cuando Google Play reembolsa su compra. Donde se aplica la legislación europea de protección de datos, nos basamos en nuestro contrato contigo para entregar las compras, y en nuestro interés legítimo en prevenir fraudes.</p>
+      <p><strong>Analítica de compras:</strong> si tienes la analítica activada cuando compras algo en Android (consulta <em>Cómo desactivar la analítica</em>), nuestro servidor también le envía a <strong>RevenueCat</strong> el producto, el identificador de la compra de la tienda y el ID de instalación aleatorio. RevenueCat verifica la compra con Google Play y nos da informes sobre las compras &mdash; por ejemplo, cuántas unidades de cada producto se venden y con qué frecuencia un jugador vuelve a comprar. Nunca recibe tus datos de pago. Si tienes la analítica desactivada, o tienes menos de 13 años o no nos has dicho tu edad, no se envía nada a RevenueCat. Donde se aplica la legislación europea de protección de datos, para esto nos basamos en tu consentimiento a la analítica.</p>
+      <p><strong>Restaurar compras:</strong> en Android, cada vez que se inicia el juego, le pregunta a Google Play qué desbloqueos únicos tiene tu cuenta de Google y te devuelve los que falten &mdash; por ejemplo, después de reinstalar o en un dispositivo nuevo. Los artículos que se consumen, como el pescado y las madejas, no se restauran.</p>
+      <p><strong>Conservación y eliminación:</strong> los registros de los artículos que se consumen se eliminan 12 meses después de la compra; los registros de los desbloqueos únicos se conservan para poder restaurarlos (consulta <em>Dónde se procesa la información y cuánto tiempo la conservamos</em>). <strong class="setting">Borrar mis datos</strong> no los elimina, porque son lo que nos permite restaurar tus desbloqueos y reconocer una compra reembolsada (sí elimina la copia de RevenueCat &mdash; consulta <em>Cómo borrar tus datos</em>). Un padre, una madre o un tutor puede pedirnos que eliminemos los registros de compras de un niño: envíanos el número de pedido del correo electrónico de recibo de la tienda.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">05</p>
+      <h2>Cómo desactivar la analítica</h2>
+      <p>Que la analítica funcione o no depende de tu edad y de dónde estés:</p>
+      <ul>
+        <li><strong>En el Espacio Económico Europeo y el Reino Unido</strong>, la analítica funciona solo si tienes la edad de consentimiento para servicios en línea de tu país o más (entre 13 y 16 años, según el país) <em>y</em> la aceptas en el formulario de consentimiento de Google. Puedes cambiar esa elección en cualquier momento en <strong class="setting">Ajustes &rsaquo; Privacidad</strong>.</li>
+        <li><strong>En el resto del mundo</strong>, la analítica está activada de forma predeterminada para los jugadores de 13 años o más (en Android, una vez que la verificación de consentimiento de Google ha confirmado que estás fuera del Espacio Económico Europeo y el Reino Unido).</li>
+        <li><strong>Los niños menores de 13 años</strong>, y los jugadores que todavía no nos han dicho su año de nacimiento, no tienen analítica en ningún lugar.</li>
+      </ul>
+      <p>Determinamos dónde estás a partir de los propios ajustes de tu dispositivo &mdash; su tarjeta SIM, su red móvil o su región &mdash; y de la verificación de consentimiento de Google, no a partir de tu ubicación precisa.</p>
+      <p>Dondequiera que esté activada, puedes desactivarla en cualquier momento en <strong class="setting">Ajustes &rsaquo; Analítica</strong>. Cuando la analítica está desactivada, los eventos se descartan dentro del juego antes de registrarse o ponerse en cola &mdash; no se guarda nada en tu dispositivo a la espera de enviarse, y no se transmite ninguna analítica. El ajuste se aplica de inmediato y se mantiene entre sesiones. Las compras que hagas con la analítica desactivada no se informan a RevenueCat. Una vez que has respondido la pregunta de edad, el juego sigue descargando su configuración desde Firebase Remote Config, como se describe en <em>Qué recopilamos</em>; con esa solicitud no se envía ningún evento de juego.</p>
+      <p>Los informes de fallos siguen activados cuando la analítica está desactivada, para que podamos seguir corrigiendo fallos que de otro modo harían que el juego no se pudiera jugar. Empiezan solo una vez que has respondido la pregunta de edad: no recopilamos informes de fallos de los jugadores que no nos han dicho su edad, en ningún lugar, ni de los jugadores del Espacio Económico Europeo y el Reino Unido que estén por debajo de la edad de consentimiento de su país.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">06</p>
+      <h2>Cómo borrar tus datos</h2>
+      <p>Puedes pedirnos en cualquier momento que borremos los datos de analítica vinculados a tu dispositivo. En Chonk Crunch, abre Ajustes, elige <strong class="setting">Borrar mis datos</strong> y mantén presionado el botón durante dos segundos. Entonces le pedimos a Google que borre el historial de Google Analytics de tu dispositivo, y la app cambia a un nuevo ID de analítica que no está vinculado al historial anterior. También le pedimos a RevenueCat que elimine la información de compras que tiene de tu instalación; si no se puede contactar con RevenueCat, seguimos reintentándolo una vez al día durante un tiempo limitado, nunca más de 30 días. Tu progreso en el juego se guarda solo en tu dispositivo y no se ve afectado.</p>
+      <p>Borrar mis datos no elimina nuestros propios registros de compras &mdash; consulta <em>Compras dentro de la app</em>. Los informes de fallos se eliminan automáticamente después de 90 días. Para detener por completo la recopilación de analítica, desactiva <strong class="setting">Ajustes &rsaquo; Analítica</strong>.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">07</p>
+      <h2>Información guardada solo en tu dispositivo</h2>
+      <p>Tu progreso en el juego y tus ajustes &mdash; puntaje, contenido desbloqueado, volumen, vibración y tu elección sobre la analítica &mdash; se guardan localmente en tu dispositivo. No se suben a nuestros servidores. Al desinstalar el juego se eliminan, a menos que la copia de seguridad de tu propio dispositivo restaure parte de ellos cuando lo reinstales (en Android, la copia de seguridad automática de apps de Google, si la tienes activada). Esa copia de seguridad también puede contener el ID de instalación aleatorio que se usa para las compras.</p>
+      <p>Si permites las notificaciones, los recordatorios los programa tu propio dispositivo. No enviamos mensajes push desde un servidor, y ningún dato de notificaciones sale de tu dispositivo.</p>
+      <p>Si usas el botón de compartir para guardar una captura de pantalla, la imagen la escribe en tu galería de fotos el propio menú para compartir de tu dispositivo. El juego no lee tu galería de fotos.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">08</p>
+      <h2>Con quién se comparte tu información</h2>
+      <p>Compartimos la información descrita arriba con <strong>Google</strong>, que nos proporciona, en nuestro nombre, Firebase Analytics, Firebase Crashlytics, Firebase Remote Config y el alojamiento de nuestro servidor de verificación de compras. Consulta <a href="https://firebase.google.com/support/privacy" rel="noopener">la información de privacidad de Firebase</a> y <a href="https://policies.google.com/privacy" rel="noopener">la política de privacidad de Google</a>.</p>
+      <p>Si tienes la analítica activada, nuestro servidor le envía a <strong>RevenueCat, Inc.</strong> el registro de cada compra en Android descrito en <em>Compras dentro de la app</em>; RevenueCat lo procesa en nuestro nombre para elaborar informes de compras para nosotros. Consulta <a href="https://www.revenuecat.com/privacy" rel="noopener">la política de privacidad de RevenueCat</a>.</p>
+      <p>Cuando haces una compra en Android, nuestro servidor le envía a <strong>Google Play</strong> el identificador de la compra y el producto, para verificar que es auténtica y para avisarle a Google que se ha entregado; una vez al día también le pide a Google Play su lista de compras reembolsadas. En iOS, normalmente una compra se verifica a partir del registro firmado de <strong>Apple</strong> sin contactar con Apple; si falta ese registro, nuestro servidor se lo pide a Apple mediante su identificador de transacción. No enviamos nada más a las tiendas.</p>
+      <p>Para los jugadores de 13 años o más, los socios publicitarios nombrados en <em>Publicidad</em> reciben la información descrita allí, que usan para ofrecer anuncios.</p>
+      <p><strong>No</strong> vendemos tu información a cambio de dinero ni la compartimos con intermediarios de datos (data brokers). Según algunas leyes estatales de EE.&nbsp;UU., permitir que los socios publicitarios usen tu ID de publicidad para anuncios personalizados puede considerarse &ldquo;vender&rdquo; o &ldquo;compartir&rdquo; ese dato. Si vives en un estado de EE.&nbsp;UU. que te da este derecho, puedes excluirte en el juego: abre Ajustes &rsaquo; Privacidad y elige &ldquo;No vender ni compartir mis datos&rdquo;. El juego transmite tu elección a nuestros socios publicitarios de inmediato, y puedes cambiarla allí en cualquier momento. También puedes limitar esto con los controles de anuncios de tu propio dispositivo &mdash; restableciendo o eliminando tu ID de publicidad, o desactivando los anuncios personalizados &mdash;, como se describe en <em>Publicidad</em>. Podemos divulgar información si la ley nos lo exige.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">09</p>
+      <h2>Publicidad</h2>
+      <p>Chonk Crunch puede mostrar anuncios: videos cortos que eliges ver a cambio de un premio, anuncios entre jugadas y un banner. Se ofrecen a través de Unity LevelPlay, que elige un anuncio de entre nuestros socios publicitarios &mdash; ironSource Ads, Unity Ads y Google AdMob.</p>
+      <p>Para mostrar, medir y limitar los anuncios, y para prevenir el fraude publicitario, estos socios recopilan el identificador de publicidad de tu dispositivo (en Android, el ID de publicidad de Android y el ID del conjunto de apps), tu dirección IP, a partir de la cual pueden estimar tu ubicación general, información básica del dispositivo y de la app, como el modelo, el sistema operativo y el idioma, información de diagnóstico sobre el rendimiento de los anuncios, y cómo interactúas con los anuncios. Cuando la ley exige tu consentimiento &mdash; por ejemplo, en el Espacio Económico Europeo y el Reino Unido &mdash;, el juego te lo pide mediante el formulario de consentimiento de Google antes de que se cargue cualquier anuncio, y puedes cambiar tu elección en cualquier momento en <strong class="setting">Ajustes &rsaquo; Privacidad</strong>.</p>
+      <p>A los jugadores menores de 13 años, y a los jugadores que no nos han dicho su edad, nunca se les muestra un anuncio: el software de anuncios nunca se inicia para ellos, así que ni este ni nuestros socios reciben su identificador de publicidad.</p>
+      <p>También puedes restablecer o eliminar tu ID de publicidad, o desactivar los anuncios personalizados, en los ajustes de tu dispositivo (en la mayoría de los teléfonos Android, en <strong class="setting">Privacidad &rsaquo; Anuncios</strong>). La política de privacidad de cada socio explica qué hace con esta información: <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Unity (LevelPlay, ironSource Ads y Unity Ads)</a> y <a href="https://policies.google.com/technologies/ads" rel="noopener">Google AdMob</a>.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">10</p>
+      <h2>Dónde se procesa la información y cuánto tiempo la conservamos</h2>
+      <p>Firebase procesa los datos en los servidores de Google, y RevenueCat en servidores de los Estados Unidos; cualquiera de ellos puede estar fuera de tu país. Conservamos cada tipo de información solo mientras su finalidad lo requiera:</p>
+      <ul>
+        <li><strong>Los datos de analítica</strong> se conservan según nuestra configuración de Firebase y se eliminan automáticamente cuando termina ese plazo.</li>
+        <li><strong>Los informes de fallos</strong> se eliminan automáticamente después de 90 días.</li>
+        <li><strong>Registros de compras:</strong> el registro que lleva nuestro servidor de la verificación de cada compra se elimina automáticamente 12 meses después de que la compra se verificó por primera vez. Los registros de los artículos que se consumen, como el pescado y las madejas, se eliminan en el mismo plazo, junto con el identificador de la compra de la tienda (en Google Play, su token de compra). Para los desbloqueos únicos conservamos el registro, incluido el identificador de la tienda, mientras ofrezcamos el juego, porque es lo que permite que una reinstalación restaure el desbloqueo sin otorgar la compra dos veces. La eliminación se ejecuta automáticamente y puede tardar uno o dos días después de los 12 meses.</li>
+        <li><strong>Analítica de compras:</strong> RevenueCat conserva la información de compras que le envió nuestro servidor hasta que uses Borrar mis datos, o hasta que nosotros la eliminemos.</li>
+        <li><strong>Registros de solicitudes al servidor:</strong> cuando el juego contacta con nuestro servidor de verificación de compras o con el de Borrar mis datos, Google Cloud registra la solicitud, incluidas tu dirección IP y la identificación del navegador o de la app de tu dispositivo (user agent), para la resolución de problemas y la seguridad. Estos registros se eliminan automáticamente después de 30 días.</li>
+        <li><strong>Solicitudes de eliminación:</strong> cuando usas Borrar mis datos, guardamos un registro de la solicitud &mdash; cuándo se hizo, cuándo se la pasamos a Google y su estado &mdash; archivado bajo una forma codificada (con hash) de tu antiguo ID de analítica. Conservamos el registro de cada solicitud durante 24 meses después de esa solicitud; si se ha alcanzado el límite diario de Google de solicitudes de eliminación, conservamos el propio ID de analítica solo hasta que podamos transmitir la solicitud, y durante no más de unos 30 días &mdash; si para entonces el límite de Google no lo ha permitido, eliminamos el ID y la solicitud no se transmite.</li>
+        <li><strong>El progreso en el juego, los ajustes y tu año de nacimiento</strong> permanecen en tu dispositivo hasta que desinstales el juego.</li>
+      </ul>
+      <p>La información se transmite mediante conexiones cifradas (HTTPS/TLS).</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">11</p>
+      <h2>Niños</h2>
+      <p>Chonk Crunch no tiene chat ni otras funciones de comunicación, ni funciones sociales. Cuando el juego se inicia por primera vez, le pide a cada jugador su año de nacimiento, sin sugerir una respuesta, y guarda solo ese año, en el dispositivo (y en la copia de seguridad del propio dispositivo, si usas una). Nunca se nos envía.</p>
+      <p>Antes de que respondas la pregunta de edad, el juego no envía nada a los servicios de analítica, de informes de fallos ni de configuración.</p>
+      <p><strong>Los jugadores menores de 13 años, y los jugadores que no han respondido</strong>, se tratan como niños:</p>
+      <ul>
+        <li>Nunca se les muestran anuncios, y el software de anuncios nunca se inicia para ellos, así que ni este ni nuestros socios reciben su identificador de publicidad.</li>
+        <li>No se recopila analítica de ellos, y sus compras nunca se informan a RevenueCat.</li>
+        <li>Como todos los jugadores, envían el ID de instalación aleatorio descrito en <em>Qué recopilamos</em> a nuestro servidor de verificación de compras cuando se inicia el juego, para que las compras puedan entregarse; si se hace una compra, su registro se guarda como se describe allí.</li>
+        <li>En el Espacio Económico Europeo y el Reino Unido, no se recopilan informes de fallos de ellos. Lo mismo se aplica a los jugadores de allí que estén por debajo de la edad de consentimiento para servicios en línea de su país. Una vez que han respondido la pregunta de edad, el juego descarga su configuración desde Firebase Remote Config, como para todo jugador que haya respondido (consulta <em>Solicitudes de configuración del juego</em>). (Determinamos dónde está un jugador a partir de los propios ajustes del dispositivo, como se describe en <em>Cómo desactivar la analítica</em>).</li>
+      </ul>
+      <p>De los niños menores de 13 años (fuera del Espacio Económico Europeo y el Reino Unido), recopilamos solo lo necesario para que el juego siga funcionando: informes de fallos mediante Firebase Crashlytics, y la configuración del juego desde Firebase Remote Config. Estos usan identificadores aleatorios creados por Firebase (un ID de instalación de Firebase y un ID de instalación de Crashlytics), junto con el modelo del dispositivo, el sistema operativo y la versión de la app, y la dirección IP de tu dispositivo, que lleva cualquier solicitud por internet. Los usamos solo para encontrar y corregir fallos y para entregar la configuración del juego. Nunca se usan para publicidad, para crear un perfil de un niño ni para contactar a nadie: los niños no tienen analítica y nunca se les muestran anuncios, y Google procesa estos datos para nosotros solo según nuestras instrucciones. Los informes de fallos se eliminan después de 90 días.</p>
+      <p><strong>Cuánto tiempo conservamos la información de los niños:</strong> los informes de fallos se eliminan automáticamente después de 90 días. El año de nacimiento permanece en el dispositivo (y en su propia copia de seguridad, si usas una) hasta que se desinstala el juego. Los registros de compras se conservan igual que para todos los jugadores: 12 meses para los artículos que se consumen, y mientras ofrezcamos el juego para los desbloqueos únicos, a menos que un padre, una madre o un tutor nos pida que los eliminemos usando el número de pedido del correo electrónico de recibo de la tienda. El registro de cualquier solicitud de Borrar mis datos se conserva como se describe en <em>Dónde se procesa la información y cuánto tiempo la conservamos</em>. No conservamos nada más.</p>
+      <p>Como no tenemos el nombre ni los datos de contacto de un niño, no podemos identificar los informes de fallos de un niño en particular para eliminarlos antes; caducan por sí solos después de 90 días. Si eres padre, madre o tutor y tienes una pregunta sobre la información de tu hijo o hija, contáctanos usando los datos que aparecen más abajo.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">12</p>
+      <h2>Tus opciones y derechos</h2>
+      <div class="rights">
+        <div class="right">
+          <p><strong>Detener la analítica</strong><br>Desactiva Ajustes &rsaquo; Analítica o, en el EEE y el Reino Unido, retira tu consentimiento en Ajustes &rsaquo; Privacidad. (El interruptor de Analítica no abarca los anuncios &mdash; consulta <em>Publicidad</em>).</p>
+        </div>
+        <div class="right">
+          <p><strong>Borrar los datos locales</strong><br>Desinstala el juego para eliminar todo lo guardado en tu dispositivo.</p>
+        </div>
+        <div class="right">
+          <p><strong>Borrar los datos de analítica</strong><br>Usa Ajustes &rsaquo; Borrar mis datos &mdash; consulta <em>Cómo borrar tus datos</em> más arriba.</p>
+        </div>
+        <div class="right">
+          <p><strong>Preguntar por los datos recopilados</strong><br>Contáctanos usando los datos que aparecen más abajo.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px;">Según dónde vivas, puedes tener derechos adicionales sobre tu información personal, como el acceso, la rectificación, la eliminación o la oposición. Contáctanos y te responderemos.</p>
+    </section>
+
+    <section class="policy-section">
+      <p class="num">13</p>
+      <h2>Cambios en esta política</h2>
+      <p>Si esta política cambia, actualizaremos la fecha que aparece en la parte superior de esta página. Los cambios importantes se describirán aquí antes de que entren en vigor.</p>
+    </section>
+
+    <section class="contact">
+      <p class="num">14 &middot; CONTACTO</p>
+      <h2>Habla con una persona</h2>
+      <p>Preguntas sobre esta política, o solicitudes sobre tu información:</p>
+      <a class="mailto-chip" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      <p class="contact-org">EL DESTRO 5000 &middot; ESTADOS UNIDOS</p>
+    </section>
+
+    <p class="colophon">Chonk Crunch es un producto de El Destro 5000. Esta página es la política de privacidad a la que remiten las fichas del juego en el App Store y en Google Play.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid" aria-hidden="true"></div>
+    <div class="footer-row">
+      <a class="wordmark" href="https://eldestro5000.com/">
+        <span class="diamond" aria-hidden="true"></span>
+        <span>EL DESTRO 5000</span>
+      </a>
+      <!-- DISCORD / X / BLUESKY / PRESS chips removed 2026-08-09. They came from the design
+           reference and pointed at #discord / #x / #bluesky / #press on eldestro5000.com, none of
+           which exist — verified against the live rendered DOM. A dead fragment does not error, it
+           silently lands on the homepage, so this would have shipped looking fine on the page both
+           app stores link to. Restore them only with REAL destinations (https://bsky.app/profile/…,
+           a Discord invite, etc.), not homepage anchors: a chip labelled BLUESKY should go to
+           Bluesky. The email is the one footer link a privacy policy actually owes the reader. -->
+      <div class="chips">
+        <a class="email" href="mailto:contact@eldestro5000.com">contact@eldestro5000.com</a>
+      </div>
+      <p class="copyright">&copy; 2026 &middot; NIVEL DE PODER 5000</p>
+    </div>
+  </footer>
+
+</body>
+</html>
